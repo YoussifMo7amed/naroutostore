@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "340026377526",
+    "project_id": "narouto-store",
+    "storage_bucket": "narouto-store.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340026377526:android:3f7804e0f1786cf5c85f97",
+        "android_client_info": {
+          "package_name": "com.example.naroutoshop"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDRxAUz608tIpFx1DSJFUU8Hm6P9V3NqQM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
