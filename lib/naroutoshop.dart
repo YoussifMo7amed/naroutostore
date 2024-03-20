@@ -7,6 +7,8 @@ import 'package:naroutoshop/core/common/screens/no_network_screen.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 
+import 'core/routes/app_router.dart';
+
 class NaroutoStore extends StatelessWidget {
   const NaroutoStore({super.key});
 
@@ -36,45 +38,7 @@ class NaroutoStore extends StatelessWidget {
                   ),
                 );
               },
-              home: const Scaffold(
-                body: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        'hello',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'اهلا',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      Text(
-                        'hello',
-                        style: TextStyle(
-                          fontSize: 20,
-                          fontWeight: FontweightHelper.bold,
-                          fontFamily: FontFamilyHelper.poppins,
-                        ),
-                      ),
-                      Text(
-                        'اهلا',
-                        style: TextStyle(
-                          fontWeight: FontweightHelper.bold,
-                          fontFamily: FontFamilyHelper.cairo,
-                          fontSize: 20,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
+              onGenerateRoute: AppRouter.generateroutes,
             ),
           );
         } else {
