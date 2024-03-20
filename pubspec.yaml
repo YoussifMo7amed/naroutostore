@@ -41,10 +41,13 @@ dependencies:
   flutter_screenutil: ^5.9.0
   #Flutter plugin for Firebase Core, enabling connecting to multiple Firebase apps.
   firebase_core: ^2.27.1
+  # for splash screen
+  flutter_native_splash: ^2.3.5    
 
 dev_dependencies:
   very_good_analysis: ^5.1.0
   flutter_launcher_icons: ^0.13.1
+
   flutter_test:
     sdk: flutter
 
