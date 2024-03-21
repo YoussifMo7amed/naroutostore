@@ -4,8 +4,10 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/apps/connectivity_controller.dart';
 import 'package:naroutoshop/core/apps/envvariables.dart';
 import 'package:naroutoshop/core/common/screens/no_network_screen.dart';
+import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/core/theme/app_theme.dart';
 
 import 'core/routes/app_router.dart';
 
@@ -24,10 +26,7 @@ class NaroutoStore extends StatelessWidget {
             child: MaterialApp(
               title: 'Narouto Shop',
               debugShowCheckedModeBanner: EnvVariable.instance.debugShowMode,
-              theme: ThemeData(
-                colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-                useMaterial3: true,
-              ),
+              theme: themeDark(),
               builder: (context, Widget) {
                 return Scaffold(
                   body: Builder(
@@ -39,6 +38,7 @@ class NaroutoStore extends StatelessWidget {
                 );
               },
               onGenerateRoute: AppRouter.generateroutes,
+              initialRoute: Routes.test1,
             ),
           );
         } else {
