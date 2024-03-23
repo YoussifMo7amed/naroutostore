@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/apps/connectivity_controller.dart';
 import 'package:naroutoshop/core/apps/envvariables.dart';
 import 'package:naroutoshop/core/common/screens/no_network_screen.dart';
+import 'package:naroutoshop/core/language/app_localizations_setup.dart';
 import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
@@ -27,13 +28,36 @@ class NaroutoStore extends StatelessWidget {
               title: 'Narouto Shop',
               debugShowCheckedModeBanner: EnvVariable.instance.debugShowMode,
               theme: themeDark(),
+              locale: const Locale(
+                'en',
+              ),
+              supportedLocales: AppLocalizationsSetup.supportedLocales,
+              localizationsDelegates:
+                  AppLocalizationsSetup.localizationsDelegates,
+              localeResolutionCallback:
+                  AppLocalizationsSetup.localeResolutionCallback,
+
+              /* supportedLocales: const [
+                Locale('en', 'ar'),
+              ]
+              localizationsDelegates: const [
+                // ... app-specific localization delegate[s] here
+                GlobalMaterialLocalizations.delegate,
+                GlobalCupertinoLocalizations.delegate,
+                GlobalWidgetsLocalizations.delegate
+              ],*/
               builder: (context, Widget) {
-                return Scaffold(
-                  body: Builder(
-                    builder: (context) {
-                      ConnectivityController.instance.init();
-                      return Widget!;
-                    },
+                return GestureDetector(
+                  onTap: () {
+                    FocusManager.instance.primaryFocus?.unfocus();
+                  },
+                  child: Scaffold(
+                    body: Builder(
+                      builder: (context) {
+                        ConnectivityController.instance.init();
+                        return Widget!;
+                      },
+                    ),
                   ),
                 );
               },
