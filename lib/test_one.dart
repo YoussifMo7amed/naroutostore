@@ -11,7 +11,7 @@ class TestOne extends StatelessWidget {
       body: Center( child: Column(
         children: [
           Text('TestOne'),
-          Image.asset(context.assets.image??''),
+          Image.asset(context.assets.bigNavBar??''),
         ],
       ),),
     );
