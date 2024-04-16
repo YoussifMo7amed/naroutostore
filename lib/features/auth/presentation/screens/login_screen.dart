@@ -1,0 +1,30 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/features/auth/presentation/refactors/login_body.dart';
+import 'package:naroutoshop/features/auth/presentation/widgets/auth_custom_painter.dart';
+
+class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: CustomPaint(
+        size: Size(MediaQuery.of(context).size.width, 150.h),
+        painter: AuthCustomPainter(
+            gradient: LinearGradient(colors: [
+          context.color.bluePinkLight!,
+          context.color.bluePinkLight!,
+          context.color.bluePinkLight!,
+          context.color.bluePinkDark!,
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+      ),
+      body: SafeArea(
+        bottom: false,
+        child: LoginBody(),
+      ),
+    );
+  }
+}

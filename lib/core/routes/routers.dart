@@ -1,3 +1,3 @@
 class Routes {
-  static const String test1 = '/TestOne';
+  static const String Login = '/login';
 }
