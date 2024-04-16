@@ -62,17 +62,14 @@ class NaroutoStore extends StatelessWidget {
                 );
               },
               onGenerateRoute: AppRouter.generateroutes,
-              initialRoute: Routes.test1,
+              initialRoute: Routes.Login,
             ),
           );
         } else {
           return MaterialApp(
             title: 'Narouto Shop',
             debugShowCheckedModeBanner: EnvVariable.instance.debugShowMode,
-            theme: ThemeData(
-              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
-            ),
+            theme: themeDark(),
             home: const NoNetworkScreen(),
           );
         }

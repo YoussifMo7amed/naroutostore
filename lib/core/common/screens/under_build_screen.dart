@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:naroutoshop/core/styles/images/app_images.dart';
 
-class PageUnderBuildScreen extends StatelessWidget {
-  const PageUnderBuildScreen({super.key});
+class UnderBuildScreen extends StatelessWidget {
+  const UnderBuildScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class PageUnderBuildScreen extends StatelessWidget {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage(AppImages.underBuildImage),
+            image: AssetImage(AppImages.pageUnderBuild),
             fit: BoxFit.fill,
           ),
         ),
