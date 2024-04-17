@@ -5,22 +5,39 @@ import 'package:naroutoshop/core/common/widgets/custom_text_field.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/helper/spacing.dart';
 import 'package:naroutoshop/core/language/lang_keys.dart';
+
 import 'package:naroutoshop/core/utils/app_regex.dart';
 
-class LoginTextForm extends StatefulWidget {
-  const LoginTextForm({super.key});
+
+class SignUpTextForm extends StatefulWidget {
+  const SignUpTextForm({super.key});
 
   @override
-  State<LoginTextForm> createState() => _LoginTextFormState();
+  State<SignUpTextForm> createState() => _SignUpTextFormState();
 }
 
-class _LoginTextFormState extends State<LoginTextForm> {
-  bool isshowpassword = false;
-
+class _SignUpTextFormState extends State<SignUpTextForm> {
+    bool isshowpassword = false;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return  Column(
       children: [
+        //username textform
+        CustomFadeInRight(
+          duration: 200,
+          child: CustomTextField(
+            controller: TextEditingController(),
+            keyboardType: TextInputType.name,
+            validator: (value) {
+              if (value== null || value.isEmpty || value.length < 3) {
+                return context.translate(LangKeys.fullName);
+              }
+              return null;
+            },
+            hintText: context.translate(LangKeys.fullName),
+          ),
+        ),
+        verticalSpace(25.h),
         //email textform
         CustomFadeInRight(
           duration: 200,
@@ -36,7 +53,7 @@ class _LoginTextFormState extends State<LoginTextForm> {
             hintText: context.translate(LangKeys.email),
           ),
         ),
-        verticalSpace(25.h),
+        verticalSpace(20.h),
         //password textform
         CustomFadeInRight(
           duration: 200,
@@ -58,11 +75,12 @@ class _LoginTextFormState extends State<LoginTextForm> {
               },
               icon: Icon(
                 isshowpassword ? Icons.visibility : Icons.visibility_off,
-                color: context.color.textColor,
+             color: context.color.textColor,
               ),
             ),
           ),
         ),
+        verticalSpace(20.h),       
       ],
     );
   }

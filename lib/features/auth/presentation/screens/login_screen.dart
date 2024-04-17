@@ -3,7 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/features/auth/presentation/refactors/login_body.dart';
-import 'package:naroutoshop/features/auth/presentation/widgets/auth_custom_painter.dart';
+import 'package:naroutoshop/features/auth/presentation/refactors/auth_custom_painter.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
