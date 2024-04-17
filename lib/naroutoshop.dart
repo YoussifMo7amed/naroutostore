@@ -62,7 +62,7 @@ class NaroutoStore extends StatelessWidget {
                 );
               },
               onGenerateRoute: AppRouter.generateroutes,
-              initialRoute: Routes.Login,
+              initialRoute: Routes.login,
             ),
           );
         } else {
