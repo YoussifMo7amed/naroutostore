@@ -2,7 +2,11 @@ import 'dart:io';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:naroutoshop/core/apps/bloc_observer.dart';
 import 'package:naroutoshop/core/apps/envvariables.dart';
+import 'package:naroutoshop/core/di/injection_container.dart';
+import 'package:naroutoshop/core/service/shared_pref/shared_pref.dart';
 import 'package:naroutoshop/naroutoshop.dart';
 
 void main() async {
@@ -19,6 +23,9 @@ void main() async {
               projectId: 'narouto-store',
               storageBucket: 'narouto-store.appspot.com'))
       : await Firebase.initializeApp();
+      await setupInjector();
+      await SharedPref().instantiatePreferences();
+        Bloc.observer = AppBlocObserver();
 await SystemChrome.setPreferredOrientations([
   DeviceOrientation.portraitUp,
   DeviceOrientation.portraitDown,
