@@ -3,10 +3,13 @@ part 'user_role_responce.g.dart';
 @JsonSerializable()
 class UserRoleResponce {
 
-  UserRoleResponce(this.userrole);
+  UserRoleResponce(this.userrole, this.userId);
 
   factory UserRoleResponce.fromJson(Map<String, dynamic> json) =>
       _$UserRoleResponceFromJson(json);
   @JsonKey(name: 'role')
   final String? userrole;
+  @JsonKey(name: 'id')
+  final int? userId;
+
 }
