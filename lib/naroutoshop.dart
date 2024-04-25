@@ -25,7 +25,7 @@ class NaroutoStore extends StatelessWidget {
       builder: (_, value, __) {
         if (value) {
           return BlocProvider(
-            create: (context) => s1<AppCubit>()
+            create: (context) => sl<AppCubit>()
               ..changeThemeMode(
                 sheredMode: SharedPref().getBoolean(PrefKeys.themeMode),
               ),
