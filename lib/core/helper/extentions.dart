@@ -25,8 +25,7 @@ String translate(String key) => AppLocalizations.of(this)!.translate(key).toStri
 
   Future<dynamic> pushNamedAndRemoveUntil(
     String routeName, {
-    Object? arguments,
-    required RoutePredicate predicate,
+    required RoutePredicate predicate, Object? arguments,
   }) {
     return Navigator.of(this)
         .pushNamedAndRemoveUntil(routeName, predicate, arguments: arguments);

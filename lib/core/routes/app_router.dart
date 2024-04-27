@@ -4,9 +4,12 @@ import 'package:naroutoshop/core/common/screens/under_build_screen.dart';
 import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/routes/base_routes.dart';
 import 'package:naroutoshop/core/routes/routers.dart';
-import 'package:naroutoshop/features/auth/presentation/bloc/bloc/auth_bloc.dart';
+import 'package:naroutoshop/features/admin/home_admin.dart';
+import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/login_screen.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:naroutoshop/features/customers/home_customer.dart';
+
 
 class AppRouter {
   static Route<void> generateroutes(RouteSettings settings) {
@@ -20,6 +23,10 @@ class AppRouter {
         ));
       case Routes.signUp:
         return BaseRoute(page: const SignUpScreen());
+        case Routes.adminHome:
+        return BaseRoute(page: const HomeAdmin());
+        case Routes.customerHome:
+        return BaseRoute(page: const HomeCustomer());
 
       default:
         return BaseRoute(page: const UnderBuildScreen());

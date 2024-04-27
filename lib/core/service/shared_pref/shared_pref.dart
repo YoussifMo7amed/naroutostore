@@ -8,7 +8,7 @@ class SharedPref {
   SharedPref._internal();
   static final SharedPref preferences = SharedPref._internal();
 
-  static late SharedPreferences sharedPreferences;
+  static late  SharedPreferences sharedPreferences;
 
   ///Below method is to initialize the SharedPreference instance.
   Future<dynamic> instantiatePreferences() async {

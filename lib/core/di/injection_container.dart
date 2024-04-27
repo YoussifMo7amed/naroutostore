@@ -4,7 +4,7 @@ import 'package:naroutoshop/core/service/graphql/api_service.dart';
 import 'package:naroutoshop/core/service/graphql/dio_factory.dart';
 import 'package:naroutoshop/features/auth/data/data_source/auth_data_source.dart';
 import 'package:naroutoshop/features/auth/data/repos/auth_repo.dart';
-import 'package:naroutoshop/features/auth/presentation/bloc/bloc/auth_bloc.dart';
+import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 
 final sl = GetIt.instance;
 
