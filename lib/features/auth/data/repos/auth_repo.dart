@@ -1,3 +1,4 @@
+import 'package:naroutoshop/core/language/lang_keys.dart';
 import 'package:naroutoshop/core/service/graphql/api_result.dart';
 import 'package:naroutoshop/features/auth/data/data_source/auth_data_source.dart';
 import 'package:naroutoshop/features/auth/data/model/login_request.dart';
@@ -14,7 +15,7 @@ class AuthRepos {
       final response = await _dataSource.login(body);
       return ApiResult.success(response);
     } catch (error) {
-      return const ApiResult.failure('Please try again, Something went wrong');
+      return const ApiResult.failure(LangKeys.loggedError);
     }
   }
 

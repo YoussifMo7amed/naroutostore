@@ -13,7 +13,6 @@ import 'package:naroutoshop/core/service/shared_pref/pref_keys.dart';
 import 'package:naroutoshop/core/service/shared_pref/shared_pref.dart';
 import 'package:naroutoshop/core/theme/app_theme.dart';
 
-
 class NaroutoStore extends StatelessWidget {
   const NaroutoStore({super.key});
 
@@ -42,7 +41,7 @@ class NaroutoStore extends StatelessWidget {
                     debugShowCheckedModeBanner:
                         EnvVariable.instance.debugShowMode,
                     theme: cubit.isDark ? themelight() : themeDark(),
-                    locale:  Locale(
+                    locale: Locale(
                       cubit.currentLanguageCode,
                     ),
                     supportedLocales: AppLocalizationsSetup.supportedLocales,
@@ -76,7 +75,13 @@ class NaroutoStore extends StatelessWidget {
                       );
                     },
                     onGenerateRoute: AppRouter.generateroutes,
-                    initialRoute: Routes.login,
+                    initialRoute: SharedPref()
+                                .getString(PrefKeys.accessToken) !=
+                            null
+                        ? SharedPref().getString(PrefKeys.userRole) == 'admin'
+                            ? Routes.adminHome
+                            : Routes.customerHome
+                        : Routes.login,
                   ),
                 );
               },

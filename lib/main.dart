@@ -11,25 +11,25 @@ import 'package:naroutoshop/naroutoshop.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-
+  Bloc.observer = AppBlocObserver();
   await EnvVariable.instance.init(envType: EnvTypeEnum.prod);
-
+  await SharedPref().instantiatePreferences();
+  await setupInjector();
   Platform.isAndroid
       ? await Firebase.initializeApp(
           options: const FirebaseOptions(
-              apiKey: 'AIzaSyDRxAUz608tIpFx1DSJFUU8Hm6P9V3NqQM',
-              appId: '1:340026377526:android:3f7804e0f1786cf5c85f97',
-              messagingSenderId: '340026377526',
-              projectId: 'narouto-store',
-              storageBucket: 'narouto-store.appspot.com'))
+            apiKey: 'AIzaSyDRxAUz608tIpFx1DSJFUU8Hm6P9V3NqQM',
+            appId: '1:340026377526:android:3f7804e0f1786cf5c85f97',
+            messagingSenderId: '340026377526',
+            projectId: 'narouto-store',
+            storageBucket: 'narouto-store.appspot.com',
+          ),
+        )
       : await Firebase.initializeApp();
-      await setupInjector();
-      await SharedPref().instantiatePreferences();
-        Bloc.observer = AppBlocObserver();
-await SystemChrome.setPreferredOrientations([
-  DeviceOrientation.portraitUp,
-  DeviceOrientation.portraitDown,
-]).then((_) {
-  runApp(const NaroutoStore());
-});
+  await SystemChrome.setPreferredOrientations([
+    DeviceOrientation.portraitUp,
+    DeviceOrientation.portraitDown,
+  ]).then((_) {
+    runApp(const NaroutoStore());
+  });
 }
