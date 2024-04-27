@@ -21,7 +21,6 @@ class LoginBottun extends StatelessWidget {
         state.whenOrNull(
           success: (userRole) {
             ShowToast.showToastSuccessTop(
-              context: context,
               message: context.translate(LangKeys.loggedSuccessfully),
             );
             if (userRole == 'admin') {
@@ -34,7 +33,6 @@ class LoginBottun extends StatelessWidget {
           },
           error: (message) {
             ShowToast.showToastErrorTop(
-              context: context,
               message: context.translate(message),
             );
           },
