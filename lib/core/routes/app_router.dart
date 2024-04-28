@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:naroutoshop/core/apps/uploadimage/cubit/upload_image_cubit.dart';
 import 'package:naroutoshop/core/common/screens/under_build_screen.dart';
 import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/routes/base_routes.dart';
@@ -22,7 +23,11 @@ class AppRouter {
           child: const LoginScreen(),
         ));
       case Routes.signUp:
-        return BaseRoute(page: const SignUpScreen());
+        return BaseRoute(page: MultiBlocProvider(
+          providers: [ 
+            BlocProvider(create: (context) => sl<UploadImageCubit>()),
+          ],
+          child: const SignUpScreen()));
         case Routes.adminHome:
         return BaseRoute(page: const HomeAdmin());
         case Routes.customerHome:
