@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:naroutoshop/core/apps/app_cubit/app_cubit.dart';
+import 'package:naroutoshop/core/apps/uploadimage/cubit/upload_image_cubit.dart';
 import 'package:naroutoshop/core/service/graphql/api_service.dart';
 import 'package:naroutoshop/core/service/graphql/dio_factory.dart';
 import 'package:naroutoshop/features/auth/data/data_source/auth_data_source.dart';
@@ -20,8 +21,10 @@ Future<void> _initCore() async {
   sl
     ..registerSingleton(AppCubit())
     ..registerLazySingleton<ApiService>(() => ApiService(dio))
-    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey);
-
+    ..registerSingleton<GlobalKey<NavigatorState>>(navigatorKey)
+    ..registerFactory(() => UploadImageCubit(sl()))
+    ..registerLazySingleton(() => AuthRepos(sl()))
+    ..registerLazySingleton(() => AuthDataSource(sl()));
 }
 
 Future<void> _initAuth() async {

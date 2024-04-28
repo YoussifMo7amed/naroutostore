@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:naroutoshop/core/apps/uploadimage/model/upload_image_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/login_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/user_role_responce.dart';
 import 'package:retrofit/retrofit.dart';
@@ -18,4 +19,9 @@ abstract class ApiService {
   );
   @GET('/api/v1/auth/profile')
   Future<UserRoleResponce> userRole();
+
+  @POST('/api/v1/files/upload')
+  Future<UploadImageResponce> uploadImage(
+    @Body() FormData formData,
+  );
 }
