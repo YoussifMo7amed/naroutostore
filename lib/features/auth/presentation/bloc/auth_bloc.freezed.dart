@@ -20,18 +20,21 @@ mixin _$AuthEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imageUrl) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imageUrl)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imageUrl)? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$AuthEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,12 +97,18 @@ class __$$StartedImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StartedImpl implements _Started {
+class _$StartedImpl with DiagnosticableTreeMixin implements _Started {
   const _$StartedImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.started()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthEvent.started'));
   }
 
   @override
@@ -113,6 +125,7 @@ class _$StartedImpl implements _Started {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imageUrl) signUp,
   }) {
     return started();
   }
@@ -122,6 +135,7 @@ class _$StartedImpl implements _Started {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imageUrl)? signUp,
   }) {
     return started?.call();
   }
@@ -131,6 +145,7 @@ class _$StartedImpl implements _Started {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imageUrl)? signUp,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -144,6 +159,7 @@ class _$StartedImpl implements _Started {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
   }) {
     return started(this);
   }
@@ -153,6 +169,7 @@ class _$StartedImpl implements _Started {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
   }) {
     return started?.call(this);
   }
@@ -162,6 +179,7 @@ class _$StartedImpl implements _Started {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -193,12 +211,18 @@ class __$$LoginEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoginEventImpl implements LoginEvent {
+class _$LoginEventImpl with DiagnosticableTreeMixin implements LoginEvent {
   const _$LoginEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthEvent.login()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthEvent.login'));
   }
 
   @override
@@ -215,6 +239,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() started,
     required TResult Function() login,
+    required TResult Function(String imageUrl) signUp,
   }) {
     return login();
   }
@@ -224,6 +249,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
     TResult? Function()? login,
+    TResult? Function(String imageUrl)? signUp,
   }) {
     return login?.call();
   }
@@ -233,6 +259,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
     TResult Function()? login,
+    TResult Function(String imageUrl)? signUp,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -246,6 +273,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_Started value) started,
     required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
   }) {
     return login(this);
   }
@@ -255,6 +283,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Started value)? started,
     TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
   }) {
     return login?.call(this);
   }
@@ -264,6 +293,7 @@ class _$LoginEventImpl implements LoginEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Started value)? started,
     TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
     required TResult orElse(),
   }) {
     if (login != null) {
@@ -275,6 +305,155 @@ class _$LoginEventImpl implements LoginEvent {
 
 abstract class LoginEvent implements AuthEvent {
   const factory LoginEvent() = _$LoginEventImpl;
+}
+
+/// @nodoc
+abstract class _$$SignUpEventImplCopyWith<$Res> {
+  factory _$$SignUpEventImplCopyWith(
+          _$SignUpEventImpl value, $Res Function(_$SignUpEventImpl) then) =
+      __$$SignUpEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String imageUrl});
+}
+
+/// @nodoc
+class __$$SignUpEventImplCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res, _$SignUpEventImpl>
+    implements _$$SignUpEventImplCopyWith<$Res> {
+  __$$SignUpEventImplCopyWithImpl(
+      _$SignUpEventImpl _value, $Res Function(_$SignUpEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? imageUrl = null,
+  }) {
+    return _then(_$SignUpEventImpl(
+      imageUrl: null == imageUrl
+          ? _value.imageUrl
+          : imageUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$SignUpEventImpl with DiagnosticableTreeMixin implements SignUpEvent {
+  const _$SignUpEventImpl({required this.imageUrl});
+
+  @override
+  final String imageUrl;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'AuthEvent.signUp(imageUrl: $imageUrl)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthEvent.signUp'))
+      ..add(DiagnosticsProperty('imageUrl', imageUrl));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$SignUpEventImpl &&
+            (identical(other.imageUrl, imageUrl) ||
+                other.imageUrl == imageUrl));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, imageUrl);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$SignUpEventImplCopyWith<_$SignUpEventImpl> get copyWith =>
+      __$$SignUpEventImplCopyWithImpl<_$SignUpEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() started,
+    required TResult Function() login,
+    required TResult Function(String imageUrl) signUp,
+  }) {
+    return signUp(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? started,
+    TResult? Function()? login,
+    TResult? Function(String imageUrl)? signUp,
+  }) {
+    return signUp?.call(imageUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? started,
+    TResult Function()? login,
+    TResult Function(String imageUrl)? signUp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp(imageUrl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Started value) started,
+    required TResult Function(LoginEvent value) login,
+    required TResult Function(SignUpEvent value) signUp,
+  }) {
+    return signUp(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Started value)? started,
+    TResult? Function(LoginEvent value)? login,
+    TResult? Function(SignUpEvent value)? signUp,
+  }) {
+    return signUp?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Started value)? started,
+    TResult Function(LoginEvent value)? login,
+    TResult Function(SignUpEvent value)? signUp,
+    required TResult orElse(),
+  }) {
+    if (signUp != null) {
+      return signUp(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class SignUpEvent implements AuthEvent {
+  const factory SignUpEvent({required final String imageUrl}) =
+      _$SignUpEventImpl;
+
+  String get imageUrl;
+  @JsonKey(ignore: true)
+  _$$SignUpEventImplCopyWith<_$SignUpEventImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -366,12 +545,18 @@ class __$$InitialImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$InitialImpl implements _Initial {
+class _$InitialImpl with DiagnosticableTreeMixin implements _Initial {
   const _$InitialImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthState.initial()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthState.initial'));
   }
 
   @override
@@ -480,12 +665,18 @@ class __$$LoadingStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadingStateImpl implements _LoadingState {
+class _$LoadingStateImpl with DiagnosticableTreeMixin implements _LoadingState {
   const _$LoadingStateImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthState.loading()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'AuthState.loading'));
   }
 
   @override
@@ -609,15 +800,23 @@ class __$$ErrorStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$ErrorStateImpl implements _ErrorState {
+class _$ErrorStateImpl with DiagnosticableTreeMixin implements _ErrorState {
   const _$ErrorStateImpl({required this.error});
 
   @override
   final String error;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthState.error(error: $error)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState.error'))
+      ..add(DiagnosticsProperty('error', error));
   }
 
   @override
@@ -754,15 +953,23 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SuccessStateImpl implements _SuccessState {
+class _$SuccessStateImpl with DiagnosticableTreeMixin implements _SuccessState {
   const _$SuccessStateImpl({required this.userRole});
 
   @override
   final String userRole;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'AuthState.success(userRole: $userRole)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'AuthState.success'))
+      ..add(DiagnosticsProperty('userRole', userRole));
   }
 
   @override

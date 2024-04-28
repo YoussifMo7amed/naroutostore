@@ -6,16 +6,16 @@ part of 'signup_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-SignUpRequestBody _$SignUpRequestFromJson(Map<String, dynamic> json) =>
+SignUpRequestBody _$SignUpRequestBodyFromJson(Map<String, dynamic> json) =>
     SignUpRequestBody(
-      json['name'] as String?,
-      json['email'] as String?,
-      json['password'] as String?,
-      json['avatar'] as String?,
-      json['role'] as String?,
+      name: json['name'] as String?,
+      email: json['email'] as String?,
+      password: json['password'] as String?,
+      avatar: json['avatar'] as String?,
+      role: json['role'] as String?,
     );
 
-Map<String, dynamic> _$SignUpRequestToJson(SignUpRequestBody instance) =>
+Map<String, dynamic> _$SignUpRequestBodyToJson(SignUpRequestBody instance) =>
     <String, dynamic>{
       'name': instance.name,
       'email': instance.email,
