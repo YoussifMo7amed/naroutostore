@@ -11,7 +11,6 @@ import 'package:naroutoshop/features/auth/presentation/screens/login_screen.dart
 import 'package:naroutoshop/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:naroutoshop/features/customers/home_customer.dart';
 
-
 class AppRouter {
   static Route<void> generateroutes(RouteSettings settings) {
     final args = settings.arguments;
@@ -23,14 +22,22 @@ class AppRouter {
           child: const LoginScreen(),
         ));
       case Routes.signUp:
-        return BaseRoute(page: MultiBlocProvider(
-          providers: [ 
-            BlocProvider(create: (context) => sl<UploadImageCubit>()),
-          ],
-          child: const SignUpScreen()));
-        case Routes.adminHome:
+        return BaseRoute(
+          page: MultiBlocProvider(
+            providers: [
+              BlocProvider(
+                create: (context) => sl<UploadImageCubit>(),
+              ),
+              BlocProvider(
+                create: (context) => sl<AuthBloc>(),
+              ),
+            ],
+            child: const SignUpScreen(),
+          ),
+        );
+      case Routes.adminHome:
         return BaseRoute(page: const HomeAdmin());
-        case Routes.customerHome:
+      case Routes.customerHome:
         return BaseRoute(page: const HomeCustomer());
 
       default:

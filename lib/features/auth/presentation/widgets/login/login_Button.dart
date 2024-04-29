@@ -44,11 +44,12 @@ class LoginBottun extends StatelessWidget {
             return CustomFadeInRight(
               duration: 600,
               child: CustomLinearButton(
-                  width: MediaQuery.of(context).size.width,
-                  onPressed: () {},
-                  child: const CircularProgressIndicator(
-                    color: Colors.white,
-                  )),
+                width: MediaQuery.of(context).size.width,
+                onPressed: () {},
+                child: const CircularProgressIndicator(
+                  color: Colors.white,
+                ),
+              ),
             );
           },
           orElse: () {

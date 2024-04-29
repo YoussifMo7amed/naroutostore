@@ -8,9 +8,7 @@ part of 'singup_responce.dart';
 
 SignUpResponce _$SignUpResponceFromJson(Map<String, dynamic> json) =>
     SignUpResponce(
-      json['data'] == null
-          ? null
-          : SignUpDataModel.fromJson(json['data'] as Map<String, dynamic>),
+      SignUpDataModel.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SignUpResponceToJson(SignUpResponce instance) =>
@@ -20,9 +18,7 @@ Map<String, dynamic> _$SignUpResponceToJson(SignUpResponce instance) =>
 
 SignUpDataModel _$SignUpDataModelFromJson(Map<String, dynamic> json) =>
     SignUpDataModel(
-      json['addUser'] == null
-          ? null
-          : AddUserModel.fromJson(json['addUser'] as Map<String, dynamic>),
+      AddUserModel.fromJson(json['addUser'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$SignUpDataModelToJson(SignUpDataModel instance) =>
@@ -31,7 +27,7 @@ Map<String, dynamic> _$SignUpDataModelToJson(SignUpDataModel instance) =>
     };
 
 AddUserModel _$AddUserModelFromJson(Map<String, dynamic> json) => AddUserModel(
-      json['id'] as int?,
+      json['id'] as String?,
       json['email'] as String?,
     );
 

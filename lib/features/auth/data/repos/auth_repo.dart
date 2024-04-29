@@ -25,12 +25,13 @@ class AuthRepos {
     final response = await _dataSource.getUserRole(token);
     return response;
   }
+  //signup
     Future<ApiResult<SignUpResponce>> signup(SignUpRequestBody body) async {
     try {
-      final response = await _dataSource.signUp(body);
+      final response = await _dataSource.signUp(body: body);
       return ApiResult.success(response);
     } catch (error) {
-      return const ApiResult.failure('Please, Try again We have an error');
+      return  ApiResult.failure('This is the error =>>> $error');
     }
   }
 }

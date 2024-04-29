@@ -31,33 +31,42 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         password: passwordController.text,
       ),
     );
-    await result.when(success: (loginData) async {
-      final token = loginData.data.login.accessToken ?? '';
-      await SharedPref().setString(PrefKeys.accessToken, token);
-      final user = await _repo.userRole(token);
-      await SharedPref().setInt(PrefKeys.userId, user.userId ?? 0);
-      await SharedPref().setString(PrefKeys.userRole, user.userrole ?? '');
-      emit( AuthState.success(userRole: user.userrole??''));  
-    }, failure: (error) {
-      emit(AuthState.error(error: error));
-    },);
+    await result.when(
+      success: (loginData) async {
+        final token = loginData.data.login.accessToken ?? '';
+        await SharedPref().setString(PrefKeys.accessToken, token);
+        final user = await _repo.userRole(token);
+        await SharedPref().setInt(PrefKeys.userId, user.userId ?? 0);
+        await SharedPref().setString(PrefKeys.userRole, user.userrole ?? '');
+        emit(AuthState.success(userRole: user.userrole ?? ''));
+      },
+      failure: (error) {
+        emit(AuthState.error(error: error));
+      },
+    );
   }
-  //signUp method 
-  FutureOr<void> _signUp(SignUpEvent event, Emitter<AuthState> emit) async {
+
+  //signUp method
+  FutureOr<void> _signUp(
+    SignUpEvent event,
+    Emitter<AuthState> emit,
+  ) async {
     emit(const AuthState.loading());
     final result = await _repo.signup(
       SignUpRequestBody(
-        name:nameController.text.trim(),
+        name: nameController.text.trim(),
         email: emailController.text.trim(),
         password: passwordController.text,
         avatar: event.imageUrl,
       ),
     );
-    await result.when(success: (signupData) async {
-      add(const AuthEvent.login());
-    }, failure: (error) {
-      emit(AuthState.error(error: error));
-    },);
-
-}
+     result.when(
+      success: (signupData)  {
+        add(const AuthEvent.login());
+      },
+      failure: (error) {
+        emit(AuthState.error(error: error));
+      },
+    );
+  }
 }

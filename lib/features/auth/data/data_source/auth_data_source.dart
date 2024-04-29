@@ -26,7 +26,9 @@ class AuthDataSource {
     debugPrint('UserRole=>>>>> ${response.userrole  }');
     return response;
   }
-    Future<SignUpResponce> signUp(SignUpRequestBody body) async {
+  //signup
+
+    Future<SignUpResponce> signUp({required SignUpRequestBody body}) async {
     final response =
         await _graphql.signUp(AuthQueries().signUpMapQuery(body: body));
     return response;
