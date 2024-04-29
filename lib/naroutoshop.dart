@@ -74,6 +74,7 @@ class NaroutoStore extends StatelessWidget {
                         ),
                       );
                     },
+                    navigatorKey: sl<GlobalKey<NavigatorState>>(),
                     onGenerateRoute: AppRouter.generateroutes,
                     initialRoute: SharedPref()
                                 .getString(PrefKeys.accessToken) !=

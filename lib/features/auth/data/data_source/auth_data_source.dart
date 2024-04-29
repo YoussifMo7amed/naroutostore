@@ -4,6 +4,8 @@ import 'package:naroutoshop/core/service/graphql/api_service.dart';
 import 'package:naroutoshop/core/service/graphql/graphql_querirs/auth/auth_queries.dart';
 import 'package:naroutoshop/features/auth/data/model/login_request.dart';
 import 'package:naroutoshop/features/auth/data/model/login_responce.dart';
+import 'package:naroutoshop/features/auth/data/model/signup_request.dart';
+import 'package:naroutoshop/features/auth/data/model/singup_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/user_role_responce.dart';
 
 class AuthDataSource {
@@ -22,6 +24,13 @@ class AuthDataSource {
     final client = ApiService( dio);
     final response = await client.userRole();
     debugPrint('UserRole=>>>>> ${response.userrole  }');
+    return response;
+  }
+  //signup
+
+    Future<SignUpResponce> signUp({required SignUpRequestBody body}) async {
+    final response =
+        await _graphql.signUp(AuthQueries().signUpMapQuery(body: body));
     return response;
   }
 }

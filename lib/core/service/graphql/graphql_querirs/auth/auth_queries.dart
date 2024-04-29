@@ -1,4 +1,5 @@
 import 'package:naroutoshop/features/auth/data/model/login_request.dart';
+import 'package:naroutoshop/features/auth/data/model/signup_request.dart';
 
 class AuthQueries {
   factory AuthQueries() => _instance;
@@ -18,6 +19,33 @@ class AuthQueries {
         'email': body.email,
         'password': body.password,
       }
+    };
+  }
+
+  Map<String, dynamic> signUpMapQuery({required SignUpRequestBody body}) {
+    return {
+      'query': r'''
+              mutation SignUp($name: String!, $email: String! , $password: String!, $avatar: String!) {
+              addUser(
+                data: {
+                  name: $name
+                  email: $email
+                  password:$password
+                  avatar: $avatar
+                  role: customer
+                }
+              ) {
+                id
+                email
+              }
+            }
+        ''',
+      'variables': {
+        'name': body.name,
+        'email': body.email,
+        'password': body.password,
+        'avatar': body.avatar,
+      },
     };
   }
 }

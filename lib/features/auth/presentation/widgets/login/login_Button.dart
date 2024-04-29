@@ -21,7 +21,6 @@ class LoginBottun extends StatelessWidget {
         state.whenOrNull(
           success: (userRole) {
             ShowToast.showToastSuccessTop(
-              context: context,
               message: context.translate(LangKeys.loggedSuccessfully),
             );
             if (userRole == 'admin') {
@@ -34,7 +33,6 @@ class LoginBottun extends StatelessWidget {
           },
           error: (message) {
             ShowToast.showToastErrorTop(
-              context: context,
               message: context.translate(message),
             );
           },
@@ -46,11 +44,12 @@ class LoginBottun extends StatelessWidget {
             return CustomFadeInRight(
               duration: 600,
               child: CustomLinearButton(
-                  width: MediaQuery.of(context).size.width,
-                  onPressed: () {},
-                  child: const CircularProgressIndicator(
-                    color: Colors.white,
-                  )),
+                width: MediaQuery.of(context).size.width,
+                onPressed: () {},
+                child: const CircularProgressIndicator(
+                  color: Colors.white,
+                ),
+              ),
             );
           },
           orElse: () {
