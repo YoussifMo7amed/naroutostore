@@ -25,6 +25,6 @@ class AddUserModel {
   const AddUserModel(this.id, this.email);
   factory AddUserModel.fromJson(Map<String, dynamic> json) =>
       _$AddUserModelFromJson(json);
-  final String? id;
+  final String? id; 
   final String? email;
 }
