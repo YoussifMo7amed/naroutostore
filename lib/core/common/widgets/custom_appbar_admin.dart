@@ -21,7 +21,7 @@ class AppBarAdmin extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       backgroundColor: backgroundColor,
-      
+      centerTitle: true,
       surfaceTintColor: Colors.transparent,
       title: TextApp(
         text: tittle,
