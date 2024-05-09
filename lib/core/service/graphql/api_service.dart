@@ -1,5 +1,8 @@
 import 'package:dio/dio.dart';
 import 'package:naroutoshop/core/apps/uploadimage/model/upload_image_responce.dart';
+import 'package:naroutoshop/features/admin/dashboard/data/models/categories_number_responce.dart';
+import 'package:naroutoshop/features/admin/dashboard/data/models/products_number_responce.dart';
+import 'package:naroutoshop/features/admin/dashboard/data/models/users_number_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/login_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/singup_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/user_role_responce.dart';
@@ -25,8 +28,26 @@ abstract class ApiService {
   Future<UploadImageResponce> uploadImage(
     @Body() FormData formData,
   );
-    @POST(graphql)
+  @POST(graphql)
   Future<SignUpResponce> signUp(
     @Body() Map<String, dynamic> mutation,
   );
+
+
+  @POST(graphql)
+  Future<ProductsNumberResponce> numberOfProducts(
+    @Body() Map<String, dynamic> query,
+  );
+
+
+@POST(graphql)
+  Future<CategoriesNumberResponce> numberOfCategories(
+    @Body() Map<String, dynamic> query,
+  );
+  
+  @POST(graphql)
+  Future<UsersNumberResponce> numberOfUsers(
+    @Body() Map<String, dynamic> query,
+  );
+ 
 }

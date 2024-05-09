@@ -3,6 +3,7 @@ import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:naroutoshop/core/common/widgets/custom_appbar_admin.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
+import 'package:naroutoshop/core/styles/images/app_images.dart';
 import 'package:naroutoshop/core/utils/admin_drawer_list.dart';
 import 'package:naroutoshop/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
 
@@ -52,15 +53,20 @@ class MenuAdminScreen extends StatelessWidget {
         tittle: 'Naruto Store',
       ),
       body: Column(
-        children: adminDrawerList(context).map((e) {
-          return ListTile(
-            onTap: () {
-              onPageChange(e.page);
-            },
-            title: e.title,
-            leading: e.icon,
-          );
-        }).toList(),
+        children: [
+          Column(
+            children: adminDrawerList(context).map((e) {
+              return ListTile(
+                onTap: () {
+                  onPageChange(e.page);
+                },
+                title: e.title,
+                leading: e.icon,
+              );
+            }).toList(),
+          ),
+          Image.asset(AppImages.drawerImage)
+        ],
       ),
     );
   }
