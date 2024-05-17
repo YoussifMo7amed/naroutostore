@@ -1,12 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/common/bottomsheet/category_bottom_sheet.dart';
 import 'package:naroutoshop/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
-import 'package:naroutoshop/core/helper/spacing.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/update/update_category_bottom_sheet_widget.dart';
 
 class AddCategoryItems extends StatelessWidget {
   const AddCategoryItems({
@@ -43,22 +44,30 @@ class AddCategoryItems extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                Row(children: [
+                Row(
+                  children: [
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                       
+                      },
                       icon: const Icon(
                         Icons.delete,
                         color: Colors.red,
                         size: 25,
-                      )),
+                      ),),
                   IconButton(
-                      onPressed: () {},
+                      onPressed: () {
+                         CagegoryModalBottomSheet.showModalCategoryBottomSheet(
+              context: context,
+              widget:const UpdateCategoryBottomSheet(),);
+                      },
                       icon: const Icon(
                         Icons.edit,
                         color: Colors.green,
                         size: 25,
-                      )),
-                ]),
+                      ),),
+                ],
+                ),
                 const Spacer(),
               ],
             ),
