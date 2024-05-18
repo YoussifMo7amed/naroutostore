@@ -82,6 +82,7 @@ class AddCategoryItems extends StatelessWidget {
                   color: Colors.red,
                   size: 70,
                 ),
+                
               ),
             ),
           ],

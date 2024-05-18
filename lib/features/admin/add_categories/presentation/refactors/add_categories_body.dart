@@ -1,11 +1,18 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:naroutoshop/core/helper/spacing.dart';
+import 'package:naroutoshop/core/loading/empty_page.dart';
+import 'package:naroutoshop/core/loading/loading_shimmer.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
+import 'package:naroutoshop/features/admin/add_categories/data/models/get_all_categories_responce.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/add_category_item.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/create/create_category.dart';
+import 'package:naroutoshop/features/admin/dashboard/presentation/bloc/categories_number/categories_number_bloc.dart';
 
 class AddCategoriesBody extends StatelessWidget {
   const AddCategoriesBody({super.key});
@@ -26,26 +33,50 @@ class AddCategoriesBody extends StatelessWidget {
           Expanded(
             child: RefreshIndicator(
               color: ColorsDark.blueLight,
-              onRefresh: () async {},
+              onRefresh: () async {
+                context.read<GetAllCategoriesAdminBloc>()
+                  .add(const GetAllCategoriesAdminEvent.fetchAdminCategories());
+              },
               child: CustomScrollView(
                 slivers: [
                   SliverToBoxAdapter(
                     child: verticalSpace(20.h),
                   ),
                   SliverToBoxAdapter(
-                    child: ListView.separated(
-                      shrinkWrap: true,
-                      physics: const NeverScrollableScrollPhysics(),
-                      itemBuilder: (context, index) {
-                        return const AddCategoryItems(
-                          name: 'MacBook Pro',
-                          image:
-                              'https://cdsassets.apple.com/live/SZLF0YNV/images/sp/111339_sp818-mbp13touch-space-select-202005.png',
-                          categoryId: '1',
+                    child: BlocBuilder<GetAllCategoriesAdminBloc,
+                        GetAllCategoriesAdminState>(
+                      builder: (context, state) {
+                        return state.when(
+                          loading: () {
+                            return LoadingShimmer(
+                              height: 130.h,
+                              borderRadius: 15,
+                            );
+                          },
+                          success: (list) {
+                            return ListView.separated(
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return AddCategoryItems(
+                                  name: list.data.categoriesList[index].name ??
+                                      '',
+                                  image:
+                                      list.data.categoriesList[index].image ??
+                                          '',
+                                  categoryId:
+                                      list.data.categoriesList[index].id ?? '',
+                                );
+                              },
+                              separatorBuilder: (context, index) =>
+                                  verticalSpace(15.h),
+                              itemCount: list.data.categoriesList.length,
+                            );
+                          },
+                          empty: EmptyPage.new,
+                          error: Text.new,
                         );
                       },
-                      separatorBuilder: (context, index) => verticalSpace(15.h),
-                      itemCount: 10,
                     ),
                   ),
                 ],

@@ -18,7 +18,7 @@ class AuthQueries {
       'variables': {
         'email': body.email,
         'password': body.password,
-      }
+      },
     };
   }
 

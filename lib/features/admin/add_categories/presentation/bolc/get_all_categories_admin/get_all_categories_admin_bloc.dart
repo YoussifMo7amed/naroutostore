@@ -23,10 +23,10 @@ class GetAllCategoriesAdminBloc
       success: (data) {
         if (data.categoriesGetAllList.isEmpty) {
           emit(const GetAllCategoriesAdminState.empty());
-        }
+        }else{
         emit(
           GetAllCategoriesAdminState.success(getAllCategoriesResponce: data),
-        );
+        );}
       },
       failure: (error) => emit(
         GetAllCategoriesAdminState.error(error: error),

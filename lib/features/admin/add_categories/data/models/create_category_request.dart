@@ -1,0 +1,10 @@
+import 'package:freezed_annotation/freezed_annotation.dart';
+part 'create_category_request.g.dart';
+@JsonSerializable()
+class CreateCategoryRequestBody {
+  CreateCategoryRequestBody({required this.name, required this.image});
+
+  final String? name;
+  final String? image;
+  Map<String,dynamic> toJson()=>_$CreateCategoryRequestBodyToJson(this);
+}

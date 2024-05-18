@@ -6,9 +6,10 @@ import 'package:naroutoshop/core/apps/uploadimage/datasource/upload_image_dataso
 import 'package:naroutoshop/core/apps/uploadimage/repo/upload_image_repo.dart';
 import 'package:naroutoshop/core/service/graphql/api_service.dart';
 import 'package:naroutoshop/core/service/graphql/dio_factory.dart';
-import 'package:naroutoshop/features/admin/add_categories/data/datasource/get_all_categories_datasource.dart';
+import 'package:naroutoshop/features/admin/add_categories/data/datasource/all_categories__admin_datasource.dart';
 import 'package:naroutoshop/features/admin/add_categories/data/repo/get_all_categories_repo.dart';
-import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/bloc/get_all_categories_admin_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/add_category/add_category_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/datasource/dashboard_datasource.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/repos/dashboard_repo.dart';
 import 'package:naroutoshop/features/admin/dashboard/presentation/bloc/categories_number/categories_number_bloc.dart';
@@ -59,5 +60,6 @@ Future<void> _initCategoriesAdmin() async {
   sl
     ..registerLazySingleton(() => GetAllCategoriesDataSource(sl()))
     ..registerLazySingleton(() => GetAllCategoriesRepo(sl()))
-    ..registerFactory(() => GetAllCategoriesAdminBloc(sl()));
+    ..registerFactory(() => GetAllCategoriesAdminBloc(sl()))
+    ..registerFactory(() => AddCategoryBloc(sl()));
 }

@@ -11,7 +11,7 @@ class GetAllCategoriesResponce {
     if (data.categoriesList.isEmpty) {
       return [];
     } else {
-      return data.categoriesList;
+      return  data.categoriesList;
     }
   }
 }
