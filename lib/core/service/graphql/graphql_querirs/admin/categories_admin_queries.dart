@@ -5,7 +5,8 @@ class AllCategoriesAdminQueries {
     return _instance;
   }
   const AllCategoriesAdminQueries._();
-  static const AllCategoriesAdminQueries _instance = AllCategoriesAdminQueries._();
+  static const AllCategoriesAdminQueries _instance =
+      AllCategoriesAdminQueries._();
   Map<String, dynamic> getAllCategoriesCategoriesMapQuery() {
     return {
       'query': '''
@@ -23,9 +24,10 @@ class AllCategoriesAdminQueries {
   Map<String, dynamic> createCategory(
       {required CreateCategoryRequestBody body}) {
     return {
-      'query': r'''
-     mutation createcaegory($name: String!, $image: String!) {
-	   createcaegory(email: $name, password: $image){
+      'query': r'''mutation addCategory($name: String!, $image: String!) {
+	addCategory(
+		data: { name: $name, image: $image }
+	) {
 		id
 		name
 		image
@@ -34,6 +36,20 @@ class AllCategoriesAdminQueries {
       'variables': {
         'name': body.name,
         'image': body.image,
+      },
+    };
+  }
+
+  Map<String, dynamic> deleteCategory({required String id}) {
+    return {
+      'query': r'''
+mutation deleteCategory($id: ID!) {
+  deleteCategory( id: $id) {
+    id
+  }
+} ''',
+      'variables': {
+        'id': id,
       },
     };
   }

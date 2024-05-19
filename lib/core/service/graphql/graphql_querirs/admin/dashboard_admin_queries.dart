@@ -1,5 +1,5 @@
 class AdminQueries{
- factory AdminQueries(){
+ factory AdminQueries.DashBoardQueries(){
   return _instance;
  }
  const AdminQueries._();

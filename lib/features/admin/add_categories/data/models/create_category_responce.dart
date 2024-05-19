@@ -6,7 +6,7 @@ class CreateCategoryResponce {
   CreateCategoryResponce(this.data,);
  factory CreateCategoryResponce.fromjson(Map<String, dynamic> json) =>
       _$CreateCategoryResponceFromJson(json);
-  CreateCategoryData data;
+  CreateCategoryData? data;
    
 }
 
@@ -16,7 +16,7 @@ class CreateCategoryData {
 factory  CreateCategoryData.fromjson(Map<String, dynamic> json) =>
       _$CreateCategoryDataFromJson(json);
   @JsonKey(name: 'category')
-  CreateCategoryModel categoryModel;
+  CreateCategoryModel? categoryModel;
 }
 
 @JsonSerializable()

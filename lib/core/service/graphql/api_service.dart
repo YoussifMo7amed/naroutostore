@@ -59,4 +59,7 @@ abstract class ApiService {
   Future<CreateCategoryResponce> createCategory(
     @Body() Map<String, dynamic> mutation,
   );
+    Future<void> deleteCategory(
+    @Body() Map<String, dynamic> mutation,
+  );
 }

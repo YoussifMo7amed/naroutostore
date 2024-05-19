@@ -15,18 +15,23 @@ class GetAllCategoriesAdminBloc
     on<fetchCategoriesEvent>(_getAllCategories);
   }
   final GetAllCategoriesRepo _repo;
-  FutureOr<void> _getAllCategories(GetAllCategoriesAdminEvent event,
-      Emitter<GetAllCategoriesAdminState> emit) async {
-    emit(const GetAllCategoriesAdminState.loading());
+  FutureOr<void> _getAllCategories(
+    fetchCategoriesEvent event,
+    Emitter<GetAllCategoriesAdminState> emit,
+  ) async {
+    if (event.isNotLoading) {
+      emit(const GetAllCategoriesAdminState.loading());
+     }
     final result = await _repo.getAllCategories();
     result.when(
       success: (data) {
         if (data.categoriesGetAllList.isEmpty) {
           emit(const GetAllCategoriesAdminState.empty());
-        }else{
-        emit(
-          GetAllCategoriesAdminState.success(getAllCategoriesResponce: data),
-        );}
+        } else {
+          emit(
+            GetAllCategoriesAdminState.success(getAllCategoriesResponce: data),
+          );
+        }
       },
       failure: (error) => emit(
         GetAllCategoriesAdminState.error(error: error),

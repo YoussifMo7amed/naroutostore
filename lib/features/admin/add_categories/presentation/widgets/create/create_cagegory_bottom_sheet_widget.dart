@@ -1,13 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/apps/uploadimage/cubit/upload_image_cubit.dart';
+import 'package:naroutoshop/core/common/toast/show_toast.dart';
 import 'package:naroutoshop/core/common/widgets/custom_button.dart';
 import 'package:naroutoshop/core/common/widgets/custom_text_field.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/helper/spacing.dart';
+import 'package:naroutoshop/core/language/lang_keys.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_categories/data/models/create_category_request.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/add_category/add_category_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/create/create_category_upload_image.dart';
 
 class CreateCagegoryBottomSheet extends StatefulWidget {
@@ -53,14 +60,24 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                     fontWeight: FontweightHelper.medium,
                   ),
                 ),
-                CustomButton(
-                  onPressed: () {},
-                  text: 'Remove',
-                  width: 120.w,
-                  height: 35.h,
-                  lastRadius: 10,
-                  threeRadius: 10,
-                  backgroundColor: Colors.red,
+                BlocBuilder<UploadImageCubit, UploadImageState>(
+                  builder: (context, state) {
+                    if (context.read<UploadImageCubit>().getImageUrl.isEmpty) {
+                      return const SizedBox.shrink();
+                    } else {
+                      return CustomButton(
+                        onPressed: () {
+                          context.read<UploadImageCubit>().removeImage();
+                        },
+                        text: 'Remove',
+                        width: 120.w,
+                        height: 35.h,
+                        lastRadius: 10,
+                        threeRadius: 10,
+                        backgroundColor: Colors.red,
+                      );
+                    }
+                  },
                 ),
               ],
             ),
@@ -93,24 +110,85 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
               },
             ),
             verticalSpace(10.h),
-            CustomButton(
-              onPressed: () {
-                if (formkey.currentState!.validate()) {
-                  //submit
-                }
+            BlocConsumer<AddCategoryBloc, AddCategoryState>(
+              listener: (context, state) {
+                state.whenOrNull(
+                  success: () {
+                    Navigator.pop(context);
+                    
+                    ShowToast.showToastSuccessTop(
+                      message: '${titleController.text} created successfully',
+                      seconds: 2,
+                    );
+                   
+                    
+                  },
+                  error: (message) {
+                    ShowToast.showToastErrorTop(
+                      message: message,
+                    );
+                  },
+                );
               },
-              text: 'Create a new Category',
-              width: MediaQuery.of(context).size.width,
-              height: 50.h,
-              lastRadius: 20,
-              threeRadius: 20,
-              backgroundColor: Colors.white,
-              textColor: ColorsDark.blueDark,
+              builder: (context, state) {
+                return state.maybeWhen(loading: () {
+                  return Container(
+                    height: 120.h,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10),
+                      color: Colors.grey.withOpacity(0.8),
+                    ),
+                    child: const Center(
+                      child: CircularProgressIndicator(
+                        color: ColorsDark.blueDark,
+                      ),
+                    ),
+                  );
+                }, orElse: () {
+                  return CustomButton(
+                    onPressed: ()async {
+                   await _validaeandcreate(context).then((value) {
+
+                   });
+                    },
+                    text: 'Create a new Category',
+                    width: MediaQuery.of(context).size.width,
+                    height: 50.h,
+                    lastRadius: 20,
+                    threeRadius: 20,
+                    backgroundColor: Colors.white,
+                    textColor: ColorsDark.blueDark,
+                  );
+                });
+              },
             ),
             verticalSpace(10.h),
           ],
         ),
       ),
     );
+  }
+
+  Future<void> _validaeandcreate(BuildContext context)async {
+    if (formkey.currentState!.validate() ||
+        context.read<UploadImageCubit>().getImageUrl.isEmpty) {
+      if (context.read<UploadImageCubit>().getImageUrl.isEmpty) {
+        ShowToast.showToastErrorTop(
+          message: context.translate(LangKeys.validPickImage),
+        );
+      } else {
+        context.read<AddCategoryBloc>().add(
+              AddCategoryEvent.addCategoriesEvent(
+                body: CreateCategoryRequestBody(
+                  name: titleController.text.trim(),
+                  image: context.read<UploadImageCubit>().getImageUrl,
+                ),
+              ),
+            );
+            
+            
+      }
+    }
   }
 }

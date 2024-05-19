@@ -303,4 +303,10 @@ class _ApiService implements ApiService {
 
     return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
+  
+  @override
+  Future<void> deleteCategory(Map<String, dynamic> mutation) {
+    // TODO: implement deleteCategory
+    throw UnimplementedError();
+  }
 }

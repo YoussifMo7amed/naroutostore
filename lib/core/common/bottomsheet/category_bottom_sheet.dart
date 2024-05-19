@@ -30,5 +30,7 @@ class CagegoryModalBottomSheet {
             ),
           ),
         ),
-      ).whenComplete(() => whencompleted ?? () {});
+      ).then((value) {
+        whencompleted?.call();
+      });
 }

@@ -9,7 +9,9 @@ part of 'create_category_responce.dart';
 CreateCategoryResponce _$CreateCategoryResponceFromJson(
         Map<String, dynamic> json) =>
     CreateCategoryResponce(
-      CreateCategoryData.fromjson(json['data'] as Map<String, dynamic>),
+      json['data'] == null
+          ? null
+          : CreateCategoryData.fromjson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CreateCategoryResponceToJson(
@@ -20,7 +22,10 @@ Map<String, dynamic> _$CreateCategoryResponceToJson(
 
 CreateCategoryData _$CreateCategoryDataFromJson(Map<String, dynamic> json) =>
     CreateCategoryData(
-      CreateCategoryModel.fromjson(json['category'] as Map<String, dynamic>),
+      json['category'] == null
+          ? null
+          : CreateCategoryModel.fromjson(
+              json['category'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$CreateCategoryDataToJson(CreateCategoryData instance) =>

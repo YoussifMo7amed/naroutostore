@@ -7,6 +7,7 @@ import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/delete/delete_category_widget.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/update/update_category_bottom_sheet_widget.dart';
 
 class AddCategoryItems extends StatelessWidget {
@@ -46,27 +47,22 @@ class AddCategoryItems extends StatelessWidget {
                 const Spacer(),
                 Row(
                   children: [
-                  IconButton(
+                    const DeleteCategoryWidget(),
+                    IconButton(
                       onPressed: () {
-                       
-                      },
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                        size: 25,
-                      ),),
-                  IconButton(
-                      onPressed: () {
-                         CagegoryModalBottomSheet.showModalCategoryBottomSheet(
-              context: context,
-              widget:const UpdateCategoryBottomSheet(),);
+                        CagegoryModalBottomSheet.showModalCategoryBottomSheet(
+                          context: context,
+                          widget: const UpdateCategoryBottomSheet(),
+                          whencompleted: () {},
+                        );
                       },
                       icon: const Icon(
                         Icons.edit,
                         color: Colors.green,
                         size: 25,
-                      ),),
-                ],
+                      ),
+                    ),
+                  ],
                 ),
                 const Spacer(),
               ],
@@ -82,7 +78,6 @@ class AddCategoryItems extends StatelessWidget {
                   color: Colors.red,
                   size: 70,
                 ),
-                
               ),
             ),
           ],
