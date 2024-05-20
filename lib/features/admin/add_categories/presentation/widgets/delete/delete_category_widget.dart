@@ -6,7 +6,7 @@ class DeleteCategoryWidget extends StatelessWidget {
   const DeleteCategoryWidget({
     super.key,
   });
-
+final String categoryId;
   @override
   Widget build(BuildContext context) {
     return InkWell(
