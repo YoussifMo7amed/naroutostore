@@ -22,7 +22,7 @@ class GetAllCategoriesData {
 factory  GetAllCategoriesData.fromjson(Map<String, dynamic> json) =>
       _$GetAllCategoriesDataFromJson(json);
   @JsonKey(name: 'categories')
-  List<GetAllCategoriesModel> categoriesList;
+  List<GetAllCategoriesModel>categoriesList;
 }
 
 @JsonSerializable()

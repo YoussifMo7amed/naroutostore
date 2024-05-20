@@ -25,7 +25,7 @@ class AddCategoriesScreen extends StatelessWidget {
          BlocProvider(
           create: (context) => sl<DeleteCategoryBloc>()
            
-            
+             
         ),
       ],
       child: Scaffold(

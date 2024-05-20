@@ -8,10 +8,10 @@ part 'delete_category_state.dart';
 part 'delete_category_bloc.freezed.dart';
 class DeleteCategoryBloc extends Bloc<DeleteCategoryEvent, DeleteCategoryState> {
   DeleteCategoryBloc(this._repo) : super(const _Initial()) {
-    on<_DeleteCategoryEvent>(_deleteCategory);
+    on<DeletenewCategoryEvent>(_deleteCategory);
   }
 GetAllCategoriesRepo _repo;
-  FutureOr<void> _deleteCategory( _DeleteCategoryEvent event,  Emitter<DeleteCategoryState> emit)async {
+  FutureOr<void> _deleteCategory( DeletenewCategoryEvent event,  Emitter<DeleteCategoryState> emit)async {
 
     emit( DeleteCategoryState.loading(categoryId: event.categoryId));
     final result = await _repo.deleteCategories(id: event.categoryId);

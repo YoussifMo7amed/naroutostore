@@ -1,4 +1,5 @@
 import 'package:naroutoshop/features/admin/add_categories/data/models/create_category_request.dart';
+import 'package:naroutoshop/features/admin/add_categories/data/models/update_category_request.dart';
 
 class AllCategoriesAdminQueries {
   factory AllCategoriesAdminQueries() {
@@ -40,17 +41,37 @@ class AllCategoriesAdminQueries {
     };
   }
 
-  Map<String, dynamic> deleteCategory({required String id}) {
+  Map<String, dynamic> deleteCategory({
+    required String id,
+  }) {
     return {
       'query': r'''
-mutation deleteCategory($id: ID!) {
-  deleteCategory( id: $id) {
-    id
-  }
+mutation  deleteCategory($id: ID!) {
+  deleteCategory(id: $id) 
 } ''',
       'variables': {
         'id': id,
       },
     };
   }
+    Map<String, dynamic> updateCategory({
+    required UpdateCategoryRequestBody body,
+  }) {
+    return {
+      'query': r'''
+mutation  updateCategory($id: ID!, $name: String!, $image: String!) {
+  updateCategory(id: $id, changes: {  name: $name,image:$image }) {
+		id
+
+	}
+} ''',
+      'variables': {
+        'id': body.id,
+        'name':body.name,
+        'image':body.image
+      },
+    };
+  }
 }
+
+

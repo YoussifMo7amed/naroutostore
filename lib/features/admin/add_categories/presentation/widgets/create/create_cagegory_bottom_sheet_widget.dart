@@ -14,7 +14,6 @@ import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/features/admin/add_categories/data/models/create_category_request.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/add_category/add_category_bloc.dart';
-import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/create/create_category_upload_image.dart';
 
 class CreateCagegoryBottomSheet extends StatefulWidget {
@@ -115,7 +114,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                 state.whenOrNull(
                   success: () {
                     Navigator.pop(context);
-                    
+
                     ShowToast.showToastSuccessTop(
                       message: '${titleController.text} created successfully',
                       seconds: 2,
@@ -133,7 +132,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
               builder: (context, state) {
                 return state.maybeWhen(loading: () {
                   return Container(
-                    height: 120.h,
+                    height: 50.h,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),

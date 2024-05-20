@@ -47,7 +47,9 @@ class AddCategoryItems extends StatelessWidget {
                 const Spacer(),
                 Row(
                   children: [
-                    const DeleteCategoryWidget(),
+                     DeleteCategoryWidget(
+                      categoryId:categoryId ,
+                    ),
                     IconButton(
                       onPressed: () {
                         CagegoryModalBottomSheet.showModalCategoryBottomSheet(
