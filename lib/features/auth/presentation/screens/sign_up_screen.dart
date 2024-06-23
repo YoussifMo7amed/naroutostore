@@ -19,7 +19,7 @@ class SignUpScreen extends StatelessWidget {
           context.color.bluePinkLight!,
           context.color.bluePinkLight!,
           context.color.bluePinkDark!,
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter,),),
       ),
       body:const SafeArea(
         bottom: false,

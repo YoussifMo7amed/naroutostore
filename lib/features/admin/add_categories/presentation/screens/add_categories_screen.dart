@@ -23,7 +23,7 @@ class AddCategoriesScreen extends StatelessWidget {
             ),
         ),
          BlocProvider(
-          create: (context) => sl<DeleteCategoryBloc>()
+          create: (context) => sl<DeleteCategoryBloc>(),
            
              
         ),

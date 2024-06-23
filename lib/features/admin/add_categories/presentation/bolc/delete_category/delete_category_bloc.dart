@@ -10,7 +10,7 @@ class DeleteCategoryBloc extends Bloc<DeleteCategoryEvent, DeleteCategoryState> 
   DeleteCategoryBloc(this._repo) : super(const _Initial()) {
     on<DeletenewCategoryEvent>(_deleteCategory);
   }
-GetAllCategoriesRepo _repo;
+final GetAllCategoriesRepo _repo;
   FutureOr<void> _deleteCategory( DeletenewCategoryEvent event,  Emitter<DeleteCategoryState> emit)async {
 
     emit( DeleteCategoryState.loading(categoryId: event.categoryId));

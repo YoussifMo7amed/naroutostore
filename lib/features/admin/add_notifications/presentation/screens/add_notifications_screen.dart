@@ -15,7 +15,7 @@ class AddNotificationsScreen extends StatelessWidget {
       ),
       body:const Center(child: Text('Add Notifications',
         style: TextStyle(fontSize: 20,color: Colors.white),
-      )),
+      ),),
     );
   }
 }

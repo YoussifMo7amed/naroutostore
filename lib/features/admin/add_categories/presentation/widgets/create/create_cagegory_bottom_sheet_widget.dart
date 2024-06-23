@@ -159,7 +159,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                     backgroundColor: Colors.white,
                     textColor: ColorsDark.blueDark,
                   );
-                });
+                },);
               },
             ),
             verticalSpace(10.h),

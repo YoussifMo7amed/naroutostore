@@ -25,10 +25,10 @@ class LoginBottun extends StatelessWidget {
             );
             if (userRole == 'admin') {
               Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.adminHome, (route) => false);
+                  context, Routes.adminHome, (route) => false,);
             } else {
               Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.customerHome, (route) => false);
+                  context, Routes.customerHome, (route) => false,);
             }
           },
           error: (message) {
@@ -65,7 +65,7 @@ class LoginBottun extends StatelessWidget {
                       theme: context.textStyle.copyWith(
                           fontSize: 18.sp,
                           fontWeight: FontweightHelper.bold,
-                          color: Colors.white))),
+                          color: Colors.white,),),),
             );
           },
         );

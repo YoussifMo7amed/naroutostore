@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/common/dialog/custom_dialogs.dart';
+import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/service/shared_pref/pref_keys.dart';

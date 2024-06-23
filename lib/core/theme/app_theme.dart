@@ -15,8 +15,8 @@ ThemeData themeDark() {
         fontSize: 14,
         color: ColorsDark.white,
         fontFamily: FontFamilyHelper.getlocalizedFontFamily(),
-      )
-    )
+      ),
+    ),
   );
 }
 

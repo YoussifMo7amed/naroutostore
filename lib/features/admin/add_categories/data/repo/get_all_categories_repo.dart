@@ -22,7 +22,7 @@ class GetAllCategoriesRepo {
   }
   //
    Future<ApiResult<CreateCategoryResponce>> addCategories(
-      {required CreateCategoryRequestBody body}) async {
+      {required CreateCategoryRequestBody body,}) async {
     try {
       final responce = await _dataSource.addCategories(body: body);
       return ApiResult.success(responce);

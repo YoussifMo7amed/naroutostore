@@ -13,14 +13,15 @@ import 'package:naroutoshop/features/customers/home_customer.dart';
 
 class AppRouter {
   static Route<void> generateroutes(RouteSettings settings) {
-    final args = settings.arguments;
+    // final args = settings.arguments;
     switch (settings.name) {
       case Routes.login:
         return BaseRoute(
-            page: BlocProvider(
-          create: (context) => sl<AuthBloc>(),
-          child: const LoginScreen(),
-        ));
+          page: BlocProvider(
+            create: (context) => sl<AuthBloc>(),
+            child: const LoginScreen(),
+          ),
+        );
       case Routes.signUp:
         return BaseRoute(
           page: MultiBlocProvider(

@@ -18,7 +18,7 @@ class GetAllCategoriesDataSource {
   }
 
   Future<CreateCategoryResponce> addCategories(
-      {required CreateCategoryRequestBody body}) async {
+      {required CreateCategoryRequestBody body,}) async {
     final responce = await _graphql.createCategory(
       AllCategoriesAdminQueries().createCategory(body: body),
     );

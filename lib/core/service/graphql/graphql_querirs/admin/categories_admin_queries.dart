@@ -23,9 +23,10 @@ class AllCategoriesAdminQueries {
   }
 
   Map<String, dynamic> createCategory(
-      {required CreateCategoryRequestBody body}) {
+      {required CreateCategoryRequestBody body,}) {
     return {
-      'query': r'''mutation addCategory($name: String!, $image: String!) {
+      'query': r'''
+mutation addCategory($name: String!, $image: String!) {
 	addCategory(
 		data: { name: $name, image: $image }
 	) {
@@ -68,7 +69,7 @@ mutation  updateCategory($id: ID!, $name: String!, $image: String!) {
       'variables': {
         'id': body.id,
         'name':body.name,
-        'image':body.image
+        'image':body.image,
       },
     };
   }

@@ -49,7 +49,7 @@ class CreateCategoryUploadImage extends StatelessWidget {
                   child: CircularProgressIndicator(
                     color: Colors.white,
                   ),
-                ));
+                ),);
           },
           orElse: () {
             if (context.read<UploadImageCubit>().getImageUrl.isNotEmpty) {

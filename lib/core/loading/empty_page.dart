@@ -24,9 +24,9 @@ class EmptyPage extends StatelessWidget {
                   color: Colors.black,
                   fontWeight: FontweightHelper.bold,
                   fontSize: 20.sp,
-                  fontFamily: FontFamilyHelper.poppinsEnglish),
+                  fontFamily: FontFamilyHelper.poppinsEnglish,),
               textAlign: TextAlign.center,
-            )
+            ),
           ],
         ),
       ),
