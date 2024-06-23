@@ -15,7 +15,7 @@ class UsersScreen extends StatelessWidget {
       ),
       body:const Center(child: Text('Users Screen',
         style: TextStyle(fontSize: 20,color: Colors.white),
-      )),
+      ),),
     );
   }
 }

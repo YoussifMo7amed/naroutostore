@@ -1,5 +1,5 @@
 class AdminQueries{
- factory AdminQueries(){
+ factory AdminQueries.DashBoardQueries(){
   return _instance;
  }
  const AdminQueries._();
@@ -33,7 +33,7 @@ class AdminQueries{
 		name
   }
 }
-       '''
+       ''',
   };
  }
 }

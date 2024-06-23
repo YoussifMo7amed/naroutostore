@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
-import 'package:naroutoshop/features/auth/presentation/refactors/login_body.dart';
 import 'package:naroutoshop/features/auth/presentation/refactors/auth_custom_painter.dart';
+import 'package:naroutoshop/features/auth/presentation/refactors/login_body.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({super.key});
@@ -19,9 +18,9 @@ class LoginScreen extends StatelessWidget {
           context.color.bluePinkLight!,
           context.color.bluePinkLight!,
           context.color.bluePinkDark!,
-        ], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
+        ], begin: Alignment.topCenter, end: Alignment.bottomCenter,),),
       ),
-      body: SafeArea(
+      body: const SafeArea(
         bottom: false,
         child: LoginBody(),
       ),

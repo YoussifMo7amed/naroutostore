@@ -15,7 +15,7 @@ class AddProductsScreen extends StatelessWidget {
       ),
       body:const Center(child: Text('Add Products',
         style: TextStyle(fontSize: 20,color: Colors.white),
-      )),
+      ),),
     );
   }
 }

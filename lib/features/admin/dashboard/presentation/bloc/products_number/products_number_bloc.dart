@@ -14,12 +14,12 @@ class ProductsNumberBloc
   }
   final DashboardRepo _repo;
   FutureOr<void> _productNumber(
-      ProductsNumberEvent event, Emitter<ProductsNumberState> emit) async {
+      ProductsNumberEvent event, Emitter<ProductsNumberState> emit,) async {
     emit(const ProductsNumberState.loading());
     final result = await _repo.numberOfProducts();
     result.when(
       success: (productsData) {
-        emit(ProductsNumberState.success(Number: productsData.number.toString()));
+        emit(ProductsNumberState.success(Number: productsData.number));
       },
       failure: (error) {
         emit(ProductsNumberState.error(error: error));

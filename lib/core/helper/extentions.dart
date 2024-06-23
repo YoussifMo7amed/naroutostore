@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:naroutoshop/core/language/app_localizations.dart';
 import 'package:naroutoshop/core/theme/assets_extension.dart';
 import 'package:naroutoshop/core/theme/color_extension.dart';

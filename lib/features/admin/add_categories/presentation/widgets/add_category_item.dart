@@ -1,12 +1,19 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/apps/uploadimage/cubit/upload_image_cubit.dart';
+import 'package:naroutoshop/core/common/bottomsheet/category_bottom_sheet.dart';
 import 'package:naroutoshop/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
+import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
-import 'package:naroutoshop/core/helper/spacing.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/update_category/update_category_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/delete/delete_category_widget.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/update/update_category_bottom_sheet_widget.dart';
 
 class AddCategoryItems extends StatelessWidget {
   const AddCategoryItems({
@@ -43,22 +50,23 @@ class AddCategoryItems extends StatelessWidget {
                   ),
                 ),
                 const Spacer(),
-                Row(children: [
-                  IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                        size: 25,
-                      )),
-                  IconButton(
-                      onPressed: () {},
+                Row(
+                  children: [
+                    DeleteCategoryWidget(
+                      categoryId: categoryId,
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        _updateCategoryBottomSheet(context);
+                      },
                       icon: const Icon(
                         Icons.edit,
                         color: Colors.green,
                         size: 25,
-                      )),
-                ]),
+                      ),
+                    ),
+                  ],
+                ),
                 const Spacer(),
               ],
             ),
@@ -78,6 +86,34 @@ class AddCategoryItems extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+
+  void _updateCategoryBottomSheet(BuildContext context) {
+    CagegoryModalBottomSheet.showModalCategoryBottomSheet(
+      context: context,
+      widget: MultiBlocProvider(
+        providers: [
+          BlocProvider(
+            create: (context) => sl<UpdateCategoryBloc>(),
+          ),
+          BlocProvider(
+            create: (context) => sl<UploadImageCubit>(),
+          ),
+        ],
+        child: UpdateCategoryBottomSheet(
+          categoryId: categoryId,
+          name: name,
+          imageUrl: image,
+        ),
+      ),
+      whencompleted: () {
+        context.read<GetAllCategoriesAdminBloc>().add(
+              const GetAllCategoriesAdminEvent.fetchAdminCategories(
+                isNotLoading: false,
+              ),
+            );
+      },
     );
   }
 }
