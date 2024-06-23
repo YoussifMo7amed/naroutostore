@@ -11,6 +11,7 @@ import 'package:naroutoshop/features/admin/add_categories/data/repo/get_all_cate
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/add_category/add_category_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/delete_category/delete_category_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/update_category/update_category_bloc.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/datasource/dashboard_datasource.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/repos/dashboard_repo.dart';
 import 'package:naroutoshop/features/admin/dashboard/presentation/bloc/categories_number/categories_number_bloc.dart';
@@ -63,5 +64,8 @@ Future<void> _initCategoriesAdmin() async {
     ..registerLazySingleton(() => GetAllCategoriesRepo(sl()))
     ..registerFactory(() => GetAllCategoriesAdminBloc(sl()))
     ..registerFactory(() => AddCategoryBloc(sl()))
-    ..registerFactory(() => DeleteCategoryBloc(sl()));
+    ..registerFactory(() => DeleteCategoryBloc(sl()))
+    ..registerFactory(
+      () => UpdateCategoryBloc(sl()),
+    );
 }

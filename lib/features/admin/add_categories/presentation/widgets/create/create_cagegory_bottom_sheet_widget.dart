@@ -113,7 +113,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
               listener: (context, state) {
                 state.whenOrNull(
                   success: () {
-                    Navigator.pop(context);
+                    context.pop();
 
                     ShowToast.showToastSuccessTop(
                       message: '${titleController.text} created successfully',
