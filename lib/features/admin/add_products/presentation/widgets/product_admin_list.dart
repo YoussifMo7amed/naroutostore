@@ -1,0 +1,113 @@
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/common/widgets/custom_container_linear_admin.dart';
+import 'package:naroutoshop/core/common/widgets/text_app.dart';
+import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
+import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+
+class ProductAdminList extends StatelessWidget {
+  const ProductAdminList({
+    required this.image,
+    required this.title,
+    required this.categoryName,
+    required this.price,
+    super.key,
+  });
+  final String image;
+  final String title;
+  final String categoryName;
+  final String price;
+  @override
+  Widget build(BuildContext context) {
+    return CustomContainerLinearAdmin(
+      height: 250.h,
+      width: 165.w,
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
+              ),
+              IconButton(
+                onPressed: () {},
+                padding: EdgeInsets.zero,
+                icon: const Icon(
+                  Icons.edit,
+                  color: Colors.green,
+                ),
+              ),
+            ],
+          ),
+          Flexible(
+            child: Center(
+              child: CachedNetworkImage(
+                imageUrl: image,
+                height: 200.h,
+                width: 120.w,
+                fit: BoxFit.cover,
+                errorWidget: (context, url, error) => const Icon(
+                  Icons.error,
+                  color: Colors.red,
+                  size: 70,
+                ),
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: TextApp(
+              text: title,
+              theme: context.textStyle.copyWith(
+                fontSize: 16.sp,
+                fontFamily: FontFamilyHelper.poppinsEnglish,
+                fontWeight: FontweightHelper.bold,
+              ),
+              maxLines: 1,
+            ),
+          ),
+          SizedBox(
+            height: 5.h,
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: TextApp(
+              text: categoryName,
+              theme: context.textStyle.copyWith(
+                fontSize: 13.sp,
+                fontFamily: FontFamilyHelper.poppinsEnglish,
+                fontWeight: FontweightHelper.medium,
+              ),
+              maxLines: 1,
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.symmetric(horizontal: 10.w),
+            child: TextApp(
+              text: '\$$price ',
+              theme: context.textStyle.copyWith(
+                fontSize: 13.sp,
+                fontFamily: FontFamilyHelper.poppinsEnglish,
+                fontWeight: FontweightHelper.medium,
+              ),
+            ),
+          ),
+          SizedBox(
+            height: 10.h,
+          ),
+        ],
+      ),
+    );
+  }
+}
