@@ -27,13 +27,13 @@ class CreateCategory extends StatelessWidget {
           theme: context.textStyle.copyWith(
             fontSize: 18.sp,
             fontFamily: FontFamilyHelper.poppinsEnglish,
-            fontWeight: FontweightHelper.medium,
+            fontWeight: FontWeightHelper.medium,
           ),
         ),
         CustomButton(
           onPressed: () {
             // show buttonsheet
-            CagegoryModalBottomSheet.showModalCategoryBottomSheet(
+            CustomModalBottomSheet.showModalCategoryBottomSheet(
               context: context,
               widget: MultiBlocProvider(
                 providers: [

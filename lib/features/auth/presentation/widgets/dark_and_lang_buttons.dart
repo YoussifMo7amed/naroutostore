@@ -15,7 +15,7 @@ class DarkAndLangButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final cubit=context.read<AppCubit>();
+    final cubit = context.read<AppCubit>();
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -27,8 +27,10 @@ class DarkAndLangButtons extends StatelessWidget {
               duration: 400,
               child: CustomLinearButton(
                 onPressed: cubit.changeThemeMode,
-                child:  Icon(
-                 cubit.isDark?   Icons.light_mode_outlined:Icons.dark_mode_outlined ,
+                child: Icon(
+                  cubit.isDark
+                      ? Icons.light_mode_outlined
+                      : Icons.dark_mode_outlined,
                   color: Colors.white,
                 ),
               ),
@@ -43,21 +45,20 @@ class DarkAndLangButtons extends StatelessWidget {
             width: 100.w,
             onPressed: () {
               // change language
-            if(AppLocalizations.of(context)!.isEnLocale){
-              cubit.toArabic();
-            }else{
-              cubit.toEnglish();
-            }
+              if (AppLocalizations.of(context)!.isEnLocale) {
+                cubit.toArabic();
+              } else {
+                cubit.toEnglish();
+              }
             },
             child: TextApp(
               text: context.translate(LangKeys.language),
-              theme: context.textStyle
-                  .copyWith(fontSize: 16.sp, fontWeight: FontweightHelper.bold,
-                      color: Colors.white,
-                  ),
-            
+              theme: context.textStyle.copyWith(
+                fontSize: 16.sp,
+                fontWeight: FontWeightHelper.bold,
+                color: Colors.white,
+              ),
             ),
-          
           ),
         ),
       ],

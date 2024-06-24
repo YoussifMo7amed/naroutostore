@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -10,7 +9,6 @@ import 'package:naroutoshop/core/common/widgets/custom_text_field.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/helper/spacing.dart';
-import 'package:naroutoshop/core/language/lang_keys.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
@@ -65,7 +63,7 @@ class _UpdateCategoryBottomSheetState extends State<UpdateCategoryBottomSheet> {
                 theme: context.textStyle.copyWith(
                   fontSize: 20.sp,
                   fontFamily: FontFamilyHelper.poppinsEnglish,
-                  fontWeight: FontweightHelper.bold,
+                  fontWeight: FontWeightHelper.bold,
                 ),
               ),
             ),
@@ -78,7 +76,7 @@ class _UpdateCategoryBottomSheetState extends State<UpdateCategoryBottomSheet> {
                   theme: context.textStyle.copyWith(
                     fontSize: 16.sp,
                     fontFamily: FontFamilyHelper.poppinsEnglish,
-                    fontWeight: FontweightHelper.medium,
+                    fontWeight: FontWeightHelper.medium,
                   ),
                 ),
               ],
@@ -95,7 +93,7 @@ class _UpdateCategoryBottomSheetState extends State<UpdateCategoryBottomSheet> {
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
-                fontWeight: FontweightHelper.medium,
+                fontWeight: FontWeightHelper.medium,
               ),
             ),
             verticalSpace(10.h),

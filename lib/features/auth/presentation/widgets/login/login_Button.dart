@@ -25,10 +25,16 @@ class LoginBottun extends StatelessWidget {
             );
             if (userRole == 'admin') {
               Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.adminHome, (route) => false,);
+                context,
+                Routes.adminHome,
+                (route) => false,
+              );
             } else {
               Navigator.pushNamedAndRemoveUntil(
-                  context, Routes.customerHome, (route) => false,);
+                context,
+                Routes.customerHome,
+                (route) => false,
+              );
             }
           },
           error: (message) {
@@ -56,16 +62,19 @@ class LoginBottun extends StatelessWidget {
             return CustomFadeInRight(
               duration: 600,
               child: CustomLinearButton(
-                  width: MediaQuery.of(context).size.width,
-                  onPressed: () {
-                    _validateThenDoLogin(context);
-                  },
-                  child: TextApp(
-                      text: context.translate(LangKeys.login),
-                      theme: context.textStyle.copyWith(
-                          fontSize: 18.sp,
-                          fontWeight: FontweightHelper.bold,
-                          color: Colors.white,),),),
+                width: MediaQuery.of(context).size.width,
+                onPressed: () {
+                  _validateThenDoLogin(context);
+                },
+                child: TextApp(
+                  text: context.translate(LangKeys.login),
+                  theme: context.textStyle.copyWith(
+                    fontSize: 18.sp,
+                    fontWeight: FontWeightHelper.bold,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
             );
           },
         );

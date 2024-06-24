@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/helper/spacing.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/widgets/create/create_category.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/widgets/create/create_product.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/widgets/product_admin_list.dart';
 
 class AddProductsBody extends StatelessWidget {
@@ -13,7 +14,7 @@ class AddProductsBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
       child: Column(
         children: [
-          const CreateCategory(),
+          const CreateProduct(),
           const SizedBox(
             height: 20,
           ),

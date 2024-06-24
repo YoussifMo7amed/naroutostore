@@ -46,7 +46,7 @@ class AddCategoryItems extends StatelessWidget {
                   theme: context.textStyle.copyWith(
                     fontSize: 18.sp,
                     fontFamily: FontFamilyHelper.poppinsEnglish,
-                    fontWeight: FontweightHelper.bold,
+                    fontWeight: FontWeightHelper.bold,
                   ),
                 ),
                 const Spacer(),
@@ -90,7 +90,7 @@ class AddCategoryItems extends StatelessWidget {
   }
 
   void _updateCategoryBottomSheet(BuildContext context) {
-    CagegoryModalBottomSheet.showModalCategoryBottomSheet(
+    CustomModalBottomSheet.showModalCategoryBottomSheet(
       context: context,
       widget: MultiBlocProvider(
         providers: [

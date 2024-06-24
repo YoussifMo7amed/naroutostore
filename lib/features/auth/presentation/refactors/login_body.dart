@@ -33,25 +33,27 @@ class LoginBody extends StatelessWidget {
             verticalSpace(30.h),
             //login textform
             const LoginTextForm(),
-               verticalSpace(50.h),
-        //login bottun
-        const LoginBottun(),
-        verticalSpace(20.h),
-        //create account text
-        CustomFadeInDown(
-          duration: 400,
-          child: TextButton(onPressed: () {
-            context.pushReplacementNamed(Routes.signUp);
-          }, 
-          child: TextApp(
-            text: context.translate(LangKeys.createAccount),
-            theme: context.textStyle.copyWith(
-              color: context.color.bluePinkLight,
-              fontSize: 16.sp,
-              fontWeight: FontweightHelper.medium,
+            verticalSpace(50.h),
+            //login bottun
+            const LoginBottun(),
+            verticalSpace(20.h),
+            //create account text
+            CustomFadeInDown(
+              duration: 400,
+              child: TextButton(
+                onPressed: () {
+                  context.pushReplacementNamed(Routes.signUp);
+                },
+                child: TextApp(
+                  text: context.translate(LangKeys.createAccount),
+                  theme: context.textStyle.copyWith(
+                    color: context.color.bluePinkLight,
+                    fontSize: 16.sp,
+                    fontWeight: FontWeightHelper.medium,
+                  ),
+                ),
+              ),
             ),
-          ),),
-        ),
           ],
         ),
       ),

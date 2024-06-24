@@ -1,11 +1,13 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/common/bottomsheet/category_bottom_sheet.dart';
 import 'package:naroutoshop/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/widgets/update/update_product_buttom_sheet.dart';
 
 class ProductAdminList extends StatelessWidget {
   const ProductAdminList({
@@ -38,7 +40,12 @@ class ProductAdminList extends StatelessWidget {
                 ),
               ),
               IconButton(
-                onPressed: () {},
+                onPressed: () {
+                  CustomModalBottomSheet.showModalCategoryBottomSheet(
+                    context: context,
+                    widget: const UpdateProductButtomSheet(),
+                  );
+                },
                 padding: EdgeInsets.zero,
                 icon: const Icon(
                   Icons.edit,
@@ -72,7 +79,7 @@ class ProductAdminList extends StatelessWidget {
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
-                fontWeight: FontweightHelper.bold,
+                fontWeight: FontWeightHelper.bold,
               ),
               maxLines: 1,
             ),
@@ -87,7 +94,7 @@ class ProductAdminList extends StatelessWidget {
               theme: context.textStyle.copyWith(
                 fontSize: 13.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
-                fontWeight: FontweightHelper.medium,
+                fontWeight: FontWeightHelper.medium,
               ),
               maxLines: 1,
             ),
@@ -99,7 +106,7 @@ class ProductAdminList extends StatelessWidget {
               theme: context.textStyle.copyWith(
                 fontSize: 13.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
-                fontWeight: FontweightHelper.medium,
+                fontWeight: FontWeightHelper.medium,
               ),
             ),
           ),

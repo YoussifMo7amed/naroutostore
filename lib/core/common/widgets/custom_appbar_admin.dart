@@ -29,7 +29,7 @@ class AppBarAdmin extends StatelessWidget implements PreferredSizeWidget {
           color: Colors.white,
           fontSize: 18.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
-          fontWeight: FontweightHelper.bold,
+          fontWeight: FontWeightHelper.bold,
         ),
       ),
       leading: ismain

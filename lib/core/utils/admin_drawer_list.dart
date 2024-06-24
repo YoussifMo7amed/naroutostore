@@ -14,7 +14,6 @@ import 'package:naroutoshop/features/admin/add_products/presentation/screens/add
 import 'package:naroutoshop/features/admin/dashboard/presentation/screens/dashboard_screen.dart';
 import 'package:naroutoshop/features/admin/users/presentation/screens/users_screen.dart';
 
-
 List<DrawerItemModel> adminDrawerList(BuildContext context) {
   return <DrawerItemModel>[
     DrawerItemModel(
@@ -24,7 +23,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
           color: Colors.white,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
-          fontWeight: FontweightHelper.bold,
+          fontWeight: FontWeightHelper.bold,
         ),
       ),
       icon: const Icon(
@@ -41,7 +40,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
           color: Colors.white,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
-          fontWeight: FontweightHelper.bold,
+          fontWeight: FontWeightHelper.bold,
         ),
       ),
       icon: const Icon(
@@ -57,7 +56,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
           color: Colors.white,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
-          fontWeight: FontweightHelper.bold,
+          fontWeight: FontWeightHelper.bold,
         ),
       ),
       icon: const Icon(
@@ -66,14 +65,14 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
       ),
       page: const AddProductsScreen(),
     ),
-      DrawerItemModel(
+    DrawerItemModel(
       title: TextApp(
         text: 'Users',
         theme: context.textStyle.copyWith(
           color: Colors.white,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
-          fontWeight: FontweightHelper.bold,
+          fontWeight: FontWeightHelper.bold,
         ),
       ),
       icon: const Icon(
@@ -82,14 +81,14 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
       ),
       page: const UsersScreen(),
     ),
-      DrawerItemModel(
+    DrawerItemModel(
       title: TextApp(
         text: 'Notifications',
         theme: context.textStyle.copyWith(
           color: Colors.white,
           fontSize: 17.sp,
           fontFamily: FontFamilyHelper.poppinsEnglish,
-          fontWeight: FontweightHelper.bold,
+          fontWeight: FontWeightHelper.bold,
         ),
       ),
       icon: const Icon(
@@ -98,7 +97,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
       ),
       page: const AddNotificationsScreen(),
     ),
-     //LogOut
+    //LogOut
     DrawerItemModel(
       icon: const Icon(
         Icons.exit_to_app,
@@ -129,7 +128,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
           style: TextStyle(
             color: Colors.white,
             fontFamily: 'Poppins',
-            fontWeight: FontweightHelper.bold,
+            fontWeight: FontWeightHelper.bold,
             fontSize: 17,
           ),
         ),

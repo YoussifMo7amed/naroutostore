@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/widgets/custom_button.dart';
@@ -32,7 +31,7 @@ class CustomDialog {
             child: TextApp(
               text: textBody,
               theme: context.textStyle.copyWith(
-                fontWeight: FontweightHelper.medium,
+                fontWeight: FontWeightHelper.medium,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
                 fontSize: 18.sp,
                 color: Colors.black,

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 
-class CagegoryModalBottomSheet {
-  CagegoryModalBottomSheet._();
+class CustomModalBottomSheet {
+  CustomModalBottomSheet._();
   static void showModalCategoryBottomSheet({
     required BuildContext context,
     required Widget widget,
@@ -25,7 +25,7 @@ class CagegoryModalBottomSheet {
               bottom: MediaQuery.of(context).viewInsets.bottom,
             ),
             child: Container(
-              padding:const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(16),
               child: widget,
             ),
           ),
