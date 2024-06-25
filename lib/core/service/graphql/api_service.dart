@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:naroutoshop/core/apps/uploadimage/model/upload_image_responce.dart';
 import 'package:naroutoshop/features/admin/add_categories/data/models/create_category_responce.dart';
 import 'package:naroutoshop/features/admin/add_categories/data/models/get_all_categories_responce.dart';
+import 'package:naroutoshop/features/admin/add_products/data/model/get_all_product_responce.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/models/categories_number_responce.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/models/products_number_responce.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/models/users_number_responce.dart';
@@ -67,5 +68,9 @@ abstract class ApiService {
     @POST(graphql)
     Future<void> updateCategory(
     @Body() Map<String, dynamic> mutation,
+  );
+      @POST(graphql)
+    Future<GetAllProductResponce> getAllProducts(
+    @Body() Map<String, dynamic> query,
   );
 }

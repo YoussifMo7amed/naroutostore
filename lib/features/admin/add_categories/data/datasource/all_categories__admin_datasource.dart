@@ -12,13 +12,14 @@ class GetAllCategoriesDataSource {
 
   Future<GetAllCategoriesResponce> getAllCategories() async {
     final responce = await _graphql.getAllCategories(
-      AllCategoriesAdminQueries().getAllCategoriesCategoriesMapQuery(),
+      AllCategoriesAdminQueries().getAllCategoriesMapQuery(),
     );
     return responce;
   }
 
-  Future<CreateCategoryResponce> addCategories(
-      {required CreateCategoryRequestBody body,}) async {
+  Future<CreateCategoryResponce> addCategories({
+    required CreateCategoryRequestBody body,
+  }) async {
     final responce = await _graphql.createCategory(
       AllCategoriesAdminQueries().createCategory(body: body),
     );

@@ -8,7 +8,7 @@ class AllCategoriesAdminQueries {
   const AllCategoriesAdminQueries._();
   static const AllCategoriesAdminQueries _instance =
       AllCategoriesAdminQueries._();
-  Map<String, dynamic> getAllCategoriesCategoriesMapQuery() {
+  Map<String, dynamic> getAllCategoriesMapQuery() {
     return {
       'query': '''
 {
@@ -22,8 +22,9 @@ class AllCategoriesAdminQueries {
     };
   }
 
-  Map<String, dynamic> createCategory(
-      {required CreateCategoryRequestBody body,}) {
+  Map<String, dynamic> createCategory({
+    required CreateCategoryRequestBody body,
+  }) {
     return {
       'query': r'''
 mutation addCategory($name: String!, $image: String!) {
@@ -55,7 +56,8 @@ mutation  deleteCategory($id: ID!) {
       },
     };
   }
-    Map<String, dynamic> updateCategory({
+
+  Map<String, dynamic> updateCategory({
     required UpdateCategoryRequestBody body,
   }) {
     return {
@@ -68,11 +70,9 @@ mutation  updateCategory($id: ID!, $name: String!, $image: String!) {
 } ''',
       'variables': {
         'id': body.id,
-        'name':body.name,
-        'image':body.image,
+        'name': body.name,
+        'image': body.image,
       },
     };
   }
 }
-
-
