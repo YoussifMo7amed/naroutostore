@@ -9,7 +9,7 @@ class GetAllProductResponce {
       _$GetAllProductResponceFromJson(json);
   final ProductGetAllData data;
 
-  List<ProductGetAllModel> get productsGetAllList {
+  List<ProductGetAllModel> get productGetAllList {
     if (data.productsList.isEmpty) {
       return [];
     } else {
@@ -43,7 +43,7 @@ class ProductGetAllModel {
       _$ProductGetAllModelFromJson(json);
   final String? id;
   final String? title;
-  final int? price;
+  final double? price;
   final String? description;
   final List<String>? images;
   final CategoryProductModel? category;

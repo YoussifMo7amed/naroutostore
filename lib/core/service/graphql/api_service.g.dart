@@ -254,11 +254,12 @@ class _ApiService implements ApiService {
     final _data = <String, dynamic>{};
     _data.addAll(mutation);
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<CreateCategoryResponce>(Options(
-      method: 'POST',
-      headers: _headers,
-      extra: _extra,
-    )
+      _setStreamType<CreateCategoryResponce>(
+        Options(
+          method: 'POST',
+          headers: _headers,
+          extra: _extra,
+        )
             .compose(
               _dio.options,
               '/graphql',
@@ -266,10 +267,13 @@ class _ApiService implements ApiService {
               data: _data,
             )
             .copyWith(
-                baseUrl: _combineBaseUrls(
-              _dio.options.baseUrl,
-              baseUrl,
-            ))));
+              baseUrl: _combineBaseUrls(
+                _dio.options.baseUrl,
+                baseUrl,
+              ),
+            ),
+      ),
+    );
     final value = CreateCategoryResponce.fromjson(_result.data!);
     return value;
   }

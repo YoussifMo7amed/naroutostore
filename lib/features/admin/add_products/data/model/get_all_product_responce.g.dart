@@ -34,7 +34,7 @@ ProductGetAllModel _$ProductGetAllModelFromJson(Map<String, dynamic> json) =>
     ProductGetAllModel(
       id: json['id'] as String?,
       title: json['title'] as String?,
-      price: json['price'] as int?,
+      price: (json['price'] as num?)?.toDouble(),
       description: json['description'] as String?,
       images:
           (json['images'] as List<dynamic>?)?.map((e) => e as String).toList(),

@@ -5,19 +5,20 @@ import 'package:naroutoshop/core/common/bottomsheet/category_bottom_sheet.dart';
 import 'package:naroutoshop/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/core/helper/string_extention.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/widgets/update/update_product_buttom_sheet.dart';
 
 class ProductAdminList extends StatelessWidget {
   const ProductAdminList({
-    required this.image,
+    required this.imageUrl,
     required this.title,
     required this.categoryName,
     required this.price,
     super.key,
   });
-  final String image;
+  final String imageUrl;
   final String title;
   final String categoryName;
   final String price;
@@ -57,7 +58,7 @@ class ProductAdminList extends StatelessWidget {
           Flexible(
             child: Center(
               child: CachedNetworkImage(
-                imageUrl: image,
+                imageUrl: imageUrl.imageProductFormate(),
                 height: 200.h,
                 width: 120.w,
                 fit: BoxFit.cover,
