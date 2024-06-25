@@ -48,7 +48,7 @@ class _CreateProductButtomSheetState extends State<CreateProductButtomSheet> {
               //title
               Center(
                 child: TextApp(
-                  text: 'Update Product',
+                  text: 'Add Product',
                   theme: context.textStyle.copyWith(
                     fontSize: 20.sp,
                     fontFamily: FontFamilyHelper.poppinsEnglish,
@@ -61,7 +61,7 @@ class _CreateProductButtomSheetState extends State<CreateProductButtomSheet> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   TextApp(
-                    text: 'Update a Photos',
+                    text: 'Add  Photos',
                     theme: context.textStyle.copyWith(
                       fontSize: 16.sp,
                       fontFamily: FontFamilyHelper.poppinsEnglish,

@@ -37,7 +37,7 @@ class UploadImageCubit extends Cubit<UploadImageState> {
     final result = await _repo.uploadImage(pickedImage);
     result.when(
       success: (image) {
-        imageList..removeAt(indexId)..insert(indexId, image.location ?? '');
+        imageList..removeAt(indexId)..insert(indexId, image.location ?? ''); 
         emit(const UploadImageState.success());
       },
       failure: (error) {

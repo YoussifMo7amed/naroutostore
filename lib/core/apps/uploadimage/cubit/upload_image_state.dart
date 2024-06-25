@@ -4,7 +4,7 @@ part of 'upload_image_cubit.dart';
 class UploadImageState with _$UploadImageState {
   const factory UploadImageState.initial() = _Initial;
   const factory UploadImageState.loading() = _LoadingState;
-    const factory UploadImageState.loadingList({required int index}) = _LoadingListState;
+    const factory UploadImageState.loadingList({required int index }) = _LoadingListState;
   const factory UploadImageState.success() = _SuccessState;
   const factory UploadImageState.removeImage({required String imageUrl}) =
       _RemoveImageState;
