@@ -85,7 +85,7 @@ class UpdateCategoryUploadImage extends StatelessWidget {
                         color: Colors.white,
                       ),
                     ),
-                  )
+                  ),
               ],
             );
           },

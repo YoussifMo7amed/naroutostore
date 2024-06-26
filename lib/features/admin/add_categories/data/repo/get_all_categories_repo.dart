@@ -9,25 +9,26 @@ class GetAllCategoriesRepo {
   GetAllCategoriesRepo(this._dataSource);
   final GetAllCategoriesDataSource _dataSource;
 
-  Future<ApiResult<GetAllCategoriesResponce>> getAllCategories(
-    ) async {
+  Future<ApiResult<GetAllCategoriesResponce>> getAllCategories() async {
     try {
       final responce = await _dataSource.getAllCategories();
       return ApiResult.success(responce);
     } catch (e) {
       return const ApiResult.failure(
-        'Please try again later, Something went wrong', 
+        'Please try again later, Something went wrong',
       );
     }
   }
+
   //
-   Future<ApiResult<CreateCategoryResponce>> addCategories(
-      {required CreateCategoryRequestBody body,}) async {
+  Future<ApiResult<CreateCategoryResponce>> addCategories({
+    required CreateCategoryRequestBody body,
+  }) async {
     try {
       final responce = await _dataSource.addCategories(body: body);
       return ApiResult.success(responce);
     } catch (e) {
-      return  const ApiResult.failure(
+      return const ApiResult.failure(
         'Please try again later, Something',
       );
     }
@@ -38,17 +39,19 @@ class GetAllCategoriesRepo {
       final responce = await _dataSource.deleteCategories(id: id);
       return ApiResult.success(responce);
     } catch (e) {
-      return const  ApiResult.failure(
+      return const ApiResult.failure(
         'Please try again later, Something went wrong }',
       );
     }
   }
-    Future<ApiResult<void>> updateCategories({required UpdateCategoryRequestBody body}) async {
+
+  Future<ApiResult<void>> updateCategories(
+      {required UpdateCategoryRequestBody body}) async {
     try {
       final responce = await _dataSource.updateCategories(body: body);
       return ApiResult.success(responce);
     } catch (e) {
-      return const  ApiResult.failure(
+      return const ApiResult.failure(
         'Please try again later, Something went wrong }',
       );
     }

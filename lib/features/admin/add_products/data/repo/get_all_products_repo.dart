@@ -2,6 +2,7 @@ import 'package:naroutoshop/core/service/graphql/api_result.dart';
 import 'package:naroutoshop/features/admin/add_products/data/datasource/all_products_admin_datasource.dart';
 import 'package:naroutoshop/features/admin/add_products/data/model/create_product_request_body.dart';
 import 'package:naroutoshop/features/admin/add_products/data/model/get_all_product_responce.dart';
+import 'package:naroutoshop/features/admin/add_products/data/model/update_product_request_body.dart';
 
 class GetAllProductssRepo {
   GetAllProductssRepo(this._dataSource);
@@ -44,4 +45,14 @@ class GetAllProductssRepo {
     }
   }
 
+  Future<ApiResult<void>> updateProducts({required UpdateProductRequestBody body}) async {
+    try {
+      final responce = await _dataSource.updateProducts(body: body);
+      return ApiResult.success(responce);
+    } catch (e) {
+      return const  ApiResult.failure(
+        'Please try again later, Something went wrong }',
+      );
+    }
+  }
 }

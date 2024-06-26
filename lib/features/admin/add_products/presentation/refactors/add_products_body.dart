@@ -51,7 +51,7 @@ class AddProductsBody extends StatelessWidget {
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               gridDelegate:
-                                  const SliverGridDelegateWithFixedCrossAxisCount(
+                                const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 8,
                                 mainAxisSpacing: 15,
@@ -64,6 +64,7 @@ class AddProductsBody extends StatelessWidget {
                               reverse: true,
                               itemBuilder: (context, index) {
                                 return ProductAdminList(
+                                  productId: productList[index].id ?? '',
                                   imageUrl: productList[index].images!.first,
                                   title: productList[index].title ?? '',
                                   categoryName:

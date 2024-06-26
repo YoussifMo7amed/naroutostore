@@ -1,4 +1,5 @@
 import 'package:naroutoshop/features/admin/add_products/data/model/create_product_request_body.dart';
+import 'package:naroutoshop/features/admin/add_products/data/model/update_product_request_body.dart';
 
 class AllProductsAdminQueries {
   factory AllProductsAdminQueries() {
@@ -44,7 +45,7 @@ class AllProductsAdminQueries {
 	}
 }
        ''',
-     'variables': {
+      'variables': {
         'title': body.title,
         'price': body.price,
         'description': body.description,
@@ -53,6 +54,7 @@ class AllProductsAdminQueries {
       },
     };
   }
+
   Map<String, dynamic> deleteProduct({
     required String productid,
   }) {
@@ -67,6 +69,31 @@ mutation  deleteProduct($id: ID!) {
     };
   }
 
-
-
+  Map<String, dynamic> updateProduct({
+    required UpdateProductRequestBody body,
+  }) {
+    return {
+      'query': r'''
+mutation  updateProduct($id: ID!, $title: String!, $images: [String!]!,$description:String!,$price:Float!,$categoryId:Float!) {
+  updateCategory(id: $id, 
+  changes: {  
+      	title: $title
+   			categoryId: $categoryId
+        images: $images
+        description: $description
+      	price: $price  
+   }) {
+		title
+	}
+} ''',
+      'variables': {
+        'id': body.productId,
+        'title': body.title,
+        'categoryId': body.categoryId,
+        'images': body.imageList,
+        'description': body.description,
+        'price': body.price,
+      },
+    };
+  }
 }

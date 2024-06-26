@@ -8,12 +8,14 @@ part 'update_category_event.dart';
 part 'update_category_state.dart';
 part 'update_category_bloc.freezed.dart';
 
-class UpdateCategoryBloc extends Bloc<UpdateCategoryEvent, UpdateCategoryState> {
+class UpdateCategoryBloc
+    extends Bloc<UpdateCategoryEvent, UpdateCategoryState> {
   UpdateCategoryBloc(this._repo) : super(const _Initial()) {
     on<UpdateNewCategoryEvent>(_updateCategory);
   }
   final GetAllCategoriesRepo _repo;
-  FutureOr<void> _updateCategory(UpdateNewCategoryEvent event,  Emitter<UpdateCategoryState> emit) async{
+  FutureOr<void> _updateCategory(
+      UpdateNewCategoryEvent event, Emitter<UpdateCategoryState> emit) async {
     emit(const UpdateCategoryState.loading());
 
     final result = await _repo.updateCategories(body: event.body);
@@ -25,6 +27,5 @@ class UpdateCategoryBloc extends Bloc<UpdateCategoryEvent, UpdateCategoryState> 
         emit(UpdateCategoryState.error(error: error));
       },
     );
-
   }
 }

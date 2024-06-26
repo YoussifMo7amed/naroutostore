@@ -1,13 +1,17 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/bottomsheet/category_bottom_sheet.dart';
 import 'package:naroutoshop/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
+import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/helper/string_extention.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/update_product/update_product_bloc.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/widgets/delete/delete_product.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/widgets/update/update_product_buttom_sheet.dart';
 
 class ProductAdminList extends StatelessWidget {
@@ -16,12 +20,15 @@ class ProductAdminList extends StatelessWidget {
     required this.title,
     required this.categoryName,
     required this.price,
+    required this.productId,
     super.key,
   });
   final String imageUrl;
   final String title;
   final String categoryName;
   final String price;
+  final String productId;
+
   @override
   Widget build(BuildContext context) {
     return CustomContainerLinearAdmin(
@@ -33,18 +40,21 @@ class ProductAdminList extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
-                onPressed: () {},
-                icon: const Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
+              DeleteProduct(
+                productId: productId,
               ),
               IconButton(
                 onPressed: () {
                   CustomModalBottomSheet.showModalCategoryBottomSheet(
                     context: context,
-                    widget: const UpdateProductButtomSheet(),
+                    widget: MultiBlocProvider(
+                      providers: [
+                        BlocProvider(
+                          create: (context) => sl<UpdateProductBloc>(),
+                        )
+                      ],
+                      child: const UpdateProductButtomSheet(),
+                    ),
                   );
                 },
                 padding: EdgeInsets.zero,
