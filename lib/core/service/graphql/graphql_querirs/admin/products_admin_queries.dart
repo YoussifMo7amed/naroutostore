@@ -53,4 +53,20 @@ class AllProductsAdminQueries {
       },
     };
   }
+  Map<String, dynamic> deleteProduct({
+    required String productid,
+  }) {
+    return {
+      'query': r'''
+mutation  deleteProduct($id: ID!) {
+  deleteProduct(id: $id) 
+} ''',
+      'variables': {
+        'id': productid,
+      },
+    };
+  }
+
+
+
 }

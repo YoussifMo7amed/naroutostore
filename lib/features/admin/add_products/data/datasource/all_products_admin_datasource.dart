@@ -22,4 +22,15 @@ class GetAllProductsDataSource {
     );
     return responce;
   }
+
+    Future<void> deleteProduct({required String productId}) async {
+    final responce = await _graphql.deleteProduct(
+      AllProductsAdminQueries().deleteProduct(productid: productId),
+    );
+    return responce;
+  }
+
+
+
+  
 }

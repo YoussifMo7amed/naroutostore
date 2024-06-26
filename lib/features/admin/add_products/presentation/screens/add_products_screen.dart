@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:naroutoshop/core/common/widgets/custom_appbar_admin.dart';
 import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/delete_product/delete_product_bloc.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/bloc/get_all_products/get_all_products_bloc.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/refactors/add_products_body.dart';
 
@@ -14,11 +15,15 @@ class AddProductsScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => sl<GetAllProductsBloc>()..add(
-            const FetchAllProductsAdminEvent(
-              isLoading: true,
+          create: (context) => sl<GetAllProductsBloc>()
+            ..add(
+              const FetchAllProductsAdminEvent(
+                isLoading: true,
+              ),
             ),
-          ),
+        ),
+        BlocProvider(
+          create: (context) => sl<DeleteProductBloc>(),
         ),
       ],
       child: Scaffold(

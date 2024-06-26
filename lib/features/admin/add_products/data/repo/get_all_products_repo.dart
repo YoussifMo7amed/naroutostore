@@ -31,4 +31,17 @@ class GetAllProductssRepo {
       );
     }
   }
+
+
+ Future<ApiResult<void>> deleteProduct({required String productId}) async {
+    try {
+      final responce = await _dataSource.deleteProduct(productId: productId);
+      return ApiResult.success(responce);
+    } catch (e) {
+      return const  ApiResult.failure(
+        'Please try again later, Something went wrong }',
+      );
+    }
+  }
+
 }

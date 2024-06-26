@@ -15,6 +15,7 @@ import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/upda
 import 'package:naroutoshop/features/admin/add_products/data/datasource/all_products_admin_datasource.dart';
 import 'package:naroutoshop/features/admin/add_products/data/repo/get_all_products_repo.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/bloc/create_product/create_product_bloc.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/delete_product/delete_product_bloc.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/bloc/get_all_products/get_all_products_bloc.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/datasource/dashboard_datasource.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/repos/dashboard_repo.dart';
@@ -80,5 +81,6 @@ Future<void> _initproductsAdmin() async {
     ..registerLazySingleton(() => GetAllProductsDataSource(sl()))
     ..registerLazySingleton(() => GetAllProductssRepo(sl()))
     ..registerFactory(() => GetAllProductsBloc(sl()))
-    ..registerFactory(() => CreateProductBloc(sl()));
+    ..registerFactory(() => CreateProductBloc(sl()))
+    ..registerFactory(() => DeleteProductBloc(sl()));
 }
