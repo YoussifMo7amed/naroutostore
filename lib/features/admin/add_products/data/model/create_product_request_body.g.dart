@@ -14,7 +14,7 @@ CreateProdutRequestBody _$CreateProdutRequestBodyFromJson(
       price: (json['price'] as num).toDouble(),
       images:
           (json['images'] as List<dynamic>).map((e) => e as String).toList(),
-      categoryId: json['categoryId'] as String,
+      categoryId: (json['categoryId'] as num).toDouble(),
     );
 
 Map<String, dynamic> _$CreateProdutRequestBodyToJson(

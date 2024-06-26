@@ -10,7 +10,9 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/bloc/create_product/create_product_bloc.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/get_all_products/get_all_products_bloc.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/widgets/create/create_product_buttom_sheet.dart';
 
 class CreateProduct extends StatelessWidget {
@@ -35,10 +37,30 @@ class CreateProduct extends StatelessWidget {
               context: context,
               widget: MultiBlocProvider(
                 providers: [
-                  BlocProvider(create: (context) => sl<CreateProductBloc>(),),
-                  BlocProvider(create: (context) => sl<UploadImageCubit>(),),
+                  BlocProvider(
+                    create: (context) => sl<CreateProductBloc>(),
+                  ),
+                  BlocProvider(
+                    create: (context) => sl<UploadImageCubit>(),
+                  ),
+                  BlocProvider(
+                    create: (context) => sl<GetAllCategoriesAdminBloc>()
+                      ..add(
+                        const GetAllCategoriesAdminEvent.fetchAdminCategories(
+                          isNotLoading: false,
+                        ),
+                      ),
+                  ),
                 ],
-                child: const CreateProductButtomSheet()),
+                child: const CreateProductButtomSheet(),
+              ),
+              whencompleted: () {
+                context.read<GetAllProductsBloc>().add(
+                      const GetAllProductsEvent.getAllProducts(
+                        isLoading: false,
+                      ),
+                    );
+              },
             );
           },
           text: 'Add',

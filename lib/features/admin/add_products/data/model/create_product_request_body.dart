@@ -15,7 +15,7 @@ class CreateProdutRequestBody {
   final String description;
   final double price;
   final List<String> images;
-  final String categoryId;
+  final double categoryId;
 
   Map<String, dynamic> toJson() => _$CreateProdutRequestBodyToJson(this);
 }

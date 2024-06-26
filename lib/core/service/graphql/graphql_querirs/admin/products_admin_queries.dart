@@ -30,7 +30,7 @@ class AllProductsAdminQueries {
       {required CreateProdutRequestBody body}) {
     return {
       'query': r'''
- mutation CreateProduct($title:String!,$price:Float!,$description:String!,$categoryId:ID!,$images:[String!]!) {
+ mutation CreateProduct($title:String!,$price:Float!,$description:String!,$categoryId:Float!,$images:[String!]!) {
 	addProduct(
 		data: {
 			title: $title
