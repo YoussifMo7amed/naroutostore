@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:naroutoshop/core/common/widgets/custom_appbar_admin.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/features/admin/users/presentation/refactors/user_body.dart';
 
 class UsersScreen extends StatelessWidget {
   const UsersScreen ({super.key});
@@ -13,9 +14,7 @@ class UsersScreen extends StatelessWidget {
         tittle: 'Users',
         backgroundColor: context.color.mainColor!,
       ),
-      body:const Center(child: Text('Users Screen',
-        style: TextStyle(fontSize: 20,color: Colors.white),
-      ),),
+      body:const UsersBody(),
     );
   }
 }

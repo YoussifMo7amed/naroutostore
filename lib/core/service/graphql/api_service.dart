@@ -6,6 +6,7 @@ import 'package:naroutoshop/features/admin/add_products/data/model/get_all_produ
 import 'package:naroutoshop/features/admin/dashboard/data/models/categories_number_responce.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/models/products_number_responce.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/models/users_number_responce.dart';
+import 'package:naroutoshop/features/admin/users/data/model/user_responce_model.dart';
 import 'package:naroutoshop/features/auth/data/model/login_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/singup_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/user_role_responce.dart';
@@ -85,5 +86,9 @@ abstract class ApiService {
       @POST(graphql)
     Future<void> updateProduct(
     @Body() Map<String, dynamic> mutation,
+  );
+        @POST(graphql)
+    Future<UserResponceModel> getAllUsers(
+    @Body() Map<String, dynamic> query,
   );
 }
