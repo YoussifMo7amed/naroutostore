@@ -25,7 +25,7 @@ class AuthTitleInfo extends StatelessWidget {
             theme: context.textStyle.copyWith(
               color: context.color.textColor,
               fontSize: 24.sp,
-              fontWeight: FontweightHelper.bold,
+              fontWeight: FontWeightHelper.bold,
             ),
           ),
           verticalSpace(10.h),
@@ -34,7 +34,7 @@ class AuthTitleInfo extends StatelessWidget {
             theme: context.textStyle.copyWith(
               color: context.color.textColor,
               fontSize: 14.sp,
-              fontWeight: FontweightHelper.medium,
+              fontWeight: FontWeightHelper.medium,
             ),
             textAlign: TextAlign.center,
           ),

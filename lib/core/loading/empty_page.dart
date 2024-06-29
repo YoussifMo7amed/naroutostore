@@ -21,10 +21,11 @@ class EmptyPage extends StatelessWidget {
             TextApp(
               text: text ?? 'There is no Items in this category yet',
               theme: context.textStyle.copyWith(
-                  color: Colors.black,
-                  fontWeight: FontweightHelper.bold,
-                  fontSize: 20.sp,
-                  fontFamily: FontFamilyHelper.poppinsEnglish,),
+                color: Colors.black,
+                fontWeight: FontWeightHelper.bold,
+                fontSize: 20.sp,
+                fontFamily: FontFamilyHelper.poppinsEnglish,
+              ),
               textAlign: TextAlign.center,
             ),
           ],

@@ -12,6 +12,12 @@ import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/add_
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/delete_category/delete_category_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/update_category/update_category_bloc.dart';
+import 'package:naroutoshop/features/admin/add_products/data/datasource/all_products_admin_datasource.dart';
+import 'package:naroutoshop/features/admin/add_products/data/repo/get_all_products_repo.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/create_product/create_product_bloc.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/delete_product/delete_product_bloc.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/get_all_products/get_all_products_bloc.dart';
+import 'package:naroutoshop/features/admin/add_products/presentation/bloc/update_product/update_product_bloc.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/datasource/dashboard_datasource.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/repos/dashboard_repo.dart';
 import 'package:naroutoshop/features/admin/dashboard/presentation/bloc/categories_number/categories_number_bloc.dart';
@@ -28,6 +34,7 @@ Future<void> setupInjector() async {
   await _initAuth();
   await _initDashboard();
   await _initCategoriesAdmin();
+  await _initproductsAdmin();
 }
 
 Future<void> _initCore() async {
@@ -68,4 +75,14 @@ Future<void> _initCategoriesAdmin() async {
     ..registerFactory(
       () => UpdateCategoryBloc(sl()),
     );
+}
+
+Future<void> _initproductsAdmin() async {
+  sl
+    ..registerLazySingleton(() => GetAllProductsDataSource(sl()))
+    ..registerLazySingleton(() => GetAllProductssRepo(sl()))
+    ..registerFactory(() => GetAllProductsBloc(sl()))
+    ..registerFactory(() => CreateProductBloc(sl()))
+    ..registerFactory(() => DeleteProductBloc(sl()))
+    ..registerFactory(() => UpdateProductBloc(sl()));
 }

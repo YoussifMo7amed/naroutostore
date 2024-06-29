@@ -63,7 +63,7 @@ class SignUpButton extends StatelessWidget {
                   text: context.translate(LangKeys.signUp),
                   theme: context.textStyle.copyWith(
                     fontSize: 18.sp,
-                    fontWeight: FontweightHelper.bold,
+                    fontWeight: FontWeightHelper.bold,
                     color: Colors.white,
                   ),
                 ),
@@ -76,8 +76,8 @@ class SignUpButton extends StatelessWidget {
   }
 
   void _validateThenDoLogin(BuildContext context) {
-     final authBloc = context.read<AuthBloc>();
-     final imageCubit = context.read<UploadImageCubit>();
+    final authBloc = context.read<AuthBloc>();
+    final imageCubit = context.read<UploadImageCubit>();
 
     if (!authBloc.formKey.currentState!.validate() ||
         imageCubit.getImageUrl.isEmpty) {

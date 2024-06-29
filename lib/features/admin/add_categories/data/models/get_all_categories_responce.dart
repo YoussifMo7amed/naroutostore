@@ -14,6 +14,11 @@ class GetAllCategoriesResponce {
       return  data.categoriesList;
     }
   }
+  List<String> get getCategoryDropDownList  {
+   final list = data.categoriesList.map((e) => e.name ?? '').toList();
+    return list;
+
+  }
 }
 
 @JsonSerializable()

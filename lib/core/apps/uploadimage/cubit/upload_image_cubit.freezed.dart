@@ -20,6 +20,7 @@ mixin _$UploadImageState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
     required TResult Function(String error) error,
@@ -29,6 +30,7 @@ mixin _$UploadImageState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
     TResult? Function(String error)? error,
@@ -38,6 +40,7 @@ mixin _$UploadImageState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
     TResult Function(String error)? error,
@@ -48,6 +51,7 @@ mixin _$UploadImageState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadingListState value) loadingList,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_RemoveImageState value) removeImage,
     required TResult Function(_ErrorState value) error,
@@ -57,6 +61,7 @@ mixin _$UploadImageState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadingListState value)? loadingList,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_RemoveImageState value)? removeImage,
     TResult? Function(_ErrorState value)? error,
@@ -66,6 +71,7 @@ mixin _$UploadImageState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadingListState value)? loadingList,
     TResult Function(_SuccessState value)? success,
     TResult Function(_RemoveImageState value)? removeImage,
     TResult Function(_ErrorState value)? error,
@@ -132,6 +138,7 @@ class _$InitialImpl implements _Initial {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
     required TResult Function(String error) error,
@@ -144,6 +151,7 @@ class _$InitialImpl implements _Initial {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
     TResult? Function(String error)? error,
@@ -156,6 +164,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
     TResult Function(String error)? error,
@@ -172,6 +181,7 @@ class _$InitialImpl implements _Initial {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadingListState value) loadingList,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_RemoveImageState value) removeImage,
     required TResult Function(_ErrorState value) error,
@@ -184,6 +194,7 @@ class _$InitialImpl implements _Initial {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadingListState value)? loadingList,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_RemoveImageState value)? removeImage,
     TResult? Function(_ErrorState value)? error,
@@ -196,6 +207,7 @@ class _$InitialImpl implements _Initial {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadingListState value)? loadingList,
     TResult Function(_SuccessState value)? success,
     TResult Function(_RemoveImageState value)? removeImage,
     TResult Function(_ErrorState value)? error,
@@ -252,6 +264,7 @@ class _$LoadingStateImpl implements _LoadingState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
     required TResult Function(String error) error,
@@ -264,6 +277,7 @@ class _$LoadingStateImpl implements _LoadingState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
     TResult? Function(String error)? error,
@@ -276,6 +290,7 @@ class _$LoadingStateImpl implements _LoadingState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
     TResult Function(String error)? error,
@@ -292,6 +307,7 @@ class _$LoadingStateImpl implements _LoadingState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadingListState value) loadingList,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_RemoveImageState value) removeImage,
     required TResult Function(_ErrorState value) error,
@@ -304,6 +320,7 @@ class _$LoadingStateImpl implements _LoadingState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadingListState value)? loadingList,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_RemoveImageState value)? removeImage,
     TResult? Function(_ErrorState value)? error,
@@ -316,6 +333,7 @@ class _$LoadingStateImpl implements _LoadingState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadingListState value)? loadingList,
     TResult Function(_SuccessState value)? success,
     TResult Function(_RemoveImageState value)? removeImage,
     TResult Function(_ErrorState value)? error,
@@ -330,6 +348,165 @@ class _$LoadingStateImpl implements _LoadingState {
 
 abstract class _LoadingState implements UploadImageState {
   const factory _LoadingState() = _$LoadingStateImpl;
+}
+
+/// @nodoc
+abstract class _$$LoadingListStateImplCopyWith<$Res> {
+  factory _$$LoadingListStateImplCopyWith(_$LoadingListStateImpl value,
+          $Res Function(_$LoadingListStateImpl) then) =
+      __$$LoadingListStateImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({int index});
+}
+
+/// @nodoc
+class __$$LoadingListStateImplCopyWithImpl<$Res>
+    extends _$UploadImageStateCopyWithImpl<$Res, _$LoadingListStateImpl>
+    implements _$$LoadingListStateImplCopyWith<$Res> {
+  __$$LoadingListStateImplCopyWithImpl(_$LoadingListStateImpl _value,
+      $Res Function(_$LoadingListStateImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? index = null,
+  }) {
+    return _then(_$LoadingListStateImpl(
+      index: null == index
+          ? _value.index
+          : index // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$LoadingListStateImpl implements _LoadingListState {
+  const _$LoadingListStateImpl({required this.index});
+
+  @override
+  final int index;
+
+  @override
+  String toString() {
+    return 'UploadImageState.loadingList(index: $index)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$LoadingListStateImpl &&
+            (identical(other.index, index) || other.index == index));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, index);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$LoadingListStateImplCopyWith<_$LoadingListStateImpl> get copyWith =>
+      __$$LoadingListStateImplCopyWithImpl<_$LoadingListStateImpl>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initial,
+    required TResult Function() loading,
+    required TResult Function(int index) loadingList,
+    required TResult Function() success,
+    required TResult Function(String imageUrl) removeImage,
+    required TResult Function(String error) error,
+  }) {
+    return loadingList(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? initial,
+    TResult? Function()? loading,
+    TResult? Function(int index)? loadingList,
+    TResult? Function()? success,
+    TResult? Function(String imageUrl)? removeImage,
+    TResult? Function(String error)? error,
+  }) {
+    return loadingList?.call(index);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initial,
+    TResult Function()? loading,
+    TResult Function(int index)? loadingList,
+    TResult Function()? success,
+    TResult Function(String imageUrl)? removeImage,
+    TResult Function(String error)? error,
+    required TResult orElse(),
+  }) {
+    if (loadingList != null) {
+      return loadingList(index);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_Initial value) initial,
+    required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadingListState value) loadingList,
+    required TResult Function(_SuccessState value) success,
+    required TResult Function(_RemoveImageState value) removeImage,
+    required TResult Function(_ErrorState value) error,
+  }) {
+    return loadingList(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_Initial value)? initial,
+    TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadingListState value)? loadingList,
+    TResult? Function(_SuccessState value)? success,
+    TResult? Function(_RemoveImageState value)? removeImage,
+    TResult? Function(_ErrorState value)? error,
+  }) {
+    return loadingList?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_Initial value)? initial,
+    TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadingListState value)? loadingList,
+    TResult Function(_SuccessState value)? success,
+    TResult Function(_RemoveImageState value)? removeImage,
+    TResult Function(_ErrorState value)? error,
+    required TResult orElse(),
+  }) {
+    if (loadingList != null) {
+      return loadingList(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _LoadingListState implements UploadImageState {
+  const factory _LoadingListState({required final int index}) =
+      _$LoadingListStateImpl;
+
+  int get index;
+  @JsonKey(ignore: true)
+  _$$LoadingListStateImplCopyWith<_$LoadingListStateImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -372,6 +549,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
     required TResult Function(String error) error,
@@ -384,6 +562,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
     TResult? Function(String error)? error,
@@ -396,6 +575,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
     TResult Function(String error)? error,
@@ -412,6 +592,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadingListState value) loadingList,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_RemoveImageState value) removeImage,
     required TResult Function(_ErrorState value) error,
@@ -424,6 +605,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadingListState value)? loadingList,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_RemoveImageState value)? removeImage,
     TResult? Function(_ErrorState value)? error,
@@ -436,6 +618,7 @@ class _$SuccessStateImpl implements _SuccessState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadingListState value)? loadingList,
     TResult Function(_SuccessState value)? success,
     TResult Function(_RemoveImageState value)? removeImage,
     TResult Function(_ErrorState value)? error,
@@ -520,6 +703,7 @@ class _$RemoveImageStateImpl implements _RemoveImageState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
     required TResult Function(String error) error,
@@ -532,6 +716,7 @@ class _$RemoveImageStateImpl implements _RemoveImageState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
     TResult? Function(String error)? error,
@@ -544,6 +729,7 @@ class _$RemoveImageStateImpl implements _RemoveImageState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
     TResult Function(String error)? error,
@@ -560,6 +746,7 @@ class _$RemoveImageStateImpl implements _RemoveImageState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadingListState value) loadingList,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_RemoveImageState value) removeImage,
     required TResult Function(_ErrorState value) error,
@@ -572,6 +759,7 @@ class _$RemoveImageStateImpl implements _RemoveImageState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadingListState value)? loadingList,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_RemoveImageState value)? removeImage,
     TResult? Function(_ErrorState value)? error,
@@ -584,6 +772,7 @@ class _$RemoveImageStateImpl implements _RemoveImageState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadingListState value)? loadingList,
     TResult Function(_SuccessState value)? success,
     TResult Function(_RemoveImageState value)? removeImage,
     TResult Function(_ErrorState value)? error,
@@ -672,6 +861,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
+    required TResult Function(int index) loadingList,
     required TResult Function() success,
     required TResult Function(String imageUrl) removeImage,
     required TResult Function(String error) error,
@@ -684,6 +874,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
+    TResult? Function(int index)? loadingList,
     TResult? Function()? success,
     TResult? Function(String imageUrl)? removeImage,
     TResult? Function(String error)? error,
@@ -696,6 +887,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
+    TResult Function(int index)? loadingList,
     TResult Function()? success,
     TResult Function(String imageUrl)? removeImage,
     TResult Function(String error)? error,
@@ -712,6 +904,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult map<TResult extends Object?>({
     required TResult Function(_Initial value) initial,
     required TResult Function(_LoadingState value) loading,
+    required TResult Function(_LoadingListState value) loadingList,
     required TResult Function(_SuccessState value) success,
     required TResult Function(_RemoveImageState value) removeImage,
     required TResult Function(_ErrorState value) error,
@@ -724,6 +917,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_Initial value)? initial,
     TResult? Function(_LoadingState value)? loading,
+    TResult? Function(_LoadingListState value)? loadingList,
     TResult? Function(_SuccessState value)? success,
     TResult? Function(_RemoveImageState value)? removeImage,
     TResult? Function(_ErrorState value)? error,
@@ -736,6 +930,7 @@ class _$ErrorStateImpl implements _ErrorState {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_Initial value)? initial,
     TResult Function(_LoadingState value)? loading,
+    TResult Function(_LoadingListState value)? loadingList,
     TResult Function(_SuccessState value)? success,
     TResult Function(_RemoveImageState value)? removeImage,
     TResult Function(_ErrorState value)? error,

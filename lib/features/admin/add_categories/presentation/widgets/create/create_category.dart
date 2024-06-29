@@ -23,17 +23,17 @@ class CreateCategory extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         TextApp(
-          text: 'Get All Categories',
+          text: 'Get All Products',
           theme: context.textStyle.copyWith(
             fontSize: 18.sp,
             fontFamily: FontFamilyHelper.poppinsEnglish,
-            fontWeight: FontweightHelper.medium,
+            fontWeight: FontWeightHelper.medium,
           ),
         ),
         CustomButton(
           onPressed: () {
             // show buttonsheet
-            CagegoryModalBottomSheet.showModalCategoryBottomSheet(
+            CustomModalBottomSheet.showModalCategoryBottomSheet(
               context: context,
               widget: MultiBlocProvider(
                 providers: [
@@ -43,9 +43,7 @@ class CreateCategory extends StatelessWidget {
                   BlocProvider(create: (context) => sl<UploadImageCubit>()),
                 ],
                 child: const CreateCagegoryBottomSheet(),
-                
               ),
-
               whencompleted: () {
                 // get all categories
                 context.read<GetAllCategoriesAdminBloc>().add(
@@ -53,7 +51,7 @@ class CreateCategory extends StatelessWidget {
                         isNotLoading: false,
                       ),
                     );
-             },
+              },
             );
           },
           text: 'Add',

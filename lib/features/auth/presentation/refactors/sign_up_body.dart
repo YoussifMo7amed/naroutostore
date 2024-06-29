@@ -52,7 +52,7 @@ class SignUpBody extends StatelessWidget {
                   theme: context.textStyle.copyWith(
                     color: context.color.bluePinkLight,
                     fontSize: 16.sp,
-                    fontWeight: FontweightHelper.medium,
+                    fontWeight: FontWeightHelper.medium,
                   ),
                 ),
               ),

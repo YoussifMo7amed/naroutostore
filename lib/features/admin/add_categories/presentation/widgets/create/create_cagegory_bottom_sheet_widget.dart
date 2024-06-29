@@ -43,7 +43,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                 theme: context.textStyle.copyWith(
                   fontSize: 20.sp,
                   fontFamily: FontFamilyHelper.poppinsEnglish,
-                  fontWeight: FontweightHelper.bold,
+                  fontWeight: FontWeightHelper.bold,
                 ),
               ),
             ),
@@ -56,7 +56,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                   theme: context.textStyle.copyWith(
                     fontSize: 16.sp,
                     fontFamily: FontFamilyHelper.poppinsEnglish,
-                    fontWeight: FontweightHelper.medium,
+                    fontWeight: FontWeightHelper.medium,
                   ),
                 ),
                 BlocBuilder<UploadImageCubit, UploadImageState>(
@@ -93,7 +93,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
-                fontWeight: FontweightHelper.medium,
+                fontWeight: FontWeightHelper.medium,
               ),
             ),
             verticalSpace(10.h),
@@ -119,8 +119,6 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                       message: '${titleController.text} created successfully',
                       seconds: 2,
                     );
-                   
-                    
                   },
                   error: (message) {
                     ShowToast.showToastErrorTop(
@@ -130,36 +128,37 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                 );
               },
               builder: (context, state) {
-                return state.maybeWhen(loading: () {
-                  return Container(
-                    height: 50.h,
-                    width: MediaQuery.of(context).size.width,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(10),
-                      color: Colors.grey.withOpacity(0.8),
-                    ),
-                    child: const Center(
-                      child: CircularProgressIndicator(
-                        color: ColorsDark.blueDark,
+                return state.maybeWhen(
+                  loading: () {
+                    return Container(
+                      height: 50.h,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10),
+                        color: Colors.grey.withOpacity(0.8),
                       ),
-                    ),
-                  );
-                }, orElse: () {
-                  return CustomButton(
-                    onPressed: ()async {
-                   await _validaeandcreate(context).then((value) {
-
-                   });
-                    },
-                    text: 'Create a new Category',
-                    width: MediaQuery.of(context).size.width,
-                    height: 50.h,
-                    lastRadius: 20,
-                    threeRadius: 20,
-                    backgroundColor: Colors.white,
-                    textColor: ColorsDark.blueDark,
-                  );
-                },);
+                      child: const Center(
+                        child: CircularProgressIndicator(
+                          color: ColorsDark.blueDark,
+                        ),
+                      ),
+                    );
+                  },
+                  orElse: () {
+                    return CustomButton(
+                      onPressed: () async {
+                        await _validaeandcreate(context).then((value) {});
+                      },
+                      text: 'Create a new Category',
+                      width: MediaQuery.of(context).size.width,
+                      height: 50.h,
+                      lastRadius: 20,
+                      threeRadius: 20,
+                      backgroundColor: Colors.white,
+                      textColor: ColorsDark.blueDark,
+                    );
+                  },
+                );
               },
             ),
             verticalSpace(10.h),
@@ -169,7 +168,7 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
     );
   }
 
-  Future<void> _validaeandcreate(BuildContext context)async {
+  Future<void> _validaeandcreate(BuildContext context) async {
     if (formkey.currentState!.validate() ||
         context.read<UploadImageCubit>().getImageUrl.isEmpty) {
       if (context.read<UploadImageCubit>().getImageUrl.isEmpty) {
@@ -185,8 +184,6 @@ class _CreateCagegoryBottomSheetState extends State<CreateCagegoryBottomSheet> {
                 ),
               ),
             );
-            
-            
       }
     }
   }

@@ -14,7 +14,8 @@ class AddCategoriesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
+    return 
+Padding(
       padding: EdgeInsets.symmetric(horizontal: 30.w, vertical: 30.h),
       child: Column(
         children: [
@@ -23,7 +24,6 @@ class AddCategoriesBody extends StatelessWidget {
               height: 100,
               width: MediaQuery.of(context).size.width,
               child: const CreateCategory(),),
-
           //add category items
           Expanded(
             child: RefreshIndicator(

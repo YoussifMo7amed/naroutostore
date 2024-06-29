@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
@@ -56,7 +55,7 @@ class CustomButton extends StatelessWidget {
         child: TextApp(
           theme: context.textStyle.copyWith(
             color: textColor ?? Colors.white,
-            fontWeight:FontweightHelper.medium ,
+            fontWeight: FontWeightHelper.medium,
             fontFamily: FontFamilyHelper.poppinsEnglish,
             fontSize: 16.sp,
           ),

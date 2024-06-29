@@ -42,7 +42,7 @@ class DashBoardContainer extends StatelessWidget {
                   theme: context.textStyle.copyWith(
                     fontSize: 24.sp,
                     fontFamily: FontFamilyHelper.poppinsEnglish,
-                    fontWeight: FontweightHelper.bold,
+                    fontWeight: FontWeightHelper.bold,
                   ),
                 ),
                 const Spacer(),
@@ -57,7 +57,7 @@ class DashBoardContainer extends StatelessWidget {
                     theme: context.textStyle.copyWith(
                       fontSize: 24.sp,
                       fontFamily: FontFamilyHelper.poppinsEnglish,
-                      fontWeight: FontweightHelper.bold,
+                      fontWeight: FontWeightHelper.bold,
                     ),
                   ),
                 const Spacer(),
