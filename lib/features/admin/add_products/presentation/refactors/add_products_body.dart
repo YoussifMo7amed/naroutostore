@@ -51,7 +51,7 @@ class AddProductsBody extends StatelessWidget {
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               gridDelegate:
-                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                  const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 8,
                                 mainAxisSpacing: 15,
@@ -63,7 +63,9 @@ class AddProductsBody extends StatelessWidget {
                             return GridView.builder(
                               reverse: true,
                               itemBuilder: (context, index) {
+
                                 return ProductAdminList(
+                                  imageList:productList[index].images! ,
                                   productId: productList[index].id ?? '',
                                   imageUrl: productList[index].images!.first,
                                   title: productList[index].title ?? '',
@@ -71,6 +73,9 @@ class AddProductsBody extends StatelessWidget {
                                       productList[index].category!.name ?? '',
                                   price: productList[index].price.toString() ??
                                       '0',
+                                  description:
+                                      productList[index].description ?? '',
+                                  categoryId: productList[index].category!.id ?? '',
                                 );
                               },
                               itemCount: productList.length,

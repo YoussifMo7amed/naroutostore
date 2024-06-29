@@ -180,7 +180,7 @@ class _CreateProductButtomSheetState extends State<CreateProductButtomSheet> {
                           setState(() {
                             categoryName = value;
                             final categoryStringId = data.categoriesGetAllList
-                                .firstWhere((e) => e.name == categoryName)
+                                .firstWhere((e) => e.name == value)
                                 .id!;
                             categoryId = double.parse(categoryStringId);
                           });
@@ -278,13 +278,18 @@ class _CreateProductButtomSheetState extends State<CreateProductButtomSheet> {
           message: 'please select a category',
         );
       } else {
+        final filteredList = context
+            .read<UploadImageCubit>()
+            .imageList
+            .where((item) => item.isNotEmpty)
+            .toList();
         context.read<CreateProductBloc>().add(
               CreateProductEvent.createProduct(
                 body: CreateProdutRequestBody(
                   title: _titleController.text.trim(),
                   price: double.parse(_priceController.text.trim()),
                   description: _descriptionController.text,
-                  images: context.read<UploadImageCubit>().imageList,
+                  images: filteredList,
                   categoryId: categoryId ?? 0,
                 ),
               ),

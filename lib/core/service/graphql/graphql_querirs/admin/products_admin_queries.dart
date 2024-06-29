@@ -68,32 +68,34 @@ mutation  deleteProduct($id: ID!) {
       },
     };
   }
-
+//  //Update Product
   Map<String, dynamic> updateProduct({
     required UpdateProductRequestBody body,
   }) {
     return {
       'query': r'''
-mutation  updateProduct($id: ID!, $title: String!, $images: [String!]!,$description:String!,$price:Float!,$categoryId:Float!) {
-  updateCategory(id: $id, 
-  changes: {  
-      	title: $title
-   			categoryId: $categoryId
-        images: $images
-        description: $description
-      	price: $price  
-   }) {
-		title
-	}
-} ''',
+            mutation UpdateProduct($productId: ID!, $title: String!,$description: String!,$imageList:[String!]!,$price: Float!,$categoryId: Float! ) {
+          updateProduct(id: $productId, 
+          changes: { 
+            title: $title,
+            categoryId: $categoryId,
+            images:$imageList,
+            description: $description,
+            price:$price
+            }) {
+            title
+          }
+        }
+        ''',
       'variables': {
-        'id': body.productId,
+        'productId': body.productId,
         'title': body.title,
-        'categoryId': body.categoryId,
-        'images': body.imageList,
         'description': body.description,
+        'imageList': body.imageList,
+        'categoryId': body.categoryId,
         'price': body.price,
       },
     };
   }
+
 }

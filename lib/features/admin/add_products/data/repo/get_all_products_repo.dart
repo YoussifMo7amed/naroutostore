@@ -33,25 +33,25 @@ class GetAllProductssRepo {
     }
   }
 
-
- Future<ApiResult<void>> deleteProduct({required String productId}) async {
+  Future<ApiResult<void>> deleteProduct({required String productId}) async {
     try {
       final responce = await _dataSource.deleteProduct(productId: productId);
       return ApiResult.success(responce);
     } catch (e) {
-      return const  ApiResult.failure(
+      return const ApiResult.failure(
         'Please try again later, Something went wrong }',
       );
     }
   }
 
-  Future<ApiResult<void>> updateProducts({required UpdateProductRequestBody body}) async {
+  Future<ApiResult<void>> updateProducts(
+      {required UpdateProductRequestBody body,}) async {
     try {
       final responce = await _dataSource.updateProducts(body: body);
       return ApiResult.success(responce);
     } catch (e) {
-      return const  ApiResult.failure(
-        'Please try again later, Something went wrong }',
+      return  ApiResult.failure(
+        'Please try again later, Something went wrong',
       );
     }
   }

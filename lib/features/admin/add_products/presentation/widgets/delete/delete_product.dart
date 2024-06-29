@@ -18,7 +18,8 @@ class DeleteProduct extends StatelessWidget {
                   const GetAllProductsEvent.getAllProducts(isLoading: false),
                 );
             ShowToast.showToastSuccessTop(
-                message: 'Product Deleted successfully',);
+              message: 'Product Deleted successfully',
+            );
           },
           error: (error) {
             ShowToast.showToastErrorTop(
@@ -32,8 +33,8 @@ class DeleteProduct extends StatelessWidget {
           loading: (id) {
             if (id == productId) {
               return SizedBox(
-                height: 15.h,
-                width: 15.w,
+                height: 10.h,
+                width: 10.w,
                 child: const Center(
                   child: CircularProgressIndicator(
                     color: Colors.white,
@@ -41,9 +42,13 @@ class DeleteProduct extends StatelessWidget {
                 ),
               );
             } else {
-              return const Icon(
-                Icons.delete,
-                color: Colors.red,
+              return SizedBox(
+                height: 10.h,
+                width: 10.w,
+                child: const Icon(
+                  Icons.delete,
+                  color: Colors.red,
+                ),
               );
             }
           },
@@ -67,10 +72,3 @@ class DeleteProduct extends StatelessWidget {
     );
   }
 }
-// mutation {
-// 	updateProduct(id: "120", changes: { title: "udpate" }) {
-// 		title
-// 		price
-// 		images
-// 	}
-// }

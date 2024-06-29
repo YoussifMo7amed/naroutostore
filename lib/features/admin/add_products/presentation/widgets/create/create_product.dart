@@ -47,8 +47,7 @@ class CreateProduct extends StatelessWidget {
                     create: (context) => sl<GetAllCategoriesAdminBloc>()
                       ..add(
                         const GetAllCategoriesAdminEvent.fetchAdminCategories(
-                          isNotLoading: false,
-                        ),
+                            isNotLoading: false,),
                       ),
                   ),
                 ],
