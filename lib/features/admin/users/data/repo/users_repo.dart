@@ -6,7 +6,7 @@ class UsersRepo {
   UsersRepo(this._dataSource);
   final UsersDataSource _dataSource;
 
-  Future<ApiResult<UserResponceModel>> getAllProducts() async {
+  Future<ApiResult<UserResponceModel>> getAllUsers() async {
     try {
       final responce = await _dataSource.getAllUsers();
       return ApiResult.success(responce);

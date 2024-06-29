@@ -5,11 +5,12 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/users/data/model/user_responce_model.dart';
 import 'package:naroutoshop/features/admin/users/presentation/widgets/table_cell_title_widget.dart';
 
 class TableForUsers extends StatelessWidget {
-  const TableForUsers({super.key});
-
+  const TableForUsers({required this.usersList, super.key});
+final List<UserModel> usersList ;
   @override
   Widget build(BuildContext context) {
     return Table(
@@ -47,14 +48,14 @@ class TableForUsers extends StatelessWidget {
           ],
         ),
         ...List.generate(
-          20,
+          usersList.length,
           (index) => TableRow(children: [
             TableCell(
                 verticalAlignment: TableCellVerticalAlignment.middle,
                 child: Padding(
                   padding: EdgeInsets.all(10.h),
                   child: TextApp(
-                      text: 'Name',
+                      text: usersList[index].name??'',
                       theme: context.textStyle.copyWith(
                         fontSize: 12.sp,
                         fontFamily: FontFamilyHelper.poppinsEnglish,
@@ -66,7 +67,7 @@ class TableForUsers extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.all(10.h),
                   child: TextApp(
-                      text: 'YouseefMohamed2@Gmail.com',
+                      text: usersList[index].email??'',
                       theme: context.textStyle.copyWith(
                         fontSize: 12.sp,
                         fontFamily: FontFamilyHelper.poppinsEnglish,

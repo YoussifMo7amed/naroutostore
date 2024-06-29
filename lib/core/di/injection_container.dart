@@ -23,6 +23,9 @@ import 'package:naroutoshop/features/admin/dashboard/data/repos/dashboard_repo.d
 import 'package:naroutoshop/features/admin/dashboard/presentation/bloc/categories_number/categories_number_bloc.dart';
 import 'package:naroutoshop/features/admin/dashboard/presentation/bloc/products_number/products_number_bloc.dart';
 import 'package:naroutoshop/features/admin/dashboard/presentation/bloc/users_number/users_number_bloc.dart';
+import 'package:naroutoshop/features/admin/users/data/datasource/users_admin_datasource.dart';
+import 'package:naroutoshop/features/admin/users/data/repo/users_repo.dart';
+import 'package:naroutoshop/features/admin/users/presentation/bloc/get_all_users/get_all_users_bloc.dart';
 import 'package:naroutoshop/features/auth/data/data_source/auth_data_source.dart';
 import 'package:naroutoshop/features/auth/data/repos/auth_repo.dart';
 import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
@@ -35,6 +38,7 @@ Future<void> setupInjector() async {
   await _initDashboard();
   await _initCategoriesAdmin();
   await _initproductsAdmin();
+  await _initUsersAdmin();
 }
 
 Future<void> _initCore() async {
@@ -85,4 +89,11 @@ Future<void> _initproductsAdmin() async {
     ..registerFactory(() => CreateProductBloc(sl()))
     ..registerFactory(() => DeleteProductBloc(sl()))
     ..registerFactory(() => UpdateProductBloc(sl()));
+}
+
+Future<void> _initUsersAdmin() async {
+  sl
+    ..registerLazySingleton(() => UsersDataSource(sl()))
+    ..registerLazySingleton(() => UsersRepo(sl()))
+    ..registerFactory(() => GetAllUsersBloc(sl()));
 }
