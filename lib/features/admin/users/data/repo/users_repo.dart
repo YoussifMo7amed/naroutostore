@@ -16,4 +16,16 @@ class UsersRepo {
       );
     }
   }
+
+    Future<ApiResult<void>> deleteUser({required String userId}) async {
+    try {
+      final responce = await _dataSource.deleteUser(userId: userId);
+      return ApiResult.success(responce);
+    } catch (e) {
+      return const ApiResult.failure(
+        'Please try again later, Something went wrong }',
+      );
+    }
+  }
+  
 }

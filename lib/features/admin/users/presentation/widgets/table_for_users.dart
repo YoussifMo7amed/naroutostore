@@ -6,6 +6,7 @@ import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/features/admin/users/data/model/user_responce_model.dart';
+import 'package:naroutoshop/features/admin/users/presentation/widgets/delete_user_widget.dart';
 import 'package:naroutoshop/features/admin/users/presentation/widgets/table_cell_title_widget.dart';
 
 class TableForUsers extends StatelessWidget {
@@ -74,16 +75,10 @@ final List<UserModel> usersList ;
                         fontWeight: FontWeightHelper.medium,
                       ),),
                 ),),
-            TableCell(
+             TableCell(
                 verticalAlignment: TableCellVerticalAlignment.middle,
-                child: Padding(
-                  padding: EdgeInsets.all(10.h),
-                  child: IconButton(
-                      onPressed: () {},
-                      icon: const Icon(
-                        Icons.delete,
-                        color: Colors.red,
-                      ),),
+                child:  DeleteUser(
+                  userId: usersList[index].id??'',
                 ),),
           ],),
         ),
@@ -91,3 +86,5 @@ final List<UserModel> usersList ;
     );
   }
 }
+
+

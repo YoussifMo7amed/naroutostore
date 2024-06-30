@@ -17,4 +17,19 @@ class UsersAdminQueries {
        ''',
     };
   }
+
+  Map<String, dynamic> deleteUser({
+    required String userId,
+  }) {
+    
+    return {
+      'query': r'''
+             mutation DeleteUser($id: ID!) {
+	deleteUser(id: $id)
+} ''',
+      'variables': {
+        'id': userId,
+      },
+    };
+  }
 }

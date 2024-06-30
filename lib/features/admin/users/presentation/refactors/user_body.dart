@@ -45,6 +45,11 @@ class UsersBody extends StatelessWidget {
                               usersList: usersList,
                             );
                           },
+                          searchuser: (usersList) {
+                            return TableForUsers(
+                              usersList: usersList,
+                            );
+                          },
                           empty: EmptyPage.new,
                           error: Text.new,
                         );

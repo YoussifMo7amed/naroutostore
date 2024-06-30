@@ -7,4 +7,6 @@ class GetAllUsersState with _$GetAllUsersState {
       SuccessState;
   const factory GetAllUsersState.empty() = EmptyState;
   const factory GetAllUsersState.error({required String error}) = ErrorState;
+  const factory GetAllUsersState.searchuser({required List<UserModel> users}) =
+      SearchUserState;
 }

@@ -54,7 +54,7 @@ class AllProductsAdminQueries {
       },
     };
   }
-
+ // Delete Product
   Map<String, dynamic> deleteProduct({
     required String productid,
   }) {
