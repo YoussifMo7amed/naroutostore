@@ -51,6 +51,7 @@ class AddProductsBody extends StatelessWidget {
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               gridDelegate:
+                                  // ignore: lines_longer_than_80_chars
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 8,
@@ -63,25 +64,25 @@ class AddProductsBody extends StatelessWidget {
                             return GridView.builder(
                               reverse: true,
                               itemBuilder: (context, index) {
-
                                 return ProductAdminList(
-                                  imageList:productList[index].images! ,
+                                  imageList: productList[index].images!,
                                   productId: productList[index].id ?? '',
                                   imageUrl: productList[index].images!.first,
                                   title: productList[index].title ?? '',
                                   categoryName:
-                                      productList[index].category!.name ?? '',
-                                  price: productList[index].price.toString() ??
-                                      '0',
+                                      productList[index].category!.name,
+                                  price: productList[index].price.toString(),
                                   description:
                                       productList[index].description ?? '',
-                                  categoryId: productList[index].category!.id ?? '',
+                                  categoryId:
+                                      productList[index].category!.id,
                                 );
                               },
                               itemCount: productList.length,
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               gridDelegate:
+                                  // ignore: lines_longer_than_80_chars
                                   const SliverGridDelegateWithFixedCrossAxisCount(
                                 crossAxisCount: 2,
                                 crossAxisSpacing: 8,
