@@ -6,13 +6,16 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:naroutoshop/core/apps/bloc_observer.dart';
 import 'package:naroutoshop/core/apps/envvariables.dart';
 import 'package:naroutoshop/core/di/injection_container.dart';
+import 'package:naroutoshop/core/service/push_notifications/firebase_cloud_messaging.dart';
 import 'package:naroutoshop/core/service/shared_pref/shared_pref.dart';
 import 'package:naroutoshop/naroutoshop.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   Bloc.observer = AppBlocObserver();
-  await EnvVariable.instance.init(envType: EnvTypeEnum.prod);
+  await EnvVariable.instance.init(
+    envType: EnvTypeEnum.prod,
+  );
   await SharedPref().instantiatePreferences();
   await setupInjector();
   Platform.isAndroid
@@ -26,6 +29,13 @@ void main() async {
           ),
         )
       : await Firebase.initializeApp();
+  await FirebaseCloudMessaging().init();
+  await FirebaseCloudMessaging().getAccessToken().then(
+    (value) {
+      FirebaseCloudMessaging().sendTopicNotification();
+    },
+  );
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
