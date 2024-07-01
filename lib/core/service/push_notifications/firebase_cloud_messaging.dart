@@ -1,0 +1,133 @@
+import 'dart:convert';
+import 'package:dio/dio.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
+import 'package:googleapis_auth/auth_io.dart';
+import 'package:naroutoshop/core/apps/envvariables.dart';
+
+class FirebaseCloudMessaging {
+  factory FirebaseCloudMessaging() => _instance;
+  FirebaseCloudMessaging._();
+
+  static final FirebaseCloudMessaging _instance = FirebaseCloudMessaging._();
+
+  String fcmUrl = EnvVariable.instance.baseUrl;
+  static const String subscriptionKey = 'narouto-store';
+  static const String serviceAccountJsonString = '''
+{
+  "type": "service_account",
+  "project_id": "narouto-store",
+  "private_key_id": "9c43927fc8686357900f64f526d4b0fcea9a8448",
+  "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCdbaeExGqcV/0I\\nalNHahSbJZ24v0obxO9N4NrzlHUxAEGYlxf6aH9VUJV5VzsKMBwbueUrLF8nyvLm\\ny2Gl6uYtGCtbMxDiMjQ80Qc2L6vaO7kC/28KeERNA714kQ+GV3qOv9ZTXLOa1FDD\\n9Af7Y7T2dXBy0RDjGmMRDp6A6rlIBgGv4CTUhSM6eHP1TvvK82T0oe6sKn9aYTmh\\nrjttaqr+joNPSJzicmeCxsgHq6Dv7YVOlMWrxJ30Vlzp4M5rv4R+wI5PljoL+I4w\\nMmfke+zVW5zgrBaIHFgcUs7raih8TXQBKmCti6/OBAEUiCk7Sz7xLha856v9hpZD\\n4tJN8vg1AgMBAAECgf9Y1I0ZiBzQ0kMHOYoBQfjMVZgRS64qCV1H13qQA1OK91b/\\n+eBW9+kScbVT4RumMDY+Yqy2bLrKy6dcbuBnlB4QbE/Z1uR5H54E49VYk1C0a/6q\\nJi64y/NEXRr0C6lbgA0z4M6C2dI1YJgZyQzoup03N2J/HeasiAx2viR1H/1HxESH\\nNL+2/ftpYB/r2qK+95OTinPFMYqTSzYfHBazdmuu5gC9Iqtl7M5HYZFqqmJ0maup\\ngX43XYFsiOrpfkgsl2Qkhy8G00IKNu1O81qi4g6vNj48KvjT6GPGCf4mbPwIRavI\\nZmnHhMGFsKLW3doZ0xUM8pQMg/hMtTSdLg3TiPECgYEA3JQ9HAbYaK4DgI7BD+cT\\n5g8AxBSuQRPsSLZS5gYgAn/enVXHS+dwqMPAgAh65iySahfGVmOkT3ZkA+yRgaUb\\nOeshxdGWDZJ+2+Zc/+qoj+UCc8gncP3YrGcY0KWUMPDH3fqF4Tx25KBf5vZbxehO\\nNf0TR1IdJctCUYY2nt3g8PkCgYEAtrVb/hlz4UkyTUyvHNQUFzAbkSqIDeglkcrC\\n43k34GYR9+rp3tMMhfg0rBr2g7HJhP9NVj73vk3FsK5vfSFq9VlSlycwUhlGstal\\nWlyQmq2KMYtnzD25TlhwNOBKBOk0gXa24p7mW7W7nqTmFsE6UN1vZQxxy8RJHKIn\\nPZiMDB0CgYAkyK+8KcQTCNnaqXO2pDFkTyIwkMZSYfEoWwdOBr11zT8he7mFhe36\\nptJGR6O/GLW97YMMywcOnU6mfN/y/8afjP+Pzpi4YLK5FxxxLP+5J1aWWk2BgUON\\n1I+F0+b3ll+uO+XxnrSxAbGcgX7ibRAF3tNFNINZ1yCTGc+oBJZLeQKBgAexy5X/\\n7Gloc73dpOJJ7C6tz/tlFyW+yRZCu8JosHm60rbmJcNEkBp0QYOd/xO8wQfg2Jjx\\nPe29yL2QGxHh/mcmw9upwtcySU/uyjfr/gsFk/RSMqTfVJaAEvmnGHbse1GYdktE\\n9d6W4Lflqer7aEFPkglnZMN4GLwj+BMYAY3hAoGBAKdbRjTpaWxFzasEpT+MW0S6\\n4Xbul2x+l0v8bYZvLKil9O9zN9RY9Aep7dVbQQCkbiZjMrf7AG9Er7V2YwldYPEr\\nJN0B8RBuFoNPQpe8LjU9FZhF1C7ciplh+KLxBLfsacu1aQXcUT5xbQfwzpotr0Az\\neK+jCxVfBDnlcR6DvofB\\n-----END PRIVATE KEY-----\\n",
+  "client_email": "firebase-adminsdk-4n8ls@narouto-store.iam.gserviceaccount.com",
+  "client_id": "103532476494135034006",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-4n8ls%40narouto-store.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+''';
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+  bool isPermissionNotified = false;
+  ValueNotifier<bool> isSubscribed = ValueNotifier(true);
+  Future<void> init() async {
+     await _permissionsNotification();
+  }
+  Future<void> controllerForUserSubscription() async {
+    if (isPermissionNotified==false) {
+      await _permissionsNotification();
+    } else {
+      if (isSubscribed.value == false) {
+        await _subscribeToTopic();
+      } else {
+        await unsubscribeFromTopic();
+      }
+    }
+  }
+
+  Future<void> _permissionsNotification() async {
+    final settings = await messaging.requestPermission(
+      badge: false,
+    );
+
+    if (settings.authorizationStatus == AuthorizationStatus.authorized) {
+      isPermissionNotified = true;
+
+      await _subscribeToTopic();
+
+      debugPrint('🔔====User Granted Permission🔔====');
+    } else {
+      isPermissionNotified = false;
+      isSubscribed.value = false;
+      debugPrint('🏹====User declined or has not accepted permission🏹====');
+    }
+  }
+
+  Future<void> _subscribeToTopic() async {
+    isSubscribed.value = true;
+    await FirebaseMessaging.instance.subscribeToTopic(subscriptionKey);
+    debugPrint('🔔====User Subscribedd🔔====');
+  }
+
+  Future<void> unsubscribeFromTopic() async {
+    isSubscribed.value = false;
+    await FirebaseMessaging.instance.unsubscribeFromTopic(subscriptionKey);
+    debugPrint('🏹====User Unsubscribedd🏹====');
+  }
+
+  Future<String> getAccessToken() async {
+    // Load the service account key JSON file
+    final serviceAccount = ServiceAccountCredentials.fromJson(
+        jsonDecode(serviceAccountJsonString));
+
+    final scopes = ['https://www.googleapis.com/auth/firebase.messaging'];
+
+    // Obtain an authenticated HTTP client
+    final authClient = await clientViaServiceAccount(serviceAccount, scopes);
+
+    // Get the access token
+    final accessToken = (await authClient.credentials).accessToken;
+
+    // Close the client
+    authClient.close();
+
+    return accessToken.data;
+  }
+
+  Future<void> sendTopicNotification() async {
+    final String accessToken = await getAccessToken();
+    final message = {
+      'message': {
+        'topic': subscriptionKey,
+        'notification': {
+          'title': 'Test Title',
+          'body': 'Test Body',
+        },
+      },
+    };
+
+    final dio = Dio();
+
+    try {
+      final response = await dio.post(
+        fcmUrl,
+        options: Options(
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer $accessToken',
+          },
+        ),
+        data: jsonEncode(message),
+      );
+
+      if (response.statusCode == 200) {
+        print('Notification sent successfully!');
+      } else {
+        print('Failed to send notification: ${response.data}');
+      }
+    } catch (e) {
+      print('Error sending notification: $e');
+    }
+  }
+}

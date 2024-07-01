@@ -7,6 +7,7 @@ class EnvVariable {
   static final instance = EnvVariable._();
 
   String _envType = '';
+  String _baseUrl = '';
 
   Future<void> init({required EnvTypeEnum envType}) async {
     switch (envType) {
@@ -16,8 +17,12 @@ class EnvVariable {
       case EnvTypeEnum.prod:
         await dotenv.load(fileName: '.env.prod');
     }
+
     _envType = dotenv.get('ENV_TYPE');
+    _baseUrl = dotenv.get('BASE_URL');
   }
 
   bool get debugShowMode => _envType == 'dev';
+  String get baseUrl => _baseUrl;
+
 }
