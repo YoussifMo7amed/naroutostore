@@ -12,16 +12,16 @@ import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 
-class CreateNotificationButtomSheet extends StatefulWidget {
-  const CreateNotificationButtomSheet({super.key});
+class EditNotificationButtomSheet extends StatefulWidget {
+  const EditNotificationButtomSheet({super.key});
 
   @override
-  State<CreateNotificationButtomSheet> createState() =>
-      _CreateNotificationButtomSheetState();
+  State<EditNotificationButtomSheet> createState() =>
+      _EditNotificationButtomSheetState();
 }
 
-class _CreateNotificationButtomSheetState
-    extends State<CreateNotificationButtomSheet> {
+class _EditNotificationButtomSheetState
+    extends State<EditNotificationButtomSheet> {
   final formkey = GlobalKey<FormState>();
   final _titleController = TextEditingController();
   final _bodyController = TextEditingController();
@@ -46,7 +46,7 @@ class _CreateNotificationButtomSheetState
             //title
             Center(
               child: TextApp(
-                text: 'Add Notifications',
+                text: 'Edit Notifications',
                 theme: context.textStyle.copyWith(
                   fontSize: 20.sp,
                   fontFamily: FontFamilyHelper.poppinsEnglish,
@@ -57,7 +57,7 @@ class _CreateNotificationButtomSheetState
             verticalSpace(20.h),
             //Enter Notification title
             TextApp(
-              text: 'Enter Notification title',
+              text: 'Edit Notification title',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
@@ -81,7 +81,7 @@ class _CreateNotificationButtomSheetState
             verticalSpace(20.h),
 
             TextApp(
-              text: 'Enter The Notification body',
+              text: 'Edit The Notification body',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
@@ -106,7 +106,7 @@ class _CreateNotificationButtomSheetState
             verticalSpace(20.h),
 
             TextApp(
-              text: 'Enter The  ProductId',
+              text: 'Edit The  ProductId',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontFamily: FontFamilyHelper.poppinsEnglish,
@@ -132,7 +132,7 @@ class _CreateNotificationButtomSheetState
               onPressed: () {
                 _validaeandcreate(context);
               },
-              text: 'Add  Notification',
+              text: 'Edit  Notification',
               width: MediaQuery.sizeOf(context).width,
               height: 50.h,
               lastRadius: 20,

@@ -6,6 +6,7 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/edit/edit_notification.dart';
 
 class AddNotificationItem extends StatelessWidget {
   const AddNotificationItem({super.key});
@@ -47,11 +48,7 @@ class AddNotificationItem extends StatelessWidget {
                   width: 40.w,
                 ),
                 //edit button
-                Icon(
-                  Icons.edit,
-                  color: Colors.yellow,
-                  size: 20.sp,
-                ),
+               const EditNotification(),
                 SizedBox(
                   width: 40.w,
                 ),
