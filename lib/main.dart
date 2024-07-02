@@ -30,11 +30,11 @@ void main() async {
         )
       : await Firebase.initializeApp();
   await FirebaseCloudMessaging().init();
-  await FirebaseCloudMessaging().getAccessToken().then(
-    (value) {
-      FirebaseCloudMessaging().sendTopicNotification();
-    },
-  );
+  // await FirebaseCloudMessaging().getAccessToken().then(
+  //   (value) {
+  //     FirebaseCloudMessaging().sendTopicNotification();
+  //   },
+  // );
 
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,

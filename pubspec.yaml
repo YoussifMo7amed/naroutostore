@@ -96,7 +96,6 @@ flutter:
     - .env.prod
     - lang/ar.json
     - lang/en.json
-    - narouto-store-9c43927fc868.json
     - assets/images/core/
     - assets/images/admin/
     - assets/images/customer/

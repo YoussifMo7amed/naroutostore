@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:naroutoshop/core/common/widgets/custom_appbar_admin.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/features/admin/add_notifications/presentation/refactors/add_notification_body.dart';
 
 class AddNotificationsScreen extends StatelessWidget {
   const AddNotificationsScreen({super.key});
@@ -13,9 +14,7 @@ class AddNotificationsScreen extends StatelessWidget {
         tittle: 'Notifications',
         backgroundColor: context.color.mainColor!,
       ),
-      body:const Center(child: Text('Add Notifications',
-        style: TextStyle(fontSize: 20,color: Colors.white),
-      ),),
+      body:const AddNotificationsBody(),
     );
   }
 }
