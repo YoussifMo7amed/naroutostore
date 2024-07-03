@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:naroutoshop/core/service/hive/hive_database.dart';
@@ -12,6 +13,7 @@ class AddNotificationBloc
     extends Bloc<AddNotificationEvent, AddNotificationState> {
   AddNotificationBloc() : super(const _Initial()) {
     on<CreateNotificationEvent>(_createNotification);
+    on<DeleteNotificationEvent>(_deleteNotification);
   }
 
   FutureOr<void> _createNotification(
@@ -25,5 +27,12 @@ class AddNotificationBloc
     } catch (error) {
       emit(AddNotificationState.error(error: error.toString()));
     }
+  }
+
+  FutureOr<void> _deleteNotification(
+      DeleteNotificationEvent event, Emitter<AddNotificationState> emit) async {
+    emit(const AddNotificationState.loading());
+    await event.addNotification.delete();
+    emit(const AddNotificationState.success());
   }
 }

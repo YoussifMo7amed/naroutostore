@@ -8,6 +8,7 @@ import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/features/admin/add_notifications/data/models/add_notification_model.dart';
+import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/delete/delete_notification.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/edit/edit_notification.dart';
 
 class AddNotificationItem extends StatelessWidget {
@@ -41,10 +42,8 @@ class AddNotificationItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
                 //delete button
-                Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                  size: 20.sp,
+                DeleteNotification(
+                  notificationModel: notificationModel,
                 ),
                 SizedBox(
                   width: 40.w,

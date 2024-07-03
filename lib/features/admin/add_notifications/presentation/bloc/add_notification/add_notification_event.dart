@@ -6,4 +6,7 @@ class AddNotificationEvent with _$AddNotificationEvent {
   const factory AddNotificationEvent.createNotification(
           {required AddNotificationModel addNotification,}) =
       CreateNotificationEvent;
+        const factory AddNotificationEvent.deleteNotification(
+          {required AddNotificationModel addNotification,}) =
+      DeleteNotificationEvent;
 }
