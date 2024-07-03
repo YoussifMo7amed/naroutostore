@@ -17,14 +17,14 @@ class FirebaseCloudMessaging {
 {
   "type": "service_account",
   "project_id": "narouto-store",
-  "private_key_id": "9c43927fc8686357900f64f526d4b0fcea9a8448",
-  "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEuwIBADANBgkqhkiG9w0BAQEFAASCBKUwggShAgEAAoIBAQCdbaeExGqcV/0I\\nalNHahSbJZ24v0obxO9N4NrzlHUxAEGYlxf6aH9VUJV5VzsKMBwbueUrLF8nyvLm\\ny2Gl6uYtGCtbMxDiMjQ80Qc2L6vaO7kC/28KeERNA714kQ+GV3qOv9ZTXLOa1FDD\\n9Af7Y7T2dXBy0RDjGmMRDp6A6rlIBgGv4CTUhSM6eHP1TvvK82T0oe6sKn9aYTmh\\nrjttaqr+joNPSJzicmeCxsgHq6Dv7YVOlMWrxJ30Vlzp4M5rv4R+wI5PljoL+I4w\\nMmfke+zVW5zgrBaIHFgcUs7raih8TXQBKmCti6/OBAEUiCk7Sz7xLha856v9hpZD\\n4tJN8vg1AgMBAAECgf9Y1I0ZiBzQ0kMHOYoBQfjMVZgRS64qCV1H13qQA1OK91b/\\n+eBW9+kScbVT4RumMDY+Yqy2bLrKy6dcbuBnlB4QbE/Z1uR5H54E49VYk1C0a/6q\\nJi64y/NEXRr0C6lbgA0z4M6C2dI1YJgZyQzoup03N2J/HeasiAx2viR1H/1HxESH\\nNL+2/ftpYB/r2qK+95OTinPFMYqTSzYfHBazdmuu5gC9Iqtl7M5HYZFqqmJ0maup\\ngX43XYFsiOrpfkgsl2Qkhy8G00IKNu1O81qi4g6vNj48KvjT6GPGCf4mbPwIRavI\\nZmnHhMGFsKLW3doZ0xUM8pQMg/hMtTSdLg3TiPECgYEA3JQ9HAbYaK4DgI7BD+cT\\n5g8AxBSuQRPsSLZS5gYgAn/enVXHS+dwqMPAgAh65iySahfGVmOkT3ZkA+yRgaUb\\nOeshxdGWDZJ+2+Zc/+qoj+UCc8gncP3YrGcY0KWUMPDH3fqF4Tx25KBf5vZbxehO\\nNf0TR1IdJctCUYY2nt3g8PkCgYEAtrVb/hlz4UkyTUyvHNQUFzAbkSqIDeglkcrC\\n43k34GYR9+rp3tMMhfg0rBr2g7HJhP9NVj73vk3FsK5vfSFq9VlSlycwUhlGstal\\nWlyQmq2KMYtnzD25TlhwNOBKBOk0gXa24p7mW7W7nqTmFsE6UN1vZQxxy8RJHKIn\\nPZiMDB0CgYAkyK+8KcQTCNnaqXO2pDFkTyIwkMZSYfEoWwdOBr11zT8he7mFhe36\\nptJGR6O/GLW97YMMywcOnU6mfN/y/8afjP+Pzpi4YLK5FxxxLP+5J1aWWk2BgUON\\n1I+F0+b3ll+uO+XxnrSxAbGcgX7ibRAF3tNFNINZ1yCTGc+oBJZLeQKBgAexy5X/\\n7Gloc73dpOJJ7C6tz/tlFyW+yRZCu8JosHm60rbmJcNEkBp0QYOd/xO8wQfg2Jjx\\nPe29yL2QGxHh/mcmw9upwtcySU/uyjfr/gsFk/RSMqTfVJaAEvmnGHbse1GYdktE\\n9d6W4Lflqer7aEFPkglnZMN4GLwj+BMYAY3hAoGBAKdbRjTpaWxFzasEpT+MW0S6\\n4Xbul2x+l0v8bYZvLKil9O9zN9RY9Aep7dVbQQCkbiZjMrf7AG9Er7V2YwldYPEr\\nJN0B8RBuFoNPQpe8LjU9FZhF1C7ciplh+KLxBLfsacu1aQXcUT5xbQfwzpotr0Az\\neK+jCxVfBDnlcR6DvofB\\n-----END PRIVATE KEY-----\\n",
+  "private_key_id": "9bc9a8970eed48624e2c55ed6f82e9a6d4c37626",
+  "private_key": "-----BEGIN PRIVATE KEY-----\\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC9sBeklGucFeWv\\nIZHlJO1jIz26yE4fMtH5IDzDPyZ9UQLdUFrSQJRiVMFwbIPfZ6ZsmwTaA+moFP5X\\nAiUgaZjZMjCxhJUxmwOlounEkHZHOd6eA1GS6pquMQ97sSjjsbR5igIZkPw6pXj+\\n7ucq/nQraX8F525ttCLAG5yiYMLpYoaTxp0CHHr0c34D980CTsGuRDOLKEM0+9YM\\nF7QJhv97WTZLYcjz4RC+zOW9Vq7J1KPVF4yaYmVqAUUne8l2RO+yKP+3z1cWMt64\\nkoGQTGpczaSovu9eW9kxQbRpxbxJjrPgtrIkqbvpHTNckOqwdSk0M23U1LtzCwqh\\n2q6gJcHRAgMBAAECggEAJHDVJfC+eJKrWJj4JH+S3EoLpJuxCGTUukmzaqXx4L7E\\nsFwsynoOF5LlQ5IRRoSsz+37AWAhjgEUeIYouECZFNbDzIKmP8yiJ3qz8qd3FYlc\\nR1pnXDRWSXMS4KYg7xc3TucQrrUwA5tA8qbWQaf3DNT8SlfS2t/xkhrr3TT+FOQb\\nxIgacOLktzx5s4YB9mC6UxmVcBqDc4nk+D0HTnB20XgSo1VUJL9JdBtIRMY6TMhk\\nDL7UEJ0RsKb0vxN3cY7H4eu7m2M0CcV266LgEHmnCTx0oM7DMknpmcsr5dN+P7rz\\nqY1wckW4Rlp6SwD2jzZwt6jUnc8712m6mldp+BLB3QKBgQD1JTWWIjauTss12KKp\\nEXq4MYz7CGmZDY7Ch+/kZqahL4jHmOEll7dGmMelo2ywoj3MNx3zFPP4wgjNeLiT\\neMSPSvyb3pRSWGUlSanFkf7SMCyc2SdAaULHyiZYvqMD2Li5O7lZkwGmZ5V2xLOo\\nh5N9mFuMSS11ITULaMpfIMmQrQKBgQDGFkHJ+MilBSiSBPrcfgIIHkEvj3BTKEnN\\nlSTYuxz58rdig7dr2ptLrZ90bXP6OE807GCPiKGPs3NmI7mT4NZXaWHdowlI+E/0\\nXfCs61pt9bWQkQ4O4NLRrKF06YZxbsXl0CPCrwEQ8dxkFpnY96jyfksIUCA+c+xP\\n9FUD4jnGNQKBgCUk0CvBX1ul4LB19J99YITMLTpUGfvwy/K5uiV3UEQX+beUeHjD\\ntidiOs3kJzHUQ1zP9R/Byv2kGMVZR05A/Ddh+0h6vyqC7kBqGukup9edKQVS+dmO\\nmWnAPXMw325Txhl67SifV56pD0KBp18fu79J+IUXCWY389uYsyEazK+5AoGAJBFX\\nZ0wqVInM6lGHz/ANtKa1ndBTVoDmd01pySDA1O4R4Bk1o6jJUA1MFGn9jRkFqxBD\\nQL9TE5RMNdPZbYip3n6suCuAfE3iWQ9lzEaKT61Gow0WbzUWjeEOAPioZy0RUZgF\\neuRcoFY5l+vZlXz6wTSnutrEFDsNUz2c4Tkm5eUCgYEAiDbVis2UIbNcyGGbTI55\\nJXvD/LbIlM9f2+LcqrPlw354YJRx9N5hkEq71aQd9HMCZZBvY0TdIN8IkIuZizFS\\nVXPvvCGRtvzDEURHKTsVhpg6oRvSsw+usi81szcJ4N4URr3B5XtksoJ7X7CAORah\\n3oCgIF1mh5ZQMnwaEnwyx/U=\\n-----END PRIVATE KEY-----\\n",
   "client_email": "firebase-adminsdk-4n8ls@narouto-store.iam.gserviceaccount.com",
   "client_id": "103532476494135034006",
   "auth_uri": "https://accounts.google.com/o/oauth2/auth",
   "token_uri": "https://oauth2.googleapis.com/token",
   "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
-  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-4n8ls%40narouto-store.iam.gserviceaccount.com",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-4n8ls@narouto-store.iam.gserviceaccount.com",
   "universe_domain": "googleapis.com"
 }
 ''';
@@ -32,10 +32,11 @@ class FirebaseCloudMessaging {
   bool isPermissionNotified = false;
   ValueNotifier<bool> isSubscribed = ValueNotifier(true);
   Future<void> init() async {
-     await _permissionsNotification();
+    await _permissionsNotification();
   }
+
   Future<void> controllerForUserSubscription() async {
-    if (isPermissionNotified==false) {
+    if (isPermissionNotified == false) {
       await _permissionsNotification();
     } else {
       if (isSubscribed.value == false) {
@@ -95,14 +96,21 @@ class FirebaseCloudMessaging {
     return accessToken.data;
   }
 
-  Future<void> sendTopicNotification() async {
+  Future<void> sendTopicNotification({
+    required String title,
+    required String body,
+    required int productId,
+  }) async {
     final String accessToken = await getAccessToken();
     final message = {
       'message': {
         'topic': subscriptionKey,
         'notification': {
-          'title': 'Test Title',
-          'body': 'Test Body',
+          'title': title,
+          'body': body,
+        },
+        'data': {
+          'productId': productId,
         },
       },
     };

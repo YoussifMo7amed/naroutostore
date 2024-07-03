@@ -49,7 +49,7 @@ class HomeCustomer extends StatelessWidget {
                     ),
                     TextButton(
                       onPressed: () {
-                        FirebaseCloudMessaging().sendTopicNotification();
+                        // FirebaseCloudMessaging().sendTopicNotification();
                       },
                       child: Text(
                         'Send Notification',
