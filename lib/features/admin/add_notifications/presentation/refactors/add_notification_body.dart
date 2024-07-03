@@ -51,7 +51,7 @@ class AddNotificationsBody extends StatelessWidget {
                               physics: const NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return AddNotificationItem(
-                                  model: notificationsList[index],
+                                  notificationModel: notificationsList[index],
                                 );
                               },
                               separatorBuilder: (context, index) => SizedBox(

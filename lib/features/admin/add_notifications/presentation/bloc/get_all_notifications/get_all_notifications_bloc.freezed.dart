@@ -19,19 +19,19 @@ mixin _$GetAllNotificationsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool isLoading) getAllNotification,
+    required TResult Function() getAllNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool isLoading)? getAllNotification,
+    TResult? Function()? getAllNotification,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool isLoading)? getAllNotification,
+    TResult Function()? getAllNotification,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -115,7 +115,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool isLoading) getAllNotification,
+    required TResult Function() getAllNotification,
   }) {
     return started();
   }
@@ -124,7 +124,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool isLoading)? getAllNotification,
+    TResult? Function()? getAllNotification,
   }) {
     return started?.call();
   }
@@ -133,7 +133,7 @@ class _$StartedImpl implements _Started {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool isLoading)? getAllNotification,
+    TResult Function()? getAllNotification,
     required TResult orElse(),
   }) {
     if (started != null) {
@@ -185,8 +185,6 @@ abstract class _$$FetchAllNotificationsEventImplCopyWith<$Res> {
           _$FetchAllNotificationsEventImpl value,
           $Res Function(_$FetchAllNotificationsEventImpl) then) =
       __$$FetchAllNotificationsEventImplCopyWithImpl<$Res>;
-  @useResult
-  $Res call({bool isLoading});
 }
 
 /// @nodoc
@@ -198,80 +196,55 @@ class __$$FetchAllNotificationsEventImplCopyWithImpl<$Res>
       _$FetchAllNotificationsEventImpl _value,
       $Res Function(_$FetchAllNotificationsEventImpl) _then)
       : super(_value, _then);
-
-  @pragma('vm:prefer-inline')
-  @override
-  $Res call({
-    Object? isLoading = null,
-  }) {
-    return _then(_$FetchAllNotificationsEventImpl(
-      isLoading: null == isLoading
-          ? _value.isLoading
-          : isLoading // ignore: cast_nullable_to_non_nullable
-              as bool,
-    ));
-  }
 }
 
 /// @nodoc
 
 class _$FetchAllNotificationsEventImpl implements FetchAllNotificationsEvent {
-  const _$FetchAllNotificationsEventImpl({required this.isLoading});
-
-  @override
-  final bool isLoading;
+  const _$FetchAllNotificationsEventImpl();
 
   @override
   String toString() {
-    return 'GetAllNotificationsEvent.getAllNotification(isLoading: $isLoading)';
+    return 'GetAllNotificationsEvent.getAllNotification()';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$FetchAllNotificationsEventImpl &&
-            (identical(other.isLoading, isLoading) ||
-                other.isLoading == isLoading));
+            other is _$FetchAllNotificationsEventImpl);
   }
 
   @override
-  int get hashCode => Object.hash(runtimeType, isLoading);
-
-  @JsonKey(ignore: true)
-  @override
-  @pragma('vm:prefer-inline')
-  _$$FetchAllNotificationsEventImplCopyWith<_$FetchAllNotificationsEventImpl>
-      get copyWith => __$$FetchAllNotificationsEventImplCopyWithImpl<
-          _$FetchAllNotificationsEventImpl>(this, _$identity);
+  int get hashCode => runtimeType.hashCode;
 
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() started,
-    required TResult Function(bool isLoading) getAllNotification,
+    required TResult Function() getAllNotification,
   }) {
-    return getAllNotification(isLoading);
+    return getAllNotification();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? started,
-    TResult? Function(bool isLoading)? getAllNotification,
+    TResult? Function()? getAllNotification,
   }) {
-    return getAllNotification?.call(isLoading);
+    return getAllNotification?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? started,
-    TResult Function(bool isLoading)? getAllNotification,
+    TResult Function()? getAllNotification,
     required TResult orElse(),
   }) {
     if (getAllNotification != null) {
-      return getAllNotification(isLoading);
+      return getAllNotification();
     }
     return orElse();
   }
@@ -310,13 +283,7 @@ class _$FetchAllNotificationsEventImpl implements FetchAllNotificationsEvent {
 }
 
 abstract class FetchAllNotificationsEvent implements GetAllNotificationsEvent {
-  const factory FetchAllNotificationsEvent({required final bool isLoading}) =
-      _$FetchAllNotificationsEventImpl;
-
-  bool get isLoading;
-  @JsonKey(ignore: true)
-  _$$FetchAllNotificationsEventImplCopyWith<_$FetchAllNotificationsEventImpl>
-      get copyWith => throw _privateConstructorUsedError;
+  const factory FetchAllNotificationsEvent() = _$FetchAllNotificationsEventImpl;
 }
 
 /// @nodoc

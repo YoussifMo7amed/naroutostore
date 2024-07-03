@@ -2,7 +2,7 @@ import 'package:hive/hive.dart';
 part 'add_notification_model.g.dart';
 
 @HiveType(typeId: 0)
-class AddNotificationModel {
+class AddNotificationModel extends HiveObject {
   AddNotificationModel({
     required this.title,
     required this.body,

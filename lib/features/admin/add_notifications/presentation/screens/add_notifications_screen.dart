@@ -17,7 +17,7 @@ class AddNotificationsScreen extends StatelessWidget {
           create: (context) => sl<GetAllNotificationsBloc>()
             ..add(
               const GetAllNotificationsEvent.getAllNotification(
-                isLoading: true,
+               
               ),
             ),
         )

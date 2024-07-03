@@ -49,7 +49,7 @@ class CreateNotification extends StatelessWidget {
               whencompleted: () {
                 context.read<GetAllNotificationsBloc>().add(
                     const GetAllNotificationsEvent.getAllNotification(
-                        isLoading: false,),);
+                       ),);
               },
             );
           },

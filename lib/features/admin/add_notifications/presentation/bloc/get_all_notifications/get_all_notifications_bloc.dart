@@ -18,9 +18,9 @@ class GetAllNotificationsBloc
     Emitter<GetAllNotificationsState> emit,
   ) async {
     try {
-      if (event.isLoading) {
+
         emit(const GetAllNotificationsState.loading());
-      }
+
       final notificationsList =
           HiveDatabase().addNotificationBox!.values.toList();
       if (notificationsList.isEmpty) {

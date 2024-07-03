@@ -11,9 +11,12 @@ import 'package:naroutoshop/core/helper/spacing.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_notifications/data/models/add_notification_model.dart';
 
 class EditNotificationButtomSheet extends StatefulWidget {
-  const EditNotificationButtomSheet({super.key});
+  const EditNotificationButtomSheet(
+      {required this.notificationModel, super.key});
+  final AddNotificationModel notificationModel;
 
   @override
   State<EditNotificationButtomSheet> createState() =>
@@ -26,6 +29,14 @@ class _EditNotificationButtomSheetState
   final _titleController = TextEditingController();
   final _bodyController = TextEditingController();
   final _productIdController = TextEditingController();
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _titleController.text = widget.notificationModel.title;
+    _bodyController.text = widget.notificationModel.body;
+    _productIdController.text = widget.notificationModel.productId.toString();
+  }
 
   @override
   void dispose() {
@@ -93,7 +104,7 @@ class _EditNotificationButtomSheetState
 
             CustomTextField(
               controller: _bodyController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               hintText: 'Body',
               validator: (value) {
                 if (value == null || value.isEmpty || value.length < 2) {
@@ -146,5 +157,21 @@ class _EditNotificationButtomSheetState
     );
   }
 
-  void _validaeandcreate(BuildContext context) async {}
+  Future<void> _validaeandcreate(BuildContext context) async {
+    if (formkey.currentState!.validate()) {
+      widget.notificationModel.title = _titleController.text.isEmpty
+          ? widget.notificationModel.title
+          : _titleController.text.trim();
+      widget.notificationModel.body = _bodyController.text.isEmpty
+          ? widget.notificationModel.body
+          : _bodyController.text.trim();
+      widget.notificationModel.productId = _productIdController.text.isEmpty
+          ? widget.notificationModel.productId
+          : int.parse(_productIdController.text.trim());
+      await widget.notificationModel.save();
+
+      // ignore: use_build_context_synchronously
+      context.pop();
+    }
+  }
 }

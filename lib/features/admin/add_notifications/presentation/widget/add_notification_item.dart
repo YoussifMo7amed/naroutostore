@@ -11,8 +11,8 @@ import 'package:naroutoshop/features/admin/add_notifications/data/models/add_not
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/edit/edit_notification.dart';
 
 class AddNotificationItem extends StatelessWidget {
-  const AddNotificationItem({required this.model, super.key});
-  final AddNotificationModel model;
+  const AddNotificationItem({required this.notificationModel, super.key});
+  final AddNotificationModel notificationModel;
   @override
   Widget build(BuildContext context) {
     return CustomContainerLinearAdmin(
@@ -24,17 +24,17 @@ class AddNotificationItem extends StatelessWidget {
           children: [
             NotificationInfo(
               title: 'Title:',
-              body: model.title,
+              body: notificationModel.title,
             ),
             const Spacer(),
             NotificationInfo(
               title: 'Body:',
-              body: model.body,
+              body: notificationModel.body,
             ),
             const Spacer(),
             NotificationInfo(
               title: 'Created At:',
-              body: model.createdAt.formattedDate,
+              body: notificationModel.createdAt.formattedDate,
             ),
             const Spacer(),
             Row(
@@ -50,7 +50,9 @@ class AddNotificationItem extends StatelessWidget {
                   width: 40.w,
                 ),
                 //edit button
-                const EditNotification(),
+                EditNotification(
+                  notificationModel: notificationModel,
+                ),
                 SizedBox(
                   width: 40.w,
                 ),
