@@ -94,7 +94,7 @@ class _CreateNotificationButtomSheetState
 
             CustomTextField(
               controller: _bodyController,
-              keyboardType: TextInputType.number,
+              keyboardType: TextInputType.text,
               hintText: 'Body',
               validator: (value) {
                 if (value == null || value.isEmpty || value.length < 2) {

@@ -9,7 +9,12 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
+import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/bloc/add_notification/add_notification_bloc.dart';
+import 'package:naroutoshop/features/admin/add_notifications/presentation/bloc/get_all_notifications/get_all_notifications_bloc.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/create/create_notification_bottom_sheet_widget.dart';
 
 class CreateNotification extends StatelessWidget {
@@ -39,7 +44,13 @@ class CreateNotification extends StatelessWidget {
                     create: (context) => sl<AddNotificationBloc>(),
                   ),
                 ],
-                child: const CreateNotificationButtomSheet(),),
+                child: const CreateNotificationButtomSheet(),
+              ),
+              whencompleted: () {
+                context.read<GetAllNotificationsBloc>().add(
+                    const GetAllNotificationsEvent.getAllNotification(
+                        isLoading: false,),);
+              },
             );
           },
           text: 'Add',

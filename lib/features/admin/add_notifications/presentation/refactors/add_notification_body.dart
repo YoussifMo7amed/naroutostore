@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/helper/spacing.dart';
+import 'package:naroutoshop/core/loading/empty_page.dart';
+import 'package:naroutoshop/features/admin/add_notifications/presentation/bloc/get_all_notifications/get_all_notifications_bloc.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/add_notification_item.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/create/create_notification.dart';
 
@@ -29,16 +32,36 @@ class AddNotificationsBody extends StatelessWidget {
                   ),
                 ),
                 SliverToBoxAdapter(
-                  child: ListView.separated(
-                    itemCount: 3,
-                    shrinkWrap: true,
-                    physics: const NeverScrollableScrollPhysics(),
-                    itemBuilder: (context, index) {
-                      return const AddNotificationItem();
+                  child: BlocBuilder<GetAllNotificationsBloc,
+                      GetAllNotificationsState>(
+                    builder: (context, state) {
+                      return state.when(
+                          loading: () {
+                            return const Center(
+                              child: CircularProgressIndicator(
+                                color: Colors.white,
+                              ),
+                            );
+                          },
+                          success: (notificationsList) {
+                            return ListView.separated(
+                              reverse: true,
+                              itemCount: notificationsList.length,
+                              shrinkWrap: true,
+                              physics: const NeverScrollableScrollPhysics(),
+                              itemBuilder: (context, index) {
+                                return AddNotificationItem(
+                                  model: notificationsList[index],
+                                );
+                              },
+                              separatorBuilder: (context, index) => SizedBox(
+                                height: 15.h,
+                              ),
+                            );
+                          },
+                          empty: EmptyPage.new,
+                          error: Text.new);
                     },
-                    separatorBuilder: (context, index) => SizedBox(
-                      height: 15.h,
-                    ),
                   ),
                 )
               ],

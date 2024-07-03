@@ -13,6 +13,7 @@ import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/dele
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/get_all_categories_admin/get_all_categories_admin_bloc.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/bolc/update_category/update_category_bloc.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/bloc/add_notification/add_notification_bloc.dart';
+import 'package:naroutoshop/features/admin/add_notifications/presentation/bloc/get_all_notifications/get_all_notifications_bloc.dart';
 import 'package:naroutoshop/features/admin/add_products/data/datasource/all_products_admin_datasource.dart';
 import 'package:naroutoshop/features/admin/add_products/data/repo/get_all_products_repo.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/bloc/create_product/create_product_bloc.dart';
@@ -103,5 +104,7 @@ Future<void> _initUsersAdmin() async {
 }
 
 Future<void> _initAddNotificationsAdmin() async {
-  sl.registerFactory(AddNotificationBloc.new);
+  sl
+    ..registerFactory(AddNotificationBloc.new)
+    ..registerFactory(GetAllNotificationsBloc.new);
 }

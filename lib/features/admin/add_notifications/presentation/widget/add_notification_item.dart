@@ -2,15 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/widgets/custom_container_linear_admin.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
+import 'package:naroutoshop/core/helper/date_extention.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/admin/add_notifications/data/models/add_notification_model.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/edit/edit_notification.dart';
 
 class AddNotificationItem extends StatelessWidget {
-  const AddNotificationItem({super.key});
-
+  const AddNotificationItem({required this.model, super.key});
+  final AddNotificationModel model;
   @override
   Widget build(BuildContext context) {
     return CustomContainerLinearAdmin(
@@ -20,19 +22,19 @@ class AddNotificationItem extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 10.w, vertical: 20.h),
         child: Column(
           children: [
-            const NotificationInfo(
+            NotificationInfo(
               title: 'Title:',
-              body: 'ojpiohuigy',
+              body: model.title,
             ),
             const Spacer(),
-            const NotificationInfo(
+            NotificationInfo(
               title: 'Body:',
-              body: 'ojpiohuigy',
+              body: model.body,
             ),
             const Spacer(),
-            const NotificationInfo(
+            NotificationInfo(
               title: 'Created At:',
-              body: '2-7-2024',
+              body: model.createdAt.formattedDate,
             ),
             const Spacer(),
             Row(
@@ -48,7 +50,7 @@ class AddNotificationItem extends StatelessWidget {
                   width: 40.w,
                 ),
                 //edit button
-               const EditNotification(),
+                const EditNotification(),
                 SizedBox(
                   width: 40.w,
                 ),
