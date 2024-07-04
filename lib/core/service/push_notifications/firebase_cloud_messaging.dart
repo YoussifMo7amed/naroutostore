@@ -102,16 +102,17 @@ class FirebaseCloudMessaging {
     required int productId,
   }) async {
     final String accessToken = await getAccessToken();
+    debugPrint(accessToken);
     final message = {
       'message': {
         'topic': subscriptionKey,
         'notification': {
-          'title': title,
-          'body': body,
+          'title': 'mnoibhuvg',
+          'body': 'mpbgf',
         },
-        'data': {
-          'productId': productId,
-        },
+        // 'data': {
+        //   'productId': 125,
+        // },
       },
     };
 

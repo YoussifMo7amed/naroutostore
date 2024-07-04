@@ -45,13 +45,13 @@ class AddNotificationsBody extends StatelessWidget {
                           },
                           success: (notificationsList) {
                             return ListView.separated(
-                              reverse: true,
                               itemCount: notificationsList.length,
                               shrinkWrap: true,
                               physics: const NeverScrollableScrollPhysics(),
                               itemBuilder: (context, index) {
                                 return AddNotificationItem(
                                   notificationModel: notificationsList[index],
+                                  index: index,
                                 );
                               },
                               separatorBuilder: (context, index) => SizedBox(

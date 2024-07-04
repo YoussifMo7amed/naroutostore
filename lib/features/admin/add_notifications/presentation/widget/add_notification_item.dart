@@ -10,10 +10,12 @@ import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/features/admin/add_notifications/data/models/add_notification_model.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/delete/delete_notification.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/edit/edit_notification.dart';
+import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/send/send_notifications.dart';
 
 class AddNotificationItem extends StatelessWidget {
-  const AddNotificationItem({required this.notificationModel, super.key});
+  const AddNotificationItem({required this.notificationModel, required this.index, super.key});
   final AddNotificationModel notificationModel;
+  final int index;
   @override
   Widget build(BuildContext context) {
     return CustomContainerLinearAdmin(
@@ -56,10 +58,9 @@ class AddNotificationItem extends StatelessWidget {
                   width: 40.w,
                 ),
                 //send button
-                Icon(
-                  Icons.send,
-                  color: Colors.green,
-                  size: 20.sp,
+                 SendNotifications(
+                  index:index  ,
+                  notificationModel: notificationModel,
                 ),
               ],
             )
