@@ -10,6 +10,8 @@ import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/login_screen.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:naroutoshop/features/customers/home_customer.dart';
+import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
+import 'package:naroutoshop/features/customers/main/presentation/screens/main_screen.dart';
 
 class AppRouter {
   static Route<void> generateroutes(RouteSettings settings) {
@@ -38,8 +40,12 @@ class AppRouter {
         );
       case Routes.adminHome:
         return BaseRoute(page: const HomeAdmin());
-      case Routes.customerHome:
-        return BaseRoute(page: const HomeCustomer());
+      case Routes.mainscreen:
+        return BaseRoute(
+            page: BlocProvider(
+          create: (context) => sl<NavBarCubit>(),
+          child: const MainScreen(),
+        ));
 
       default:
         return BaseRoute(page: const UnderBuildScreen());

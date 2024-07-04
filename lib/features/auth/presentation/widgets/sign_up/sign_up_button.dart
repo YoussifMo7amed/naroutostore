@@ -25,7 +25,7 @@ class SignUpButton extends StatelessWidget {
               message: context.translate(LangKeys.loggedSuccessfully),
             );
             context.pushNamedAndRemoveUntil(
-              Routes.customerHome,
+              Routes.mainscreen,
               predicate: (route) => false,
             );
           },
