@@ -32,7 +32,7 @@ class LoginBottun extends StatelessWidget {
             } else {
               Navigator.pushNamedAndRemoveUntil(
                 context,
-                Routes.customerHome,
+                Routes.mainscreen,
                 (route) => false,
               );
             }

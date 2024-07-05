@@ -10,10 +10,16 @@ UserRoleResponce _$UserRoleResponceFromJson(Map<String, dynamic> json) =>
     UserRoleResponce(
       json['role'] as String?,
       json['id'] as int?,
+      json['name'] as String?,
+      json['avatar'] as String?,
+      json['email'] as String?,
     );
 
 Map<String, dynamic> _$UserRoleResponceToJson(UserRoleResponce instance) =>
     <String, dynamic>{
       'role': instance.userrole,
       'id': instance.userId,
+      'name': instance.userName,
+      'email': instance.userEmail,
+      'avatar': instance.userimage,
     };

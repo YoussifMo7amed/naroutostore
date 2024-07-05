@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:naroutoshop/core/apps/uploadimage/cubit/upload_image_cubit.dart';
+import 'package:naroutoshop/core/common/screens/custom_web_view.dart';
 import 'package:naroutoshop/core/common/screens/under_build_screen.dart';
 import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/routes/base_routes.dart';
@@ -9,11 +10,12 @@ import 'package:naroutoshop/features/admin/home_admin/presentation/screens/home_
 import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/login_screen.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/sign_up_screen.dart';
-import 'package:naroutoshop/features/customers/home_customer.dart';
+import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
+import 'package:naroutoshop/features/customers/main/presentation/screens/main_screen.dart';
 
 class AppRouter {
   static Route<void> generateroutes(RouteSettings settings) {
-    // final args = settings.arguments;
+    final args = settings.arguments;
     switch (settings.name) {
       case Routes.login:
         return BaseRoute(
@@ -38,8 +40,18 @@ class AppRouter {
         );
       case Routes.adminHome:
         return BaseRoute(page: const HomeAdmin());
-      case Routes.customerHome:
-        return BaseRoute(page: const HomeCustomer());
+      case Routes.mainscreen:
+        return BaseRoute(
+          page: BlocProvider(
+            create: (context) => sl<NavBarCubit>(),
+            child: const MainScreen(),
+          ),
+        );
+      case Routes.webView:
+        return BaseRoute(
+            page: CustomWebView(
+          url: args! as String,
+        ));
 
       default:
         return BaseRoute(page: const UnderBuildScreen());

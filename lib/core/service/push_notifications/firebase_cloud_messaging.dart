@@ -4,6 +4,9 @@ import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:naroutoshop/core/apps/envvariables.dart';
+import 'package:naroutoshop/core/common/toast/show_toast.dart';
+import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/core/language/lang_keys.dart';
 
 class FirebaseCloudMessaging {
   factory FirebaseCloudMessaging() => _instance;
@@ -35,14 +38,24 @@ class FirebaseCloudMessaging {
     await _permissionsNotification();
   }
 
-  Future<void> controllerForUserSubscription() async {
+  Future<void> controllerForUserSubscription(BuildContext context) async {
     if (isPermissionNotified == false) {
       await _permissionsNotification();
     } else {
       if (isSubscribed.value == false) {
         await _subscribeToTopic();
+        if (!context.mounted) return;
+        ShowToast.showToastSuccessTop(
+          message: context.translate(LangKeys.subscribedToNotifications),
+          seconds: 2,
+        );
       } else {
         await unsubscribeFromTopic();
+        if (!context.mounted) return;
+        ShowToast.showToastErrorTop(
+          message: context.translate(LangKeys.unsubscribedToNotifications),
+          seconds: 2,
+        );
       }
     }
   }

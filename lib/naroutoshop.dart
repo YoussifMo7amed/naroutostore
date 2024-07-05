@@ -81,7 +81,7 @@ class NaroutoStore extends StatelessWidget {
                             null
                         ? SharedPref().getString(PrefKeys.userRole) == 'admin'
                             ? Routes.adminHome
-                            : Routes.customerHome
+                            : Routes.mainscreen
                         : Routes.login,
                   ),
                 );
