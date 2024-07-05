@@ -9,8 +9,10 @@ import 'package:naroutoshop/core/language/lang_keys.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/bloc/profile/profile_bloc.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/widgets/build_developer_settengs.dart';
+import 'package:naroutoshop/features/customers/profile/presentation/widgets/build_version.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/widgets/change_dark_mode.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/widgets/language_change.dart';
+import 'package:naroutoshop/features/customers/profile/presentation/widgets/log_out.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/widgets/notification_settings.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/widgets/user_info.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/widgets/user_info_shimmer.dart';
@@ -75,6 +77,11 @@ class ProfileBody extends StatelessWidget {
               child:NotificationsSettings(),
             ),
             SizedBox(height: 30.h),
+            //Build Version
+            const BuildVersion(),
+            SizedBox(height: 30.h),
+            //LogOut
+            const LogOut(),            
 
           ],
         ),
