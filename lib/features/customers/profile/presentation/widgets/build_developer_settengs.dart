@@ -31,7 +31,7 @@ class BuildDeveloperSettengs extends StatelessWidget {
         InkWell(
           onTap: () {
             context.pushNamed(Routes.webView,
-                arguments: 'https://www.udemy.com/user/youssef-4188/');
+                arguments: 'https://www.linkedin.com/in/youssef-mohamed-a4589a26b/');
           },
           child: Row(
             children: [
