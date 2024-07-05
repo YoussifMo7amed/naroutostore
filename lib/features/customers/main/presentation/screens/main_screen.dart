@@ -10,7 +10,7 @@ import 'package:naroutoshop/features/customers/home/home_screen.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/main/presentation/refactors/bottom_nav_bar.dart';
 import 'package:naroutoshop/features/customers/main/presentation/refactors/main_customer_app_bar.dart';
-import 'package:naroutoshop/features/customers/profile/profile_screen.dart';
+import 'package:naroutoshop/features/customers/profile/presentation/screens/profile_screen.dart';
 
 class MainScreen extends StatelessWidget {
   const MainScreen({super.key});

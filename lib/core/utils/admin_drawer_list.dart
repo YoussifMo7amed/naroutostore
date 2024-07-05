@@ -112,14 +112,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
             textButton2: 'No',
             isLoading: false,
             onPressed: () async {
-              final navigator = Navigator.of(context);
-              await SharedPref().removePreference(PrefKeys.accessToken);
-              await SharedPref().removePreference(PrefKeys.userId);
-              await SharedPref().removePreference(PrefKeys.userRole);
-              await navigator.pushNamedAndRemoveUntil(
-                Routes.login,
-                (route) => false,
-              );
+            
             },
           );
         },

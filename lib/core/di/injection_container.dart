@@ -36,6 +36,9 @@ import 'package:naroutoshop/features/auth/data/data_source/auth_data_source.dart
 import 'package:naroutoshop/features/auth/data/repos/auth_repo.dart';
 import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
+import 'package:naroutoshop/features/customers/profile/data/data_source/profile_datasource.dart';
+import 'package:naroutoshop/features/customers/profile/data/repo/profile_repo.dart';
+import 'package:naroutoshop/features/customers/profile/presentation/bloc/profile/profile_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -48,6 +51,7 @@ Future<void> setupInjector() async {
   await _initUsersAdmin();
   await _initAddNotificationsAdmin();
   await _initNavBar();
+  await _initProfile();
 }
 
 Future<void> _initCore() async {
@@ -124,4 +128,10 @@ Future<void> _initAddNotificationsAdmin() async {
 Future<void> _initNavBar() async {
   sl
     .registerFactory(NavBarCubit.new);
+}
+Future<void> _initProfile() async {
+  sl
+    ..registerFactory(() => ProfileBloc(sl()),)
+    ..registerLazySingleton(() => ProfileRepo(sl()))
+    ..registerLazySingleton(() => ProfileDatasource(sl()));
 }
