@@ -19,8 +19,7 @@ class UserInfo extends StatelessWidget {
           child: CachedNetworkImage(
             height: 80.h,
             width: 80.w,
-            imageUrl:
-                userInfoModel.userimage!,
+            imageUrl: userInfoModel.userimage!,
             errorWidget: (context, url, error) => const Icon(
               Icons.error,
               color: Colors.red,
@@ -31,7 +30,6 @@ class UserInfo extends StatelessWidget {
         SizedBox(height: 7.h),
         TextApp(
           text: userInfoModel.userName!.toLowerCase().toCapitalized(),
-
           theme: context.textStyle.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeightHelper.bold,

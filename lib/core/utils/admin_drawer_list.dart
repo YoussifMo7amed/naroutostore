@@ -8,6 +8,7 @@ import 'package:naroutoshop/core/service/shared_pref/pref_keys.dart';
 import 'package:naroutoshop/core/service/shared_pref/shared_pref.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/core/utils/app_logout.dart';
 import 'package:naroutoshop/features/admin/add_categories/presentation/screens/add_categories_screen.dart';
 import 'package:naroutoshop/features/admin/add_notifications/presentation/screens/add_notifications_screen.dart';
 import 'package:naroutoshop/features/admin/add_products/presentation/screens/add_products_screen.dart';
@@ -112,7 +113,7 @@ List<DrawerItemModel> adminDrawerList(BuildContext context) {
             textButton2: 'No',
             isLoading: false,
             onPressed: () async {
-            
+          await AppLogout().logout();
             },
           );
         },
