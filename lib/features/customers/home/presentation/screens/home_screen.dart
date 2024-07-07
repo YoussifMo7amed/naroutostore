@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/refactors/home_body.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -15,7 +18,6 @@ final controller = ScrollController();
 class _HomeScreenState extends State<HomeScreen> {
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     controller.dispose();
   }
@@ -30,28 +32,38 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      children: [
-        HomeBody(
-          controller: controller,
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider(
+          create: (context) => sl<GetBannersBloc>()
+            ..add(
+              const GetBannersEvent.getBanner(),
+            ),
         ),
-        // FloatingButton
-        Align(
-          alignment: Alignment.bottomRight,
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 10.w),
-            child: FloatingActionButton(
-              backgroundColor: context.color.bluePinkLight,
-              onPressed: scrollToTop,
-              child: const Icon(
-                Icons.arrow_upward_rounded,
-                size: 30,
-                color: Colors.white,
+      ],
+      child: Stack(
+        children: [
+          HomeBody(
+            controller: controller,
+          ),
+          // FloatingButton
+          Align(
+            alignment: Alignment.bottomRight,
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 10.w),
+              child: FloatingActionButton(
+                backgroundColor: context.color.bluePinkLight,
+                onPressed: scrollToTop,
+                child: const Icon(
+                  Icons.arrow_upward_rounded,
+                  size: 30,
+                  color: Colors.white,
+                ),
               ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

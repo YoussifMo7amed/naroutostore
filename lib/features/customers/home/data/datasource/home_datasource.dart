@@ -2,12 +2,13 @@ import 'package:naroutoshop/core/service/graphql/api_service.dart';
 import 'package:naroutoshop/core/service/graphql/graphql_querirs/customer/home_queries.dart';
 import 'package:naroutoshop/features/customers/home/data/models/banner_responce.dart';
 
-class HomeDatasource {
-  HomeDatasource._(this._graphQL);
-  final ApiService _graphQL;
+class BannersDataSource {
+  BannersDataSource(this._graphql);
 
-  Future<BannerResponce> getBanners() async {
-    final responce = await _graphQL.getbanners(
+  final ApiService _graphql;
+
+  Future<BannerResponce> getAllBanners() async {
+    final responce = await _graphql.getbanners(
       HomeQueries().getBannersMapQuery(),
     );
     return responce;
