@@ -12,11 +12,7 @@ class SearchForUsers extends StatefulWidget {
 }
 
 class _SearchForUsersState extends State<SearchForUsers> {
-  @override
-  void dispose() {
-    context.read<GetAllUsersBloc>().searchController.dispose();
-    super.dispose();
-  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<GetAllUsersBloc, GetAllUsersState>(

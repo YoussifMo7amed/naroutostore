@@ -47,14 +47,15 @@ class CreateProduct extends StatelessWidget {
                     create: (context) => sl<GetAllCategoriesAdminBloc>()
                       ..add(
                         const GetAllCategoriesAdminEvent.fetchAdminCategories(
-                            isNotLoading: false,),
+                          isNotLoading: false,
+                        ),
                       ),
                   ),
                 ],
                 child: const CreateProductButtomSheet(),
               ),
               whencompleted: () {
-                context.read<GetAllProductsBloc>().add(
+                context.read<GetAllProductsAdminBloc>().add(
                       const GetAllProductsEvent.getAllProducts(
                         isLoading: false,
                       ),

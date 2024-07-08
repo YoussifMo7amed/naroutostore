@@ -15,7 +15,7 @@ class AddProductsScreen extends StatelessWidget {
     return MultiBlocProvider(
       providers: [
         BlocProvider(
-          create: (context) => sl<GetAllProductsBloc>()
+          create: (context) => sl<GetAllProductsAdminBloc>()
             ..add(
               const FetchAllProductsAdminEvent(
                 isLoading: true,

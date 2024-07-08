@@ -37,6 +37,8 @@ import 'package:naroutoshop/features/auth/data/repos/auth_repo.dart';
 import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:naroutoshop/features/customers/home/data/datasource/home_datasource.dart';
 import 'package:naroutoshop/features/customers/home/data/repo/home_repo.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_categories/get_all_categories_bloc.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_products/get_all_products_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/profile/data/data_source/profile_datasource.dart';
@@ -102,7 +104,7 @@ Future<void> _initproductsAdmin() async {
   sl
     ..registerLazySingleton(() => GetAllProductsDataSource(sl()))
     ..registerLazySingleton(() => GetAllProductssRepo(sl()))
-    ..registerFactory(() => GetAllProductsBloc(sl()))
+    ..registerFactory(() => GetAllProductsAdminBloc(sl()))
     ..registerFactory(() => CreateProductBloc(sl()))
     ..registerFactory(() => DeleteProductBloc(sl()))
     ..registerFactory(() => UpdateProductBloc(sl()));
@@ -146,7 +148,11 @@ Future<void> _initHome() async {
   sl
     ..registerLazySingleton(() => BannersDataSource(sl()))
     ..registerLazySingleton(() => HomeRepo(sl()))
+    ..registerFactory(() => GetBannersBloc(sl()))
     ..registerFactory(
-      () => GetBannersBloc(sl()),
+      () => GetAllCategoriesBloc(sl()),
+    )
+    ..registerFactory(
+      () => GetAllProductsBloc(sl()),
     );
 }

@@ -14,7 +14,7 @@ class DeleteProduct extends StatelessWidget {
       listener: (context, state) {
         state.whenOrNull(
           success: () {
-            context.read<GetAllProductsBloc>().add(
+            context.read<GetAllProductsAdminBloc>().add(
                   const GetAllProductsEvent.getAllProducts(isLoading: false),
                 );
             ShowToast.showToastSuccessTop(

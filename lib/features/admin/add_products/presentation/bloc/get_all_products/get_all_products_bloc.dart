@@ -8,9 +8,10 @@ part 'get_all_products_event.dart';
 part 'get_all_products_state.dart';
 part 'get_all_products_bloc.freezed.dart';
 
-class GetAllProductsBloc
+class GetAllProductsAdminBloc
     extends Bloc<GetAllProductsEvent, GetAllProductsState> {
-  GetAllProductsBloc(this._repo) : super(const GetAllProductsState.loading()) {
+  GetAllProductsAdminBloc(this._repo)
+      : super(const GetAllProductsState.loading()) {
     on<FetchAllProductsAdminEvent>(getAllProducts);
   }
   final GetAllProductssRepo _repo;

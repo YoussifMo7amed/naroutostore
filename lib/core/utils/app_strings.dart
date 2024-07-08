@@ -1,1 +1,1 @@
-const String bannerTitle = '/w banners';
+const String bannerTitle = '/w banner';

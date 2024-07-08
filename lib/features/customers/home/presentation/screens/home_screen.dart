@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_categories/get_all_categories_bloc.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_products/get_all_products_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/refactors/home_body.dart';
 
@@ -13,15 +15,9 @@ class HomeScreen extends StatefulWidget {
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
-final controller = ScrollController();
+final ScrollController controller = ScrollController();
 
 class _HomeScreenState extends State<HomeScreen> {
-  @override
-  void dispose() {
-    super.dispose();
-    controller.dispose();
-  }
-
   void scrollToTop() {
     controller.animateTo(
       0,
@@ -38,6 +34,18 @@ class _HomeScreenState extends State<HomeScreen> {
           create: (context) => sl<GetBannersBloc>()
             ..add(
               const GetBannersEvent.getBanner(),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetAllCategoriesBloc>()
+            ..add(
+              const GetAllCategoriesEvent.fetchAdminCategories(),
+            ),
+        ),
+        BlocProvider(
+          create: (context) => sl<GetAllProductsBloc>()
+            ..add(
+              const GetAllProductsEvent.getAllProducts(),
             ),
         ),
       ],
