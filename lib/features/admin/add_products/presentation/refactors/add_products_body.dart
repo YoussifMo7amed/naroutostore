@@ -24,7 +24,7 @@ class AddProductsBody extends StatelessWidget {
           Expanded(
             child: RefreshIndicator(
               onRefresh: () async {
-                context.read<GetAllProductsBloc>().add(
+                context.read<GetAllProductsAdminBloc>().add(
                       const FetchAllProductsAdminEvent(
                         isLoading: true,
                       ),
@@ -36,7 +36,8 @@ class AddProductsBody extends StatelessWidget {
                     child: verticalSpace(20.h),
                   ),
                   SliverToBoxAdapter(
-                    child: BlocBuilder<GetAllProductsBloc, GetAllProductsState>(
+                    child: BlocBuilder<GetAllProductsAdminBloc,
+                        GetAllProductsState>(
                       builder: (context, state) {
                         return state.when(
                           loading: () {
@@ -74,8 +75,7 @@ class AddProductsBody extends StatelessWidget {
                                   price: productList[index].price.toString(),
                                   description:
                                       productList[index].description ?? '',
-                                  categoryId:
-                                      productList[index].category!.id,
+                                  categoryId: productList[index].category!.id,
                                 );
                               },
                               itemCount: productList.length,

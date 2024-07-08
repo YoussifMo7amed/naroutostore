@@ -6,7 +6,7 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/images/app_images.dart';
 import 'package:naroutoshop/features/customers/categories/categories_screen.dart';
 import 'package:naroutoshop/features/customers/favorites/favorites_screen.dart';
-import 'package:naroutoshop/features/customers/home/home_screen.dart';
+import 'package:naroutoshop/features/customers/home/presentation/screens/home_screen.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/main/presentation/refactors/bottom_nav_bar.dart';
 import 'package:naroutoshop/features/customers/main/presentation/refactors/main_customer_app_bar.dart';

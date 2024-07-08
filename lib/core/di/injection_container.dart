@@ -35,6 +35,11 @@ import 'package:naroutoshop/features/admin/users/presentation/bloc/get_all_users
 import 'package:naroutoshop/features/auth/data/data_source/auth_data_source.dart';
 import 'package:naroutoshop/features/auth/data/repos/auth_repo.dart';
 import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
+import 'package:naroutoshop/features/customers/home/data/datasource/home_datasource.dart';
+import 'package:naroutoshop/features/customers/home/data/repo/home_repo.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_categories/get_all_categories_bloc.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_products/get_all_products_bloc.dart';
+import 'package:naroutoshop/features/customers/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/profile/data/data_source/profile_datasource.dart';
 import 'package:naroutoshop/features/customers/profile/data/repo/profile_repo.dart';
@@ -52,6 +57,7 @@ Future<void> setupInjector() async {
   await _initAddNotificationsAdmin();
   await _initNavBar();
   await _initProfile();
+  await _initHome();
 }
 
 Future<void> _initCore() async {
@@ -98,7 +104,7 @@ Future<void> _initproductsAdmin() async {
   sl
     ..registerLazySingleton(() => GetAllProductsDataSource(sl()))
     ..registerLazySingleton(() => GetAllProductssRepo(sl()))
-    ..registerFactory(() => GetAllProductsBloc(sl()))
+    ..registerFactory(() => GetAllProductsAdminBloc(sl()))
     ..registerFactory(() => CreateProductBloc(sl()))
     ..registerFactory(() => DeleteProductBloc(sl()))
     ..registerFactory(() => UpdateProductBloc(sl()));
@@ -123,15 +129,30 @@ Future<void> _initAddNotificationsAdmin() async {
       () => AddNotificationsRepo(sl()),
     )
     ..registerLazySingleton(AddNotificationDatasource.new);
+}
 
-}
 Future<void> _initNavBar() async {
-  sl
-    .registerFactory(NavBarCubit.new);
+  sl.registerFactory(NavBarCubit.new);
 }
+
 Future<void> _initProfile() async {
   sl
-    ..registerFactory(() => ProfileBloc(sl()),)
+    ..registerFactory(
+      () => ProfileBloc(sl()),
+    )
     ..registerLazySingleton(() => ProfileRepo(sl()))
     ..registerLazySingleton(() => ProfileDatasource(sl()));
+}
+
+Future<void> _initHome() async {
+  sl
+    ..registerLazySingleton(() => BannersDataSource(sl()))
+    ..registerLazySingleton(() => HomeRepo(sl()))
+    ..registerFactory(() => GetBannersBloc(sl()))
+    ..registerFactory(
+      () => GetAllCategoriesBloc(sl()),
+    )
+    ..registerFactory(
+      () => GetAllProductsBloc(sl()),
+    );
 }

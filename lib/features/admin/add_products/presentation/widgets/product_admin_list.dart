@@ -87,7 +87,7 @@ class ProductAdminList extends StatelessWidget {
                       ),
                     ),
                     whencompleted: () {
-                      context.read<GetAllProductsBloc>().add(
+                      context.read<GetAllProductsAdminBloc>().add(
                             const GetAllProductsEvent.getAllProducts(
                               isLoading: false,
                             ),
