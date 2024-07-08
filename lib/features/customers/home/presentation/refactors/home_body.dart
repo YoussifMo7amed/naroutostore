@@ -88,7 +88,7 @@ class HomeBody extends StatelessWidget {
                     );
                   },
                   empty: () {
-                    return const EmptyPage();
+                    return const SizedBox.shrink();
                   },
                   error: Text.new,
                 );
@@ -105,7 +105,7 @@ class HomeBody extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: 15.w),
               child: BlocBuilder<GetAllCategoriesBloc, GetAllCategoriesState>(
                 builder: (context, state) {
-                  if (context.read<GetAllProductsBloc>().ListIsLessThan10) {
+                  if (context.read<GetAllProductsBloc>().listIsLessThan10) {
                     return CustomButton(
                       onPressed: () {},
                       text: context.translate(LangKeys.viewAll),

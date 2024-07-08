@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:naroutoshop/features/admin/add_products/data/model/get_all_product_responce.dart';
@@ -14,7 +15,7 @@ class GetAllProductsBloc
     on<FetchAllProductsEvent>(_getAllProducts);
   }
   final HomeRepo _repo;
-  bool ListIsLessThan10 = true;
+  bool listIsLessThan10 = false;
   FutureOr<void> _getAllProducts(
     FetchAllProductsEvent event,
     Emitter<GetAllProductsState> emit,
@@ -23,11 +24,14 @@ class GetAllProductsBloc
     final responce = await _repo.getAllProducts();
     responce.when(
       success: (data) {
-       
+        listIsLessThan10 = data.productGetAllList.length >= 10? true : false;
         if (data.productGetAllList.isEmpty) {
           emit(const GetAllProductsState.empty());
+            debugPrint('=======>'+ listIsLessThan10.toString());
         } else {
-          emit(GetAllProductsState.success(productList: data.productGetAllList));
+          debugPrint('=======>'+ listIsLessThan10.toString());
+          emit(
+              GetAllProductsState.success(productList: data.productGetAllList));
         }
       },
       failure: (error) {
