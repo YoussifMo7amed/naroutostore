@@ -1,0 +1,62 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/common/widgets/custom_favorite_bottom.dart';
+import 'package:naroutoshop/core/common/widgets/custom_share_bottom.dart';
+import 'package:naroutoshop/core/common/widgets/text_app.dart';
+import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/customers/product_details/widgets/product_details_slider.dart';
+
+class PtoductDetailsBody extends StatelessWidget {
+  const PtoductDetailsBody({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.only(top: 10.h, left: 20.w, right: 20.w),
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                //share botton
+                CustomShareBottom(size: 30.h),
+                //wishlist button
+                CustomFavoriteBottom(size: 30.h),
+              ],
+            ),
+            SizedBox(height: 10.h),
+            // product details slider
+            const ProductDetailsSlider(),
+
+            SizedBox(height: 30.h),
+
+            //product details
+            TextApp(
+              text: 'Title',
+              theme: context.textStyle.copyWith(
+                fontSize: 16.sp,
+                fontWeight: FontWeightHelper.bold,
+                color: context.color.textColor,
+              ),
+            ),
+
+            SizedBox(height: 15.h),
+
+            TextApp(
+              text: 'Description',
+              theme: context.textStyle.copyWith(
+                fontSize: 16.sp,
+                fontWeight: FontWeightHelper.regular,
+                color: context.color.textColor,
+                height: 1.5,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
