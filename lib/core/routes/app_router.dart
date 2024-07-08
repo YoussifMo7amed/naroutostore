@@ -12,6 +12,7 @@ import 'package:naroutoshop/features/auth/presentation/screens/login_screen.dart
 import 'package:naroutoshop/features/auth/presentation/screens/sign_up_screen.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/main/presentation/screens/main_screen.dart';
+import 'package:naroutoshop/features/customers/product_details/presentation/screens/product_details_screen.dart';
 
 class AppRouter {
   static Route<void> generateroutes(RouteSettings settings) {
@@ -49,9 +50,14 @@ class AppRouter {
         );
       case Routes.webView:
         return BaseRoute(
-            page: CustomWebView(
-          url: args! as String,
-        ));
+          page: CustomWebView(
+            url: args! as String,
+          ),
+        );
+      case Routes.productDetails:
+        return BaseRoute(
+          page: ProductDetailsScreen(productId: args! as int),
+        );
 
       default:
         return BaseRoute(page: const UnderBuildScreen());

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/common/widgets/custom_product_item.dart';
 import 'package:naroutoshop/core/helper/string_extention.dart';
 import 'package:naroutoshop/features/admin/add_products/data/model/get_all_product_responce.dart';
-import 'package:naroutoshop/features/customers/home/presentation/widgets/products/product_item.dart';
 
 class ProductList extends StatelessWidget {
   const ProductList({required this.productList, super.key});
@@ -13,11 +13,12 @@ class ProductList extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: GridView.builder(
         itemBuilder: (context, index) {
-          return ProductItem(
+          return CustomProductItem(
             imageUrl: productList[index].images!.first.imageProductFormate(),
             title: productList[index].title ?? '',
             categoryName: productList[index].category!.name,
-            price: productList[index].price??0,
+            price: productList[index].price ?? 0,
+            productId: int.parse(productList[index].id ?? '0'),
           );
         },
         itemCount: productList.length,

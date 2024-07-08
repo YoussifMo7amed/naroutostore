@@ -5,24 +5,30 @@ import 'package:naroutoshop/core/common/widgets/custom_container_linear_customer
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/helper/string_extention.dart';
+import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 
-class ProductItem extends StatelessWidget {
-  const ProductItem(
-      {required this.imageUrl,
-      required this.title,
-      required this.categoryName,
-      required this.price,
-      super.key});
+class CustomProductItem extends StatelessWidget {
+  const CustomProductItem({
+    required this.imageUrl,
+    required this.title,
+    required this.categoryName,
+    required this.price,
+    required this.productId,
+    super.key,
+  });
   final String imageUrl;
   final String title;
   final String categoryName;
   final double price;
+  final int productId;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        context.pushNamed(Routes.productDetails, arguments: productId);
+      },
       child: CustomContainerLinearCustomer(
         height: 250.h,
         width: 165.w,
