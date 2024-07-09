@@ -41,6 +41,9 @@ import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_ca
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_products/get_all_products_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_banners/get_banners_bloc.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
+import 'package:naroutoshop/features/customers/product_details/data/datasource/product_details_datasource.dart';
+import 'package:naroutoshop/features/customers/product_details/data/product_details_repo/product_details_repo.dart';
+import 'package:naroutoshop/features/customers/product_details/presentation/bloc/product_details/product_details_bloc.dart';
 import 'package:naroutoshop/features/customers/profile/data/data_source/profile_datasource.dart';
 import 'package:naroutoshop/features/customers/profile/data/repo/profile_repo.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/bloc/profile/profile_bloc.dart';
@@ -58,6 +61,7 @@ Future<void> setupInjector() async {
   await _initNavBar();
   await _initProfile();
   await _initHome();
+  await _initProductDetails();
 }
 
 Future<void> _initCore() async {
@@ -155,4 +159,11 @@ Future<void> _initHome() async {
     ..registerFactory(
       () => GetAllProductsBloc(sl()),
     );
+}
+
+Future<void> _initProductDetails() async {
+  sl
+    ..registerLazySingleton(() => ProductDetailsDataSource(sl()))
+    ..registerLazySingleton(() => ProductDetailsRepo(sl()))
+    ..registerFactory(() => ProductDetailsBloc(sl()));
 }
