@@ -11,6 +11,8 @@ import 'package:naroutoshop/features/auth/data/model/login_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/singup_responce.dart';
 import 'package:naroutoshop/features/auth/data/model/user_role_responce.dart';
 import 'package:naroutoshop/features/customers/home/data/models/banner_responce.dart';
+import 'package:naroutoshop/features/customers/product_details/data/model/product_details_responce.dart';
+import 'package:naroutoshop/features/customers/product_details/presentation/refactors/product_details_bottom.dart';
 import 'package:retrofit/retrofit.dart';
 
 part 'api_service.g.dart';
@@ -98,6 +100,10 @@ abstract class ApiService {
   );
     @POST(graphql)
   Future<BannerResponce> getbanners(
+    @Body() Map<String, dynamic> query,
+  );
+      @POST(graphql)
+  Future<ProductDetailsResponce> productDetails(
     @Body() Map<String, dynamic> query,
   );
 }
