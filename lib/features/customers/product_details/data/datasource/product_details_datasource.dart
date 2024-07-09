@@ -7,7 +7,7 @@ class ProductDetailsDataSource {
 
   final ApiService _graphql;
 
-  Future<ProductDetailsResponce> getProductDetails({required int productId }) async {
+  Future<ProductDetailsResponse> getProductDetails({required int productId }) async {
     final responce = await _graphql.productDetails(
       ProductDetailsQueries().getProductDetailsMapQuery(
         productId: productId,

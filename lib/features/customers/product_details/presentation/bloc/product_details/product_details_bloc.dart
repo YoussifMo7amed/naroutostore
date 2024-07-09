@@ -10,7 +10,7 @@ part 'product_details_bloc.freezed.dart';
 
 class ProductDetailsBloc
     extends Bloc<ProductDetailsEvent, ProductDetailsState> {
-  ProductDetailsBloc( this._repo) : super(const ProductDetailsState.loading()) {
+  ProductDetailsBloc(this._repo) : super(const ProductDetailsState.loading()) {
     on<GetProductDetailsEvent>(_getProductDetails);
   }
   ProductDetailsRepo _repo;
@@ -20,7 +20,11 @@ class ProductDetailsBloc
     final result = await _repo.getProductDetails(productId: event.productId);
     result.when(
       success: (data) {
-        emit(ProductDetailsState.success(productDetails: data.data.products));
+        emit(
+          ProductDetailsState.success(
+            productDetails: data.data.productModel,
+          ),
+        );
       },
       failure: (error) {
         emit(ProductDetailsState.error(error: error));

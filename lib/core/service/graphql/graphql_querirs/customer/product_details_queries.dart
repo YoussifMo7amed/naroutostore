@@ -6,13 +6,15 @@ class ProductDetailsQueries {
   // get all product banners
   Map<String, dynamic> getProductDetailsMapQuery({required int productId}) {
     return {
-      'query': r'''
-        	product(id: $productId) {
-		    title
-		    price
-		    images
+      'query': '''
+        	{
+	product(id: $productId) {
+		title
+		price
+		images
         description
 	}
+}
       ''',
     };
   }

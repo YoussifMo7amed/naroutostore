@@ -7,7 +7,6 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/language/lang_keys.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/core/styles/images/app_images.dart';
-import 'package:naroutoshop/core/utils/app_info.dart';
 import 'package:naroutoshop/core/utils/app_logout.dart';
 
 class LogOut extends StatelessWidget {

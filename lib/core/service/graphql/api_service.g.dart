@@ -510,7 +510,7 @@ class _ApiService implements ApiService {
   }
 
   @override
-  Future<ProductDetailsResponce> productDetails(
+  Future<ProductDetailsResponse> productDetails(
       Map<String, dynamic> query) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
@@ -518,7 +518,7 @@ class _ApiService implements ApiService {
     final _data = <String, dynamic>{};
     _data.addAll(query);
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<ProductDetailsResponce>(Options(
+        _setStreamType<ProductDetailsResponse>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
@@ -534,7 +534,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ProductDetailsResponce.fromJson(_result.data!);
+    final value = ProductDetailsResponse.fromJson(_result.data!);
     return value;
   }
 

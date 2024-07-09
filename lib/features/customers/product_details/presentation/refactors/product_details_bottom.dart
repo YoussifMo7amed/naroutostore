@@ -26,7 +26,7 @@ class ProductDetailsBottom extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               TextApp(
-                text: '\${$price}',
+                text: '\$ $price',
                 theme: context.textStyle.copyWith(
                   fontSize: 22.sp,
                   fontWeight: FontWeightHelper.medium,

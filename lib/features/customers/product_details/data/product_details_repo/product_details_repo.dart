@@ -7,7 +7,7 @@ class ProductDetailsRepo {
 
   final ProductDetailsDataSource _dataSource;
 
-  Future<ApiResult<ProductDetailsResponce>> getProductDetails({
+  Future<ApiResult<ProductDetailsResponse>> getProductDetails({
     required int productId,
   }) async {
     try {
@@ -16,8 +16,8 @@ class ProductDetailsRepo {
       );
       return ApiResult.success(responce);
     } catch (e) {
-      return const ApiResult.failure(
-        'Please try again later, Something went wrong',
+      return  ApiResult.failure(
+        e.toString()
       );
     }
   }

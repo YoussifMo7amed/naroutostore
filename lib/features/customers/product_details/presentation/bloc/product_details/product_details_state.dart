@@ -5,7 +5,7 @@ class ProductDetailsState with _$ProductDetailsState {
   const factory ProductDetailsState.loading() = LoadingState;
 
   const factory ProductDetailsState.success({
-    required ProductsDetailsModel productDetails,
+    required ProductDetailsModel productDetails,
   }) = SuccessState;
 
   const factory ProductDetailsState.error({required String error}) = ErrorState;

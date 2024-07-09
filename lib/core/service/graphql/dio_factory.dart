@@ -47,8 +47,7 @@ class DioFactory {
           return handler.next(options);
         },
         onError: (error, handler) async {
-          if (error.response?.statusCode == 400 ||
-              error.response?.statusCode == 401) {
+          if (error.response?.statusCode == 401) {
             await AppLogout.instance.logout();
           }
         },

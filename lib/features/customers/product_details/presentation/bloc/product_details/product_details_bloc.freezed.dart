@@ -320,21 +320,21 @@ mixin _$ProductDetailsState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(ProductsDetailsModel productDetails) success,
+    required TResult Function(ProductDetailsModel productDetails) success,
     required TResult Function(String error) error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(ProductsDetailsModel productDetails)? success,
+    TResult? Function(ProductDetailsModel productDetails)? success,
     TResult? Function(String error)? error,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(ProductsDetailsModel productDetails)? success,
+    TResult Function(ProductDetailsModel productDetails)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) =>
@@ -420,7 +420,7 @@ class _$LoadingStateImpl implements LoadingState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(ProductsDetailsModel productDetails) success,
+    required TResult Function(ProductDetailsModel productDetails) success,
     required TResult Function(String error) error,
   }) {
     return loading();
@@ -430,7 +430,7 @@ class _$LoadingStateImpl implements LoadingState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(ProductsDetailsModel productDetails)? success,
+    TResult? Function(ProductDetailsModel productDetails)? success,
     TResult? Function(String error)? error,
   }) {
     return loading?.call();
@@ -440,7 +440,7 @@ class _$LoadingStateImpl implements LoadingState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(ProductsDetailsModel productDetails)? success,
+    TResult Function(ProductDetailsModel productDetails)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -495,7 +495,7 @@ abstract class _$$SuccessStateImplCopyWith<$Res> {
           _$SuccessStateImpl value, $Res Function(_$SuccessStateImpl) then) =
       __$$SuccessStateImplCopyWithImpl<$Res>;
   @useResult
-  $Res call({ProductsDetailsModel productDetails});
+  $Res call({ProductDetailsModel productDetails});
 }
 
 /// @nodoc
@@ -515,7 +515,7 @@ class __$$SuccessStateImplCopyWithImpl<$Res>
       productDetails: null == productDetails
           ? _value.productDetails
           : productDetails // ignore: cast_nullable_to_non_nullable
-              as ProductsDetailsModel,
+              as ProductDetailsModel,
     ));
   }
 }
@@ -526,7 +526,7 @@ class _$SuccessStateImpl implements SuccessState {
   const _$SuccessStateImpl({required this.productDetails});
 
   @override
-  final ProductsDetailsModel productDetails;
+  final ProductDetailsModel productDetails;
 
   @override
   String toString() {
@@ -555,7 +555,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(ProductsDetailsModel productDetails) success,
+    required TResult Function(ProductDetailsModel productDetails) success,
     required TResult Function(String error) error,
   }) {
     return success(productDetails);
@@ -565,7 +565,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(ProductsDetailsModel productDetails)? success,
+    TResult? Function(ProductDetailsModel productDetails)? success,
     TResult? Function(String error)? error,
   }) {
     return success?.call(productDetails);
@@ -575,7 +575,7 @@ class _$SuccessStateImpl implements SuccessState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(ProductsDetailsModel productDetails)? success,
+    TResult Function(ProductDetailsModel productDetails)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {
@@ -622,10 +622,9 @@ class _$SuccessStateImpl implements SuccessState {
 
 abstract class SuccessState implements ProductDetailsState {
   const factory SuccessState(
-          {required final ProductsDetailsModel productDetails}) =
-      _$SuccessStateImpl;
+      {required final ProductDetailsModel productDetails}) = _$SuccessStateImpl;
 
-  ProductsDetailsModel get productDetails;
+  ProductDetailsModel get productDetails;
   @JsonKey(ignore: true)
   _$$SuccessStateImplCopyWith<_$SuccessStateImpl> get copyWith =>
       throw _privateConstructorUsedError;
@@ -696,7 +695,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() loading,
-    required TResult Function(ProductsDetailsModel productDetails) success,
+    required TResult Function(ProductDetailsModel productDetails) success,
     required TResult Function(String error) error,
   }) {
     return error(this.error);
@@ -706,7 +705,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? loading,
-    TResult? Function(ProductsDetailsModel productDetails)? success,
+    TResult? Function(ProductDetailsModel productDetails)? success,
     TResult? Function(String error)? error,
   }) {
     return error?.call(this.error);
@@ -716,7 +715,7 @@ class _$ErrorStateImpl implements ErrorState {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? loading,
-    TResult Function(ProductsDetailsModel productDetails)? success,
+    TResult Function(ProductDetailsModel productDetails)? success,
     TResult Function(String error)? error,
     required TResult orElse(),
   }) {

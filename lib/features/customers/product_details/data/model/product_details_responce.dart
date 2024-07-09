@@ -1,60 +1,55 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 part 'product_details_responce.g.dart';
-
 @JsonSerializable()
-class ProductDetailsResponce {
-  ProductDetailsResponce(this.data);
+class ProductDetailsResponse {
+  ProductDetailsResponse(this.data);
 
-  factory ProductDetailsResponce.fromJson(Map<String, dynamic> json) =>
-      _$ProductDetailsResponceFromJson(json);
+  factory ProductDetailsResponse.fromJson(Map<String, dynamic> json) =>
+      _$ProductDetailsResponseFromJson(json);
 
-  ProductDetailsData data;
-
- 
+  final ProductDetailsData data;
 }
 
 @JsonSerializable()
 class ProductDetailsData {
-  ProductDetailsData({required this.products});
+  ProductDetailsData(this.productModel);
 
   factory ProductDetailsData.fromJson(Map<String, dynamic> json) =>
       _$ProductDetailsDataFromJson(json);
 
-  final ProductsDetailsModel products;
+  @JsonKey(name: 'product')
+  final ProductDetailsModel productModel;
 }
 
 @JsonSerializable()
-class ProductsDetailsModel {
+class ProductDetailsModel {
+  ProductDetailsModel(
+    this.title,
+    this.price,
+    this.images,
+    this.description,
+    this.category,
+    this.id,
+  );
 
-  ProductsDetailsModel({required this.title, required this.price, required this.description, required this.images});
+  factory ProductDetailsModel.fromJson(Map<String, dynamic> json) =>
+      _$ProductDetailsModelFromJson(json);
 
-  factory ProductsDetailsModel.fromJson(Map<String, dynamic> json) =>
-      _$ProductsDetailsModelFromJson(json);
-
-  final String title;
- final double price;
- final String description;
+  final String? id;
+  final String? title;
+  final double? price;
   final List<String> images;
-
+  final String? description;
+  final CategoryDateilaModel? category;
 }
 
+@JsonSerializable()
+class CategoryDateilaModel {
+  CategoryDateilaModel(this.name);
 
+  factory CategoryDateilaModel.fromJson(Map<String, dynamic> json) =>
+      _$CategoryDateilaModelFromJson(json);
 
-// {
-//     "data": {
-//         "product": {
-//             "title": "Majestic Mountain Graphic T-Shirt",
-//             "price": 44,
-//             "images": [
-//                 "https://i.imgur.com/QkIa5tT.jpeg",
-//                 "https://i.imgur.com/jb5Yu0h.jpeg",
-//                 "https://i.imgur.com/UlxxXyG.jpeg"
-//             ],
-//             "category": {
-//                 "id": "1",
-//                 "name": "Clothes",
-//                 "image": "https://i.imgur.com/QkIa5tT.jpeg"
-//             }
-//         }
-//     }
-// }
+  final String name;
+}

@@ -6,44 +6,60 @@ part of 'product_details_responce.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-ProductDetailsResponce _$ProductDetailsResponceFromJson(
+ProductDetailsResponse _$ProductDetailsResponseFromJson(
         Map<String, dynamic> json) =>
-    ProductDetailsResponce(
+    ProductDetailsResponse(
       ProductDetailsData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$ProductDetailsResponceToJson(
-        ProductDetailsResponce instance) =>
+Map<String, dynamic> _$ProductDetailsResponseToJson(
+        ProductDetailsResponse instance) =>
     <String, dynamic>{
       'data': instance.data,
     };
 
 ProductDetailsData _$ProductDetailsDataFromJson(Map<String, dynamic> json) =>
     ProductDetailsData(
-      products: ProductsDetailsModel.fromJson(
-          json['products'] as Map<String, dynamic>),
+      ProductDetailsModel.fromJson(json['product'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ProductDetailsDataToJson(ProductDetailsData instance) =>
     <String, dynamic>{
-      'products': instance.products,
+      'product': instance.productModel,
     };
 
-ProductsDetailsModel _$ProductsDetailsModelFromJson(
-        Map<String, dynamic> json) =>
-    ProductsDetailsModel(
-      title: json['title'] as String,
-      price: (json['price'] as num).toDouble(),
-      description: json['description'] as String,
-      images:
-          (json['images'] as List<dynamic>).map((e) => e as String).toList(),
+ProductDetailsModel _$ProductDetailsModelFromJson(Map<String, dynamic> json) =>
+    ProductDetailsModel(
+      json['title'] as String?,
+      (json['price'] as num?)?.toDouble(),
+      (json['images'] as List<dynamic>).map((e) => e as String).toList(),
+      json['description'] as String?,
+      json['category'] == null
+          ? null
+          : CategoryDateilaModel.fromJson(
+              json['category'] as Map<String, dynamic>),
+      json['id'] as String?,
     );
 
-Map<String, dynamic> _$ProductsDetailsModelToJson(
-        ProductsDetailsModel instance) =>
+Map<String, dynamic> _$ProductDetailsModelToJson(
+        ProductDetailsModel instance) =>
     <String, dynamic>{
+      'id': instance.id,
       'title': instance.title,
       'price': instance.price,
-      'description': instance.description,
       'images': instance.images,
+      'description': instance.description,
+      'category': instance.category,
+    };
+
+CategoryDateilaModel _$CategoryDateilaModelFromJson(
+        Map<String, dynamic> json) =>
+    CategoryDateilaModel(
+      json['name'] as String,
+    );
+
+Map<String, dynamic> _$CategoryDateilaModelToJson(
+        CategoryDateilaModel instance) =>
+    <String, dynamic>{
+      'name': instance.name,
     };

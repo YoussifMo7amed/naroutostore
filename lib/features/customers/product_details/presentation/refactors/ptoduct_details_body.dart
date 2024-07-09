@@ -5,11 +5,12 @@ import 'package:naroutoshop/core/common/widgets/custom_share_bottom.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/customers/product_details/data/model/product_details_responce.dart';
 import 'package:naroutoshop/features/customers/product_details/widgets/product_details_slider.dart';
 
 class PtoductDetailsBody extends StatelessWidget {
-  const PtoductDetailsBody({super.key});
-
+  const PtoductDetailsBody({required this.productModel, super.key});
+  final ProductDetailsModel productModel;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,13 +30,15 @@ class PtoductDetailsBody extends StatelessWidget {
             ),
             SizedBox(height: 10.h),
             // product details slider
-            const ProductDetailsSlider(),
+             ProductDetailsSlider(
+              imagesList: productModel.images ,
+            ),
 
             SizedBox(height: 30.h),
 
             //product details
             TextApp(
-              text: 'Title',
+              text: productModel.title ?? '',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.bold,
@@ -46,7 +49,7 @@ class PtoductDetailsBody extends StatelessWidget {
             SizedBox(height: 15.h),
 
             TextApp(
-              text: 'Description',
+              text: productModel.description ?? '',
               theme: context.textStyle.copyWith(
                 fontSize: 16.sp,
                 fontWeight: FontWeightHelper.regular,
