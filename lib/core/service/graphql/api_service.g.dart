@@ -155,7 +155,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ProductsNumberResponce.fromjson(_result.data!);
+    final value = ProductsNumberResponce.fromJson(_result.data!);
     return value;
   }
 
@@ -184,7 +184,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = CategoriesNumberResponce.fromjson(_result.data!);
+    final value = CategoriesNumberResponce.fromJson(_result.data!);
     return value;
   }
 
@@ -212,7 +212,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UsersNumberResponce.fromjson(_result.data!);
+    final value = UsersNumberResponce.fromJson(_result.data!);
     return value;
   }
 
@@ -241,7 +241,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = GetAllCategoriesResponce.fromjson(_result.data!);
+    final value = GetAllCategoriesResponce.fromJson(_result.data!);
     return value;
   }
 
@@ -270,7 +270,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = CreateCategoryResponce.fromjson(_result.data!);
+    final value = CreateCategoryResponce.fromJson(_result.data!);
     return value;
   }
 
@@ -540,6 +540,35 @@ class _ApiService implements ApiService {
 
   @override
   Future<GetAllProductResponse> getCategory(Map<String, dynamic> query) async {
+    final _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    _data.addAll(query);
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<GetAllProductResponse>(Options(
+      method: 'POST',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/graphql',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
+    final value = GetAllProductResponse.fromJson(_result.data!);
+    return value;
+  }
+
+  @override
+  Future<GetAllProductResponse> viewAllProducts(
+      Map<String, dynamic> query) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};

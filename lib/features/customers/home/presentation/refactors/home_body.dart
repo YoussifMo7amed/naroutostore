@@ -6,6 +6,7 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/language/lang_keys.dart';
 import 'package:naroutoshop/core/loading/empty_page.dart';
 import 'package:naroutoshop/core/loading/loading_shimmer.dart';
+import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_categories/get_all_categories_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_products/get_all_products_bloc.dart';
@@ -107,7 +108,9 @@ class HomeBody extends StatelessWidget {
                 builder: (context, state) {
                   if (context.read<GetAllProductsBloc>().listIsLessThan10) {
                     return CustomButton(
-                      onPressed: () {},
+                      onPressed: () {
+                        context.pushNamed(Routes.viewallProducts);
+                      },
                       text: context.translate(LangKeys.viewAll),
                       width: MediaQuery.sizeOf(context).width,
                       height: 50.h,
