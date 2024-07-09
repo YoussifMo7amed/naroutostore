@@ -6,8 +6,13 @@ extension StringFormate on String {
   String toCapitalized() {
     return '${this[0].toUpperCase()}${substring(1)}';
   }
-    String convertLongString() {
-    final shortString = split(' ').sublist(0, split(' ').length - 2).join(' ');
-    return shortString;
+String convertLongString() {
+    final words = this.split(' ');
+    if (words.length > 2) {
+      return words.sublist(0, 2).join(' ');
+    } else {
+      return this;
+    }
   }
+
 }

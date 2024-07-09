@@ -16,8 +16,8 @@ class ProductDetailsRepo {
       );
       return ApiResult.success(responce);
     } catch (e) {
-      return  ApiResult.failure(
-        e.toString()
+      return  const ApiResult.failure(
+      'Please try again later, Something went wrong',
       );
     }
   }

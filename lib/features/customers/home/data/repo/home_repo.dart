@@ -31,7 +31,7 @@ class HomeRepo {
     }
   }
   //get all products
-  Future<ApiResult<GetAllProductResponce>> getAllProducts() async {
+  Future<ApiResult<GetAllProductResponse>> getAllProducts() async {
     try {
       final responce = await _dataSource.getAllProducts();
       return ApiResult.success(responce);

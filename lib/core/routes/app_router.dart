@@ -10,6 +10,7 @@ import 'package:naroutoshop/features/admin/home_admin/presentation/screens/home_
 import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/login_screen.dart';
 import 'package:naroutoshop/features/auth/presentation/screens/sign_up_screen.dart';
+import 'package:naroutoshop/features/customers/categories/presentation/screens/categories_screen.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/main/presentation/screens/main_screen.dart';
 import 'package:naroutoshop/features/customers/product_details/presentation/screens/product_details_screen.dart';
@@ -57,6 +58,12 @@ class AppRouter {
       case Routes.productDetails:
         return BaseRoute(
           page: ProductDetailsScreen(productId: args! as int),
+        );
+      case Routes.categories:
+        return BaseRoute(
+          page: CategoriesScreen(
+            categoryInfo: args! as ({String categoryName, int categoryId}),
+          ),
         );
 
       default:

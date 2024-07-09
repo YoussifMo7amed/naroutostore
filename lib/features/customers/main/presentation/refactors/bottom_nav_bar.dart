@@ -54,11 +54,12 @@ class MainBottomNavBar extends StatelessWidget {
                                       cubit.navBarChange(NavBarEnum.home);
                                     },
                                   ),
+                                  //TODO: Add Notifications
                                   IcanTabNavBar(
                                     image: AppImages.categoriesTab,
-                                    isSelected:  cubit.navBar == NavBarEnum.categories,
+                                    isSelected:  cubit.navBar == NavBarEnum.notifications,
                                     onTap: () {
-                                      cubit.navBarChange(NavBarEnum.categories);
+                                      cubit.navBarChange(NavBarEnum.notifications);
                                     },
                                   ),
                                   IcanTabNavBar(
