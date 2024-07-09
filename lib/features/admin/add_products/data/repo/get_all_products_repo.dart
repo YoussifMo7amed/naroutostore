@@ -8,7 +8,7 @@ class GetAllProductssRepo {
   GetAllProductssRepo(this._dataSource);
   final GetAllProductsDataSource _dataSource;
 
-  Future<ApiResult<GetAllProductResponce>> getAllProducts() async {
+  Future<ApiResult<GetAllProductResponse>> getAllProducts() async {
     try {
       final responce = await _dataSource.getAllProducts();
       return ApiResult.success(responce);

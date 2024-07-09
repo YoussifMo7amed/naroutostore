@@ -16,7 +16,7 @@ class ProductList extends StatelessWidget {
           return CustomProductItem(
             imageUrl: productList[index].images!.first.imageProductFormate(),
             title: productList[index].title ?? '',
-            categoryName: productList[index].category!.name,
+            categoryName: productList[index].category!.name??'',
             price: productList[index].price ?? 0,
             productId: int.parse(productList[index].id ?? '0'),
           );

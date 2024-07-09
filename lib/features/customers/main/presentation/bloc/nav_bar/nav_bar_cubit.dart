@@ -13,8 +13,8 @@ class NavBarCubit extends Cubit<NavBarState> {
   void navBarChange(NavBarEnum viewEnum) {
     if (viewEnum == NavBarEnum.home) {
       navBar = NavBarEnum.home;
-    } else if (viewEnum == NavBarEnum.categories) {
-      navBar = NavBarEnum.categories;
+    } else if (viewEnum == NavBarEnum.notifications) {
+      navBar = NavBarEnum.notifications;
     } else if (viewEnum == NavBarEnum.favorites) {
       navBar = NavBarEnum.favorites;
     } else if (viewEnum == NavBarEnum.profile) {

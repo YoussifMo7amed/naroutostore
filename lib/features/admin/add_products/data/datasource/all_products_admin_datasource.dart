@@ -8,7 +8,7 @@ class GetAllProductsDataSource {
   GetAllProductsDataSource(this._graphql);
   final ApiService _graphql;
 //get all products
-  Future<GetAllProductResponce> getAllProducts() async {
+  Future<GetAllProductResponse> getAllProducts() async {
     final responce = await _graphql.getAllProducts(
       AllProductsAdminQueries().getAllProductsMapQuery(),
     );

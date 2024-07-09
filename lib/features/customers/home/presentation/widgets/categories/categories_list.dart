@@ -23,6 +23,7 @@ class CategoriesList extends StatelessWidget {
                   image:
                       categoryList[index].image??'',
                   title: categoryList[index].name??'' ,
+                  id: int.parse(categoryList[index].id??'0'),
                 );
               },
               separatorBuilder: (context, index) => SizedBox(
