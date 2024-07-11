@@ -50,6 +50,9 @@ import 'package:naroutoshop/features/customers/product_details/presentation/bloc
 import 'package:naroutoshop/features/customers/profile/data/data_source/profile_datasource.dart';
 import 'package:naroutoshop/features/customers/profile/data/repo/profile_repo.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/bloc/profile/profile_bloc.dart';
+import 'package:naroutoshop/features/customers/view_all_products/data/datasource/view_all_product_datasource.dart';
+import 'package:naroutoshop/features/customers/view_all_products/data/repo/view_all_products_repo.dart';
+import 'package:naroutoshop/features/customers/view_all_products/presentation/bloc/view_all_products/view_all_products_bloc.dart';
 
 final sl = GetIt.instance;
 
@@ -66,6 +69,7 @@ Future<void> setupInjector() async {
   await _initHome();
   await _initProductDetails();
   await _initCategory();
+  await _initViewAllProducts();
 }
 
 Future<void> _initCore() async {
@@ -176,4 +180,12 @@ Future<void> _initCategory() async {
     ..registerLazySingleton(() => CategoryDataSource(sl()))
     ..registerLazySingleton(() => CategoryRepo(sl()))
     ..registerFactory(() => GetCategoryBloc(sl()));
+}
+
+
+Future<void> _initViewAllProducts() async {
+  sl
+    ..registerLazySingleton(() => ViewAllProductsDatasource(sl()))
+    ..registerLazySingleton(() => ViewAllProductsRepo(sl()))
+    ..registerFactory(() => ViewAllProductsBloc(sl()));
 }

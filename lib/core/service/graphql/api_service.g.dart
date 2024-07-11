@@ -155,7 +155,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = ProductsNumberResponce.fromJson(_result.data!);
+    final value = ProductsNumberResponce.fromjson(_result.data!);
     return value;
   }
 
@@ -184,7 +184,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = CategoriesNumberResponce.fromJson(_result.data!);
+    final value = CategoriesNumberResponce.fromjson(_result.data!);
     return value;
   }
 
@@ -212,7 +212,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = UsersNumberResponce.fromJson(_result.data!);
+    final value = UsersNumberResponce.fromjson(_result.data!);
     return value;
   }
 
@@ -241,7 +241,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = GetAllCategoriesResponce.fromJson(_result.data!);
+    final value = GetAllCategoriesResponce.fromjson(_result.data!);
     return value;
   }
 
@@ -270,7 +270,7 @@ class _ApiService implements ApiService {
               _dio.options.baseUrl,
               baseUrl,
             ))));
-    final value = CreateCategoryResponce.fromJson(_result.data!);
+    final value = CreateCategoryResponce.fromjson(_result.data!);
     return value;
   }
 

@@ -5,7 +5,7 @@ import 'package:naroutoshop/features/customers/view_all_products/data/datasource
 class ViewAllProductsRepo {
   ViewAllProductsRepo(this._dataSource);
 
-  final ViewAllProductDatasource _dataSource;
+  final ViewAllProductsDatasource _dataSource;
 
   Future<ApiResult<GetAllProductResponse>> getViewAllProducts({
     required int offset,
@@ -16,8 +16,8 @@ class ViewAllProductsRepo {
       );
       return ApiResult.success(responce);
     } catch (e) {
-      return  const ApiResult.failure(
-      'Please try again later, Something went wrong',
+      return const ApiResult.failure(
+        'Please try again later, Something went wrong',
       );
     }
   }
