@@ -1,4 +1,6 @@
 import 'dart:async';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:naroutoshop/features/customers/view_all_products/data/repo/view_all_products_repo.dart';
 import 'package:naroutoshop/features/customers/view_all_products/presentation/bloc/view_all_products/view_all_products_event.dart';
@@ -14,7 +16,7 @@ class ViewAllProductsBloc
           ),
         ) {
     on<GetProductsViewAllEvent>(_getViewAllProducts);
-    on<LoadMoreProductsEvent>(_loadMoreProducts);
+    on<LoadMoreProductsEvent>(_loadMoreProducts,transformer:droppable() );
   }
 
   final ViewAllProductsRepo _repo;
@@ -95,5 +97,18 @@ class ViewAllProductsBloc
         );
       },
     );
+  }
+
+  void loadMore({
+    required ScrollController scrollController,
+    required double loadMore,
+  }) {
+    WidgetsBinding.instance.addPostFrameCallback((timeStamp) {
+      final offset = scrollController.offset;
+      final maxExtent = scrollController.position.maxScrollExtent;
+      if (offset >= maxExtent - loadMore) {
+        add(const LoadMoreProductsEvent());
+      }
+    });
   }
 }
