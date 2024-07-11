@@ -14,6 +14,7 @@ import 'package:naroutoshop/features/customers/categories/presentation/screens/c
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/main/presentation/screens/main_screen.dart';
 import 'package:naroutoshop/features/customers/product_details/presentation/screens/product_details_screen.dart';
+import 'package:naroutoshop/features/customers/view_all_products/presentation/screens/view_all_products_screen.dart';
 
 class AppRouter {
   static Route<void> generateroutes(RouteSettings settings) {
@@ -64,6 +65,11 @@ class AppRouter {
           page: CategoriesScreen(
             categoryInfo: args! as ({String categoryName, int categoryId}),
           ),
+        );
+        case Routes.viewallProducts:
+        return BaseRoute(
+          page: const ViewAllProductsScreen(),
+  
         );
 
       default:
