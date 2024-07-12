@@ -50,6 +50,9 @@ import 'package:naroutoshop/features/customers/product_details/presentation/bloc
 import 'package:naroutoshop/features/customers/profile/data/data_source/profile_datasource.dart';
 import 'package:naroutoshop/features/customers/profile/data/repo/profile_repo.dart';
 import 'package:naroutoshop/features/customers/profile/presentation/bloc/profile/profile_bloc.dart';
+import 'package:naroutoshop/features/customers/search/data/datasource/search_data_source.dart';
+import 'package:naroutoshop/features/customers/search/data/repo/search_repo.dart';
+import 'package:naroutoshop/features/customers/search/presntation/bloc/search_Product/search_product_bloc.dart';
 import 'package:naroutoshop/features/customers/view_all_products/data/datasource/view_all_product_datasource.dart';
 import 'package:naroutoshop/features/customers/view_all_products/data/repo/view_all_products_repo.dart';
 import 'package:naroutoshop/features/customers/view_all_products/presentation/bloc/view_all_products/view_all_products_bloc.dart';
@@ -70,6 +73,7 @@ Future<void> setupInjector() async {
   await _initProductDetails();
   await _initCategory();
   await _initViewAllProducts();
+  await _initSearchProducts();
 }
 
 Future<void> _initCore() async {
@@ -188,4 +192,11 @@ Future<void> _initViewAllProducts() async {
     ..registerLazySingleton(() => ViewAllProductsDatasource(sl()))
     ..registerLazySingleton(() => ViewAllProductsRepo(sl()))
     ..registerFactory(() => ViewAllProductsBloc(sl()));
+}
+
+Future<void> _initSearchProducts() async {
+  sl
+    ..registerLazySingleton(() => SearchDatasource(sl()))
+    ..registerLazySingleton(() => SearchRepo(sl()))
+    ..registerFactory(() => SearchProductBloc(sl()));
 }

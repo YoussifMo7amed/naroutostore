@@ -8,6 +8,7 @@ import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/enums/nav_bar_enum.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/language/lang_keys.dart';
+import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/core/styles/images/app_images.dart';
@@ -44,7 +45,9 @@ class MainCustomerAppBar extends StatelessWidget
                 CustomFadeInLeft(
                   duration: 800,
                   child: CustomLinearButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      context.pushNamed(Routes.search);
+                    },
                     child: Center(
                       child: SvgPicture.asset(
                         AppImages.search,
