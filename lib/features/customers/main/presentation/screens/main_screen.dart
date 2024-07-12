@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:naroutoshop/core/enums/nav_bar_enum.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
-import 'package:naroutoshop/features/customers/favorites/favorites_screen.dart';
+import 'package:naroutoshop/features/customers/favorites/presentation/screen/favorites_screen.dart';
 import 'package:naroutoshop/features/customers/home/presentation/screens/home_screen.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/main/presentation/refactors/bottom_nav_bar.dart';
