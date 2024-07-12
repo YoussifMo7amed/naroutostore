@@ -9,8 +9,8 @@ class SearchRequestBody {
     required this.price_min,
     required this.price_max,
   });
-  final String searchName;
-  final int price_min;
-  final int price_max;
+  final String? searchName;
+  final int? price_min;
+  final int? price_max;
   Map<String, dynamic> toJson() => _$SearchRequestBodyToJson(this);
 }

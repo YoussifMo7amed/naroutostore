@@ -6,23 +6,31 @@ class SearchQueries {
   static const SearchQueries _instance = SearchQueries._();
 
   // get all product banners
-  Map<String, dynamic> getSearchQueriesMapQuery({required SearchRequestBody body}) {
+  Map<String, dynamic> getSearchQueriesMapQuery(
+      {required SearchRequestBody body}) {
     return {
-      'query': '''
-        	{
-	  products(price_min: ${body.price_min}, price_max: ${body.price_max},title: "${body.searchName}") {
-              id
-              title
-              price
-              images
-              description
-              category{
-                    id
-                    name
-                }
-          }
+      'query': r'''
+        	
+           query SearchProducts($searchName: String , $priceMax: Int , $priceMin: Int) {
+               products(title: $searchName, price_max: $priceMax, price_min:$priceMin) {
+                   id
+                   title
+                   price
+                   images
+                   description
+                   category{
+                         name
+                         id
+                     }
+              }
+           
 }
       ''',
+      'variables': {
+        'priceMin': body.price_min,
+        'priceMax': body.price_max,
+        'searchName': body.searchName,
+      },
     };
   }
 }

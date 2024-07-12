@@ -6,9 +6,10 @@ import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 
 class SearchForData extends StatelessWidget {
   const SearchForData({
+    required this.text,
     super.key,
   });
-
+  final String text;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -22,7 +23,7 @@ class SearchForData extends StatelessWidget {
           height: 10.h,
         ),
         TextApp(
-          text: 'Search For Data',
+          text: text,
           theme: context.textStyle.copyWith(
             fontSize: 18.sp,
             fontWeight: FontWeightHelper.bold,

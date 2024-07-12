@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/animations/animate_do.dart';
 import 'package:naroutoshop/core/common/widgets/custom_text_field.dart';
 import 'package:naroutoshop/core/enums/filter_buttoms_enum.dart';
+import 'package:naroutoshop/features/customers/search/data/models/search_request_body.dart';
+import 'package:naroutoshop/features/customers/search/presntation/bloc/search_Product/search_product_bloc.dart';
 import 'package:naroutoshop/features/customers/search/presntation/widgets/save_filter_bottom.dart';
 import 'package:naroutoshop/features/customers/search/presntation/widgets/search_for_data.dart';
 import 'package:naroutoshop/features/customers/search/presntation/widgets/search_name_price_bottom.dart';
@@ -15,8 +18,18 @@ class FilterBottoms extends StatefulWidget {
 }
 
 class _FilterBottomsState extends State<FilterBottoms> {
+  final searchNameController = TextEditingController();
+  final searchMinPriceController = TextEditingController();
+  final searchMaxPriceController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   FilterButtomsEnum searchEnum = FilterButtomsEnum.non;
+   @override
+  void dispose() {
+    searchNameController.dispose();
+    searchMinPriceController.dispose();
+    searchMaxPriceController.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -54,7 +67,7 @@ class _FilterBottomsState extends State<FilterBottoms> {
             CustomFadeInRight(
               duration: 200,
               child: CustomTextField(
-                controller: TextEditingController(),
+                controller: searchNameController,
                 keyboardType: TextInputType.text,
                 validator: (value) {
                   if (value == null || value.isEmpty) {
@@ -66,7 +79,22 @@ class _FilterBottomsState extends State<FilterBottoms> {
               ),
             ),
             SaveFilterBottom(
-              onTap: () {},
+              onTap: () {
+                if (_formKey.currentState!.validate()) {
+                  context.read<SearchProductBloc>().add(
+                        SearchProductEvent.searchProduct(
+                          body: SearchRequestBody(
+                            searchName: searchNameController.text.trim(),
+                            price_min: null,
+                            price_max: null,
+                          ),
+                        ),
+                      );
+                  setState(() {
+                    searchEnum = FilterButtomsEnum.saved;
+                  });
+                }
+              },
             ),
           ] else if (searchEnum == FilterButtomsEnum.price) ...[
             Row(
@@ -77,7 +105,7 @@ class _FilterBottomsState extends State<FilterBottoms> {
                   child: SizedBox(
                     width: 160.w,
                     child: CustomTextField(
-                      controller: TextEditingController(),
+                      controller: searchMinPriceController,
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -97,7 +125,7 @@ class _FilterBottomsState extends State<FilterBottoms> {
                   child: SizedBox(
                     width: 160.w,
                     child: CustomTextField(
-                      controller: TextEditingController(),
+                      controller: searchMaxPriceController,
                       keyboardType: TextInputType.number,
                       validator: (value) {
                         if (value == null || value.isEmpty) {
@@ -112,14 +140,31 @@ class _FilterBottomsState extends State<FilterBottoms> {
               ],
             ),
             SaveFilterBottom(
-              onTap: () {},
+              onTap: () {
+                if (_formKey.currentState!.validate()) {
+                  context.read<SearchProductBloc>().add(
+                        SearchProductEvent.searchProduct(
+                          body: SearchRequestBody(
+                            searchName: null,
+                            price_min: int.parse(searchMinPriceController.text),
+                            price_max: int.parse(searchMaxPriceController.text),
+                          ),
+                        ),
+                      );
+                  setState(() {
+                    searchEnum = FilterButtomsEnum.saved;
+                  });
+                }
+              },
             ),
           ],
           if (searchEnum == FilterButtomsEnum.non) ...[
             SizedBox(
               height: 100.h,
             ),
-            const SearchForData(),
+            const SearchForData(
+              text: 'Search For Data',
+            ),
           ]
         ],
       ),
@@ -129,24 +174,27 @@ class _FilterBottomsState extends State<FilterBottoms> {
   void _searchNameEnum() {
     if (searchEnum == FilterButtomsEnum.name) {
       setState(() {
-        searchEnum = FilterButtomsEnum.non;
+        searchEnum = FilterButtomsEnum.saved;
       });
     } else {
       setState(() {
         searchEnum = FilterButtomsEnum.name;
       });
     }
+    searchNameController.clear();
   }
 
   void _searchPriceEnum() {
     if (searchEnum == FilterButtomsEnum.price) {
       setState(() {
-        searchEnum = FilterButtomsEnum.non;
+        searchEnum = FilterButtomsEnum.saved;
       });
     } else {
       setState(() {
         searchEnum = FilterButtomsEnum.price;
       });
     }
+    searchMinPriceController.clear();
+    searchMaxPriceController.clear();
   }
 }
