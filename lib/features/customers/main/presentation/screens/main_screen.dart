@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:naroutoshop/core/enums/nav_bar_enum.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
-import 'package:naroutoshop/features/customers/categories/presentation/screens/categories_screen.dart';
 import 'package:naroutoshop/features/customers/favorites/favorites_screen.dart';
 import 'package:naroutoshop/features/customers/home/presentation/screens/home_screen.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';

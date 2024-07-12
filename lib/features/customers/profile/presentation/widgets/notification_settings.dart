@@ -1,14 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:flutter_svg/svg.dart';
-import 'package:naroutoshop/core/apps/app_cubit/app_cubit.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/language/lang_keys.dart';
 import 'package:naroutoshop/core/service/push_notifications/firebase_cloud_messaging.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
-import 'package:naroutoshop/core/styles/images/app_images.dart';
 
 class NotificationsSettings extends StatelessWidget {
   const NotificationsSettings({super.key});
