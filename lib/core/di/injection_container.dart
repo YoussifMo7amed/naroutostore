@@ -38,6 +38,7 @@ import 'package:naroutoshop/features/auth/presentation/bloc/auth_bloc.dart';
 import 'package:naroutoshop/features/customers/categories/data/datasource/category_data_source.dart';
 import 'package:naroutoshop/features/customers/categories/data/repo/category_repo.dart';
 import 'package:naroutoshop/features/customers/categories/presentation/bloc/get_category/get_category_bloc.dart';
+import 'package:naroutoshop/features/customers/favorites/presentation/cubit/favorite_cubit.dart';
 import 'package:naroutoshop/features/customers/home/data/datasource/home_datasource.dart';
 import 'package:naroutoshop/features/customers/home/data/repo/home_repo.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_categories/get_all_categories_bloc.dart';
@@ -74,6 +75,7 @@ Future<void> setupInjector() async {
   await _initCategory();
   await _initViewAllProducts();
   await _initSearchProducts();
+  await _initFavorites();
 }
 
 Future<void> _initCore() async {
@@ -199,4 +201,10 @@ Future<void> _initSearchProducts() async {
     ..registerLazySingleton(() => SearchDatasource(sl()))
     ..registerLazySingleton(() => SearchRepo(sl()))
     ..registerFactory(() => SearchProductBloc(sl()));
+}
+
+Future<void> _initFavorites() async {
+  sl
+
+    .registerFactory(FavoriteCubit.new);
 }

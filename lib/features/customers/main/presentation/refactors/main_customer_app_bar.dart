@@ -58,6 +58,28 @@ class MainCustomerAppBar extends StatelessWidget
               ],
             ),
           );
+        } else if (cubit.navBar == NavBarEnum.favorites) {
+          return AppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: context.color.mainColor,
+            elevation: 0,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomFadeInRight(
+                  duration: 800,
+                  child: TextApp(
+                    text: 'Your Favorites',
+                    theme: context.textStyle.copyWith(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeightHelper.bold,
+                      fontFamily: FontFamilyHelper.poppinsEnglish,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
         }
         return const SizedBox.shrink();
       },
@@ -65,6 +87,5 @@ class MainCustomerAppBar extends StatelessWidget
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size(double.infinity, 70.h);
 }

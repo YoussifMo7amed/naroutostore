@@ -9,11 +9,16 @@ class ProductDetailsQueries {
       'query': '''
         	{
 	product(id: $productId) {
-		title
-		price
-		images
-        description
-	}
+            id
+		        title
+		        price
+		        images
+            description
+            category {
+                name
+            }
+    }
+	
 }
       ''',
     };

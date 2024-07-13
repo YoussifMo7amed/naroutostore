@@ -1,14 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/features/customers/favorites/presentation/refactors/favorites_body.dart';
 
 class FavoritesScreen extends StatelessWidget {
   const FavoritesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Text(
-      'Favorites Screen',
-      style: TextStyle(color: Colors.white, fontSize: 20.sp),
-    );
+    return const FavoritesBody();
   }
 }
