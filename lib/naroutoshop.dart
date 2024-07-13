@@ -12,6 +12,7 @@ import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/service/shared_pref/pref_keys.dart';
 import 'package:naroutoshop/core/service/shared_pref/shared_pref.dart';
 import 'package:naroutoshop/core/theme/app_theme.dart';
+import 'package:naroutoshop/features/customers/favorites/presentation/cubit/favorite_cubit.dart';
 
 class NaroutoStore extends StatelessWidget {
   const NaroutoStore({super.key});
@@ -22,12 +23,22 @@ class NaroutoStore extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (_, value, __) {
-        if (value) {
-          return BlocProvider(
-            create: (context) => sl<AppCubit>()
-              ..changeThemeMode(
-                sheredMode: SharedPref().getBoolean(PrefKeys.themeMode),
+       if (value) {
+          return MultiBlocProvider(
+            providers: [
+            
+           
+              BlocProvider(
+                create: (context) => sl<AppCubit>()
+                  ..changeThemeMode(
+                    sheredMode: SharedPref().getBoolean(PrefKeys.themeMode),
+                  )
+                  ..getSavedLanguage(),
               ),
+                BlocProvider(
+                create: (context) => sl<FavoriteCubit>(),
+              ),
+            ],
             child: BlocBuilder<AppCubit, AppState>(
               buildWhen: (previous, current) {
                 return previous != current;

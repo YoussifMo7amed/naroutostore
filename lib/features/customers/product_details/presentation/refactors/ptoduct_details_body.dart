@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/widgets/custom_favorite_bottom.dart';
 import 'package:naroutoshop/core/common/widgets/custom_share_bottom.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/core/helper/string_extention.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/customers/favorites/presentation/cubit/favorite_cubit.dart';
 import 'package:naroutoshop/features/customers/product_details/data/model/product_details_responce.dart';
 import 'package:naroutoshop/features/customers/product_details/widgets/product_details_slider.dart';
 
@@ -25,13 +28,32 @@ class PtoductDetailsBody extends StatelessWidget {
                 //share botton
                 CustomShareBottom(size: 30.h),
                 //wishlist button
-                CustomFavoriteBottom(size: 30.h),
+                BlocBuilder<FavoriteCubit, FavoriteState>(
+                  builder: (context, state) {
+                    return CustomFavoriteBottom(
+                      size: 30.h,
+                      isFavorite: context
+                          .read<FavoriteCubit>()
+                          .isFavorite(productModel.id.toString()),
+                      onTap: () {
+                        context.read<FavoriteCubit>().addtoFavorites(
+                              productId: productModel.id.toString(),
+                              title: productModel.title ?? '',
+                              image: productModel.images.first
+                                  .imageProductFormate(),
+                              price: productModel.price.toString(),
+                              categoryName: productModel.category!.name,
+                            );
+                      },
+                    );
+                  },
+                ),
               ],
             ),
             SizedBox(height: 10.h),
             // product details slider
-             ProductDetailsSlider(
-              imagesList: productModel.images ,
+            ProductDetailsSlider(
+              imagesList: productModel.images,
             ),
 
             SizedBox(height: 30.h),

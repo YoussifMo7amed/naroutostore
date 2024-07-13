@@ -1,12 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/widgets/custom_container_linear_customer.dart';
+import 'package:naroutoshop/core/common/widgets/custom_favorite_bottom.dart';
+import 'package:naroutoshop/core/common/widgets/custom_share_bottom.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/helper/string_extention.dart';
 import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+import 'package:naroutoshop/features/customers/favorites/presentation/cubit/favorite_cubit.dart';
 
 class CustomProductItem extends StatelessWidget {
   const CustomProductItem({
@@ -39,21 +43,25 @@ class CustomProductItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 // share product
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.share,
-                    color: context.color.textColor,
-                  ),
-                ),
-                IconButton(
-                  onPressed: () {},
-                  padding: EdgeInsets.zero,
-                  icon: Icon(
-                    Icons.favorite_outlined,
-                    color: context.color.textColor,
-                  ),
+                CustomShareBottom(size: 30.h),
+                BlocBuilder<FavoriteCubit, FavoriteState>(
+                  builder: (context, state) {
+                    return CustomFavoriteBottom(
+                      size: 30.h,
+                      onTap: () {
+                        context.read<FavoriteCubit>().addtoFavorites(
+                              productId: productId.toString(),
+                              title: title,
+                              image: imageUrl.imageProductFormate(),
+                              price: price.toString(),
+                              categoryName: categoryName,
+                            );
+                      },
+                      isFavorite: context
+                          .read<FavoriteCubit>()
+                          .isFavorite(productId.toString()),
+                    );
+                  },
                 ),
               ],
             ),

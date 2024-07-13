@@ -25,13 +25,22 @@ class AppCubit extends Cubit<AppState> {
   }
 
   //change language
-  void SaveLanguage({required Locale local}) {
+  void getSavedLanguage() {
     final result = SharedPref().containPreference(PrefKeys.language)
         ? SharedPref().getString(PrefKeys.language)
         : 'en';
+
     currentLanguageCode = result!;
-    emit(AppState.languageChange(local: local));
+
+    emit(AppState.languageChange(local: Locale(currentLanguageCode)));
   }
+  // void SaveLanguage({required Locale local}) {
+  //   final result = SharedPref().containPreference(PrefKeys.language)
+  //       ? SharedPref().getString(PrefKeys.language)
+  //       : 'en';
+  //   currentLanguageCode = result!;
+  //   emit(AppState.languageChange(local: local));
+  // }
 
   Future<void> _changeLang(String langCode) async {
     await SharedPref().setString(PrefKeys.language, langCode);
