@@ -8,6 +8,7 @@ import 'package:naroutoshop/core/apps/envvariables.dart';
 import 'package:naroutoshop/core/di/injection_container.dart';
 import 'package:naroutoshop/core/service/hive/hive_database.dart';
 import 'package:naroutoshop/core/service/push_notifications/firebase_cloud_messaging.dart';
+import 'package:naroutoshop/core/service/push_notifications/local_notfication_service.dart';
 import 'package:naroutoshop/core/service/shared_pref/shared_pref.dart';
 import 'package:naroutoshop/naroutoshop.dart';
 
@@ -33,6 +34,7 @@ void main() async {
   await FirebaseCloudMessaging().init();
   await FirebaseCloudMessaging().getAccessToken();
   await HiveDatabase().init();
+  await LocalNotificationService.init();
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
