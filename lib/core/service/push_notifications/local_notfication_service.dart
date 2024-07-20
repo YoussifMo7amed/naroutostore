@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
+import 'package:naroutoshop/core/di/injection_container.dart';
+import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/core/routes/routers.dart';
 
 class LocalNotificationService {
   static FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
@@ -23,12 +26,12 @@ class LocalNotificationService {
 
   static void onTap(NotificationResponse notificationResponse) {
     // navigator
-    // if (int.parse(notificationResponse.payload.toString()) != -1) {
-    //   sl<GlobalKey<NavigatorState>>().currentState!.context.pushName(
-    //         AppRoutes.productDetails,
-    //         arguments: int.parse(notificationResponse.payload.toString()),
-    //       );
-    // }
+    if (int.parse(notificationResponse.payload.toString()) != -1) {
+      sl<GlobalKey<NavigatorState>>().currentState!.context.pushNamed(
+            Routes.productDetails,
+            arguments: int.parse(notificationResponse.payload.toString()),
+          );
+    }
   }
 
   static Future<void> showSimpleNotification({

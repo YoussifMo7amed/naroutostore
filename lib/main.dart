@@ -29,12 +29,17 @@ void main() async {
             projectId: 'narouto-store',
             storageBucket: 'narouto-store.appspot.com',
           ),
+        ).whenComplete(
+          () {
+            FirebaseCloudMessaging().init();
+            FirebaseCloudMessaging().getAccessToken();
+            LocalNotificationService.init();
+          },
         )
       : await Firebase.initializeApp();
-  await FirebaseCloudMessaging().init();
-  await FirebaseCloudMessaging().getAccessToken();
+
   await HiveDatabase().init();
-  await LocalNotificationService.init();
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

@@ -7,6 +7,7 @@ import 'package:naroutoshop/core/apps/envvariables.dart';
 import 'package:naroutoshop/core/common/toast/show_toast.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/language/lang_keys.dart';
+import 'package:naroutoshop/core/service/push_notifications/firebase_messaging_navigate.dart';
 
 class FirebaseCloudMessaging {
   factory FirebaseCloudMessaging() => _instance;
@@ -35,7 +36,21 @@ class FirebaseCloudMessaging {
   bool isPermissionNotified = false;
   ValueNotifier<bool> isSubscribed = ValueNotifier(true);
   Future<void> init() async {
+ //permission
     await _permissionsNotification();
+
+    // forground
+    FirebaseMessaging.onMessage
+        .listen(FirebaseMessagingNavigate.forGroundHandler);
+
+    // terminated
+    await FirebaseMessaging.instance
+        .getInitialMessage()
+        .then(FirebaseMessagingNavigate.terminatedHandler);
+
+    // background
+    FirebaseMessaging.onMessageOpenedApp
+        .listen(FirebaseMessagingNavigate.backGroundHandler);
   }
 
   Future<void> controllerForUserSubscription(BuildContext context) async {
@@ -120,8 +135,8 @@ class FirebaseCloudMessaging {
       'message': {
         'topic': subscriptionKey,
         'notification': {
-          'title': 'mnoibhuvg',
-          'body': 'mpbgf',
+          'title': title,
+          'body': body,
         },
         // 'data': {
         //   'productId': 125,
