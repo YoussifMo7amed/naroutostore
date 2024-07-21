@@ -27,6 +27,7 @@ class MainCustomerAppBar extends StatelessWidget
           return AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: context.color.mainColor,
+            surfaceTintColor: context.color.mainColor,
             elevation: 0,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -62,6 +63,7 @@ class MainCustomerAppBar extends StatelessWidget
           return AppBar(
             automaticallyImplyLeading: false,
             backgroundColor: context.color.mainColor,
+            surfaceTintColor: context.color.mainColor,
             elevation: 0,
             title: Row(
               mainAxisAlignment: MainAxisAlignment.center,
@@ -70,6 +72,29 @@ class MainCustomerAppBar extends StatelessWidget
                   duration: 800,
                   child: TextApp(
                     text: 'Your Favorites',
+                    theme: context.textStyle.copyWith(
+                      fontSize: 20.sp,
+                      fontWeight: FontWeightHelper.bold,
+                      fontFamily: FontFamilyHelper.poppinsEnglish,
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          );
+        } else if (cubit.navBar == NavBarEnum.notifications) {
+          return AppBar(
+            automaticallyImplyLeading: false,
+            backgroundColor: context.color.mainColor,
+            surfaceTintColor: context.color.mainColor,
+            elevation: 0,
+            title: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                CustomFadeInRight(
+                  duration: 800,
+                  child: TextApp(
+                    text: 'Notifications',
                     theme: context.textStyle.copyWith(
                       fontSize: 20.sp,
                       fontWeight: FontWeightHelper.bold,

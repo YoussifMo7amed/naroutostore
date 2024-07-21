@@ -8,6 +8,7 @@ import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/styles/images/app_images.dart';
 import 'package:naroutoshop/features/customers/main/presentation/bloc/nav_bar/nav_bar_cubit.dart';
 import 'package:naroutoshop/features/customers/main/presentation/widget/icon_tab_nav_bar.dart';
+import 'package:naroutoshop/features/customers/notification/presentation/refactors/notification_bar_icon.dart';
 
 class MainBottomNavBar extends StatelessWidget {
   const MainBottomNavBar({super.key});
@@ -54,24 +55,29 @@ class MainBottomNavBar extends StatelessWidget {
                                       cubit.navBarChange(NavBarEnum.home);
                                     },
                                   ),
-                                  //TODO: Add Notifications
-                                  IcanTabNavBar(
-                                    image: AppImages.categoriesTab,
-                                    isSelected:  cubit.navBar == NavBarEnum.notifications,
+                                  GestureDetector(
+                                    child: NotificationBarIcon(
+                                      isSelected: cubit.navBar ==
+                                          NavBarEnum.notifications,
+                                    ),
                                     onTap: () {
-                                      cubit.navBarChange(NavBarEnum.notifications);
+                                      cubit.navBarChange(
+                                        NavBarEnum.notifications,
+                                      );
                                     },
                                   ),
                                   IcanTabNavBar(
                                     image: AppImages.favouritesTab,
-                                    isSelected:cubit.navBar == NavBarEnum.favorites,
+                                    isSelected:
+                                        cubit.navBar == NavBarEnum.favorites,
                                     onTap: () {
                                       cubit.navBarChange(NavBarEnum.favorites);
                                     },
                                   ),
                                   IcanTabNavBar(
                                     image: AppImages.profileTab,
-                                    isSelected: cubit.navBar == NavBarEnum.profile,
+                                    isSelected:
+                                        cubit.navBar == NavBarEnum.profile,
                                     onTap: () {
                                       cubit.navBarChange(NavBarEnum.profile);
                                     },

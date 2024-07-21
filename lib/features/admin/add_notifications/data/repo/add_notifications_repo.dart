@@ -24,4 +24,19 @@ class AddNotificationsRepo {
       );
     }
   }
+
+
+   // add Notifications to all users in firebase data base
+
+  Future<void> addNotificationsToAllUsersFirebase({
+    required String body,
+    required String title,
+    required int productId,
+  }) async {
+    await _dataSource.addNotificationsToAllUsersFirebase(
+      body: body,
+      title: title,
+      productId: productId,
+    );
+  }
 }
