@@ -55,7 +55,7 @@ class MainCustomerAppBar extends StatelessWidget
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           );

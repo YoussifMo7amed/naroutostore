@@ -57,7 +57,7 @@ class ProfileBody extends StatelessWidget {
             //Language change
             const CustomFadeInRight(
               duration: 400,
-              child: LanguageChange()),
+              child: LanguageChange(),),
             SizedBox(height: 30.h),
             //Dark mode
             const CustomFadeInRight(

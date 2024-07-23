@@ -10,7 +10,7 @@ import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 
 class CategoryListItem extends StatelessWidget {
   const CategoryListItem(
-      {required this.image, required this.title, required this.id, super.key});
+      {required this.image, required this.title, required this.id, super.key,});
   final String image;
   final String title;
   final int id;
@@ -21,7 +21,7 @@ class CategoryListItem extends StatelessWidget {
         context.pushNamed(Routes.categories, arguments: (
           categoryName: title,
           categoryId: id,
-        ));
+        ),);
       },
       child: Column(
         children: [

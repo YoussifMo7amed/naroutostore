@@ -11,7 +11,7 @@ class DeleteProductBloc extends Bloc<DeleteProductEvent, DeleteProductState> {
   DeleteProductBloc(this._repo) : super(const _Initial()) {
     on<RemoveProductEvent>(_deleteProduct);
   }
-  GetAllProductssRepo _repo;
+  final GetAllProductssRepo _repo;
   FutureOr<void> _deleteProduct(
     RemoveProductEvent event,
     Emitter<DeleteProductState> emit,

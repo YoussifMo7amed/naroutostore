@@ -7,7 +7,7 @@ class AppValues {
     final random = Random.secure();
 
     final codes = List<int>.generate(
-        20, (index) => chars.codeUnitAt(random.nextInt(chars.length)));
+        20, (index) => chars.codeUnitAt(random.nextInt(chars.length)),);
 
     return String.fromCharCodes(codes);
   }

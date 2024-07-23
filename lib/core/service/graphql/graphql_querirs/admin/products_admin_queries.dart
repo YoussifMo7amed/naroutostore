@@ -27,8 +27,9 @@ class AllProductsAdminQueries {
     };
   }
 
-  Map<String, dynamic> createProductMapQuery(
-      {required CreateProdutRequestBody body}) {
+  Map<String, dynamic> createProductMapQuery({
+    required CreateProdutRequestBody body,
+  }) {
     return {
       'query': r'''
  mutation CreateProduct($title:String!,$price:Float!,$description:String!,$categoryId:Float!,$images:[String!]!) {
@@ -54,7 +55,8 @@ class AllProductsAdminQueries {
       },
     };
   }
- // Delete Product
+
+  // Delete Product
   Map<String, dynamic> deleteProduct({
     required String productid,
   }) {
@@ -68,6 +70,7 @@ mutation  deleteProduct($id: ID!) {
       },
     };
   }
+
 //  //Update Product
   Map<String, dynamic> updateProduct({
     required UpdateProductRequestBody body,
@@ -97,5 +100,4 @@ mutation  deleteProduct($id: ID!) {
       },
     };
   }
-
 }

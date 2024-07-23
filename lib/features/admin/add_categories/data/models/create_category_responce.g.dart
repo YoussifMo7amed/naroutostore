@@ -7,7 +7,7 @@ part of 'create_category_responce.dart';
 // **************************************************************************
 
 CreateCategoryResponce _$CreateCategoryResponceFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     CreateCategoryResponce(
       json['data'] == null
           ? null
@@ -15,7 +15,7 @@ CreateCategoryResponce _$CreateCategoryResponceFromJson(
     );
 
 Map<String, dynamic> _$CreateCategoryResponceToJson(
-        CreateCategoryResponce instance) =>
+        CreateCategoryResponce instance,) =>
     <String, dynamic>{
       'data': instance.data,
     };
@@ -25,7 +25,7 @@ CreateCategoryData _$CreateCategoryDataFromJson(Map<String, dynamic> json) =>
       json['category'] == null
           ? null
           : CreateCategoryModel.fromjson(
-              json['category'] as Map<String, dynamic>),
+              json['category'] as Map<String, dynamic>,),
     );
 
 Map<String, dynamic> _$CreateCategoryDataToJson(CreateCategoryData instance) =>
@@ -41,7 +41,7 @@ CreateCategoryModel _$CreateCategoryModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$CreateCategoryModelToJson(
-        CreateCategoryModel instance) =>
+        CreateCategoryModel instance,) =>
     <String, dynamic>{
       'name': instance.name,
       'id': instance.id,

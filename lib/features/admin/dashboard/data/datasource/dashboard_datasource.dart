@@ -4,27 +4,28 @@ import 'package:naroutoshop/features/admin/dashboard/data/models/categories_numb
 import 'package:naroutoshop/features/admin/dashboard/data/models/products_number_responce.dart';
 import 'package:naroutoshop/features/admin/dashboard/data/models/users_number_responce.dart';
 
-class DashboardDataSource{
+class DashboardDataSource {
   DashboardDataSource(this._graphql);
 
   final ApiService _graphql;
   Future<ProductsNumberResponce> numberOfProducts() async {
     final response = await _graphql.numberOfProducts(
-      AdminQueries.DashBoardQueries().numberOfproductMapQuery(),
+      AdminQueries.dashBoardQueries().numberOfproductMapQuery(),
     );
     return response;
   }
+
   Future<CategoriesNumberResponce> numberOfCategories() async {
     final response = await _graphql.numberOfCategories(
-      AdminQueries.DashBoardQueries().numberOfCategoriesMapQuery(),
+      AdminQueries.dashBoardQueries().numberOfCategoriesMapQuery(),
     );
 
     return response;
-    
   }
+
   Future<UsersNumberResponce> numberOfUsers() async {
     final response = await _graphql.numberOfUsers(
-      AdminQueries.DashBoardQueries().numberOfUsersMapQuery(),
+      AdminQueries.dashBoardQueries().numberOfUsersMapQuery(),
     );
     return response;
   }

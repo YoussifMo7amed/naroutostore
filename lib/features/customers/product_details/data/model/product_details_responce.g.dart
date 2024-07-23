@@ -7,13 +7,13 @@ part of 'product_details_responce.dart';
 // **************************************************************************
 
 ProductDetailsResponse _$ProductDetailsResponseFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     ProductDetailsResponse(
       ProductDetailsData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$ProductDetailsResponseToJson(
-        ProductDetailsResponse instance) =>
+        ProductDetailsResponse instance,) =>
     <String, dynamic>{
       'data': instance.data,
     };
@@ -37,12 +37,12 @@ ProductDetailsModel _$ProductDetailsModelFromJson(Map<String, dynamic> json) =>
       json['category'] == null
           ? null
           : CategoryDateilaModel.fromJson(
-              json['category'] as Map<String, dynamic>),
+              json['category'] as Map<String, dynamic>,),
       json['id'] as String?,
     );
 
 Map<String, dynamic> _$ProductDetailsModelToJson(
-        ProductDetailsModel instance) =>
+        ProductDetailsModel instance,) =>
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
@@ -53,13 +53,13 @@ Map<String, dynamic> _$ProductDetailsModelToJson(
     };
 
 CategoryDateilaModel _$CategoryDateilaModelFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     CategoryDateilaModel(
       json['name'] as String,
     );
 
 Map<String, dynamic> _$CategoryDateilaModelToJson(
-        CategoryDateilaModel instance) =>
+        CategoryDateilaModel instance,) =>
     <String, dynamic>{
       'name': instance.name,
     };

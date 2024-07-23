@@ -165,7 +165,7 @@ class _FilterBottomsState extends State<FilterBottoms> {
             const SearchForData(
               text: 'Search For Data',
             ),
-          ]
+          ],
         ],
       ),
     );

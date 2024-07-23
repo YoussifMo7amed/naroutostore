@@ -4,7 +4,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/widgets/custom_product_item.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
 import 'package:naroutoshop/core/helper/string_extention.dart';
-import 'package:naroutoshop/core/loading/empty_page.dart';
 import 'package:naroutoshop/features/customers/search/presntation/bloc/search_Product/search_product_bloc.dart';
 import 'package:naroutoshop/features/customers/search/presntation/widgets/filter_bottoms.dart';
 import 'package:naroutoshop/features/customers/search/presntation/widgets/search_for_data.dart';
@@ -67,7 +66,7 @@ class SearchBody extends StatelessWidget {
                 return const SearchForData(
                   text: 'No Products Found',
                 );
-              });
+              },);
             },
           ),
         ],

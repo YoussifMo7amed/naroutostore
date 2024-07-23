@@ -4,5 +4,6 @@ part of 'product_details_bloc.dart';
 class ProductDetailsEvent with _$ProductDetailsEvent {
   const factory ProductDetailsEvent.started() = _Started;
 
-  const factory ProductDetailsEvent.getProductDetails({required int productId}) = GetProductDetailsEvent;
+  const factory ProductDetailsEvent.getProductDetails(
+      {required int productId,}) = GetProductDetailsEvent;
 }

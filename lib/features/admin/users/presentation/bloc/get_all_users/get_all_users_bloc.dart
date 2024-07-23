@@ -1,14 +1,15 @@
 import 'dart:async';
-import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
+
 import 'package:naroutoshop/features/admin/users/data/model/user_responce_model.dart';
 import 'package:naroutoshop/features/admin/users/data/repo/users_repo.dart';
 
+part 'get_all_users_bloc.freezed.dart';
 part 'get_all_users_event.dart';
 part 'get_all_users_state.dart';
-part 'get_all_users_bloc.freezed.dart';
 
 class GetAllUsersBloc extends Bloc<GetAllUsersEvent, GetAllUsersState> {
   GetAllUsersBloc(this._repo) : super(const GetAllUsersState.loading()) {
@@ -19,7 +20,7 @@ class GetAllUsersBloc extends Bloc<GetAllUsersEvent, GetAllUsersState> {
   final TextEditingController searchController = TextEditingController();
   List<UserModel> usersList = [];
   FutureOr<void> _getAllUsers(
-      FetchAllUsers event, Emitter<GetAllUsersState> emit) async {
+      FetchAllUsers event, Emitter<GetAllUsersState> emit,) async {
     if (event.isLoading) {
       emit(const GetAllUsersState.loading());
     }
@@ -40,7 +41,7 @@ class GetAllUsersBloc extends Bloc<GetAllUsersEvent, GetAllUsersState> {
   }
 
   FutureOr<void> _searchUser(
-      SearchForUser event, Emitter<GetAllUsersState> emit) async {
+      SearchForUser event, Emitter<GetAllUsersState> emit,) async {
     final searchresult = usersList
         .where(
           (element) =>

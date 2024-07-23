@@ -5,7 +5,7 @@ class GetCategoryState with _$GetCategoryState {
   const factory GetCategoryState.loading() = LoadingState;
 
   const factory GetCategoryState.success(
-      {required List<ProductGetAllModel> productModel}) = SuccessState;
+      {required List<ProductGetAllModel> productModel,}) = SuccessState;
 
   const factory GetCategoryState.empty() = EmptyState;
   const factory GetCategoryState.error({required String error}) = ErrorState;

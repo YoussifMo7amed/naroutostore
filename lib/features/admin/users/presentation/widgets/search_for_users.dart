@@ -17,18 +17,19 @@ class _SearchForUsersState extends State<SearchForUsers> {
   Widget build(BuildContext context) {
     return BlocBuilder<GetAllUsersBloc, GetAllUsersState>(
       builder: (context, state) {
-          final _bloc =context.read<GetAllUsersBloc>();
+          final bloc =context.read<GetAllUsersBloc>();
 
         return CustomTextField(
-          controller: _bloc.searchController,
+          controller: bloc.searchController,
           hintText: 'Search For Users',
           onChanged: (value) {
-            _bloc.add(GetAllUsersEvent.searchUser(value));
+            bloc.add(GetAllUsersEvent.searchUser(value));
+            return null;
           },
           suffixIcon: IconButton(
             onPressed: () {
-              _bloc.searchController.clear();
-              _bloc.add(const GetAllUsersEvent.getUsers(isLoading: true));
+              bloc.searchController.clear();
+              bloc.add(const GetAllUsersEvent.getUsers(isLoading: true));
             },
             icon: const Icon(
               Icons.clear,

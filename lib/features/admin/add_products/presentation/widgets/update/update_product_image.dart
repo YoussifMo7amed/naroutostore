@@ -121,7 +121,7 @@ class SelectUpdateUploadImage extends StatelessWidget {
               size: 50,
               color: Colors.white,
             ),
-          )
+          ),
         ],
       ),
     );

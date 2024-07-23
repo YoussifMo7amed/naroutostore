@@ -7,7 +7,7 @@ part of 'products_number_responce.dart';
 // **************************************************************************
 
 ProductsNumberResponce _$ProductsNumberResponceFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     ProductsNumberResponce(
       json['data'] == null
           ? null
@@ -15,7 +15,7 @@ ProductsNumberResponce _$ProductsNumberResponceFromJson(
     );
 
 Map<String, dynamic> _$ProductsNumberResponceToJson(
-        ProductsNumberResponce instance) =>
+        ProductsNumberResponce instance,) =>
     <String, dynamic>{
       'data': instance.data,
     };
@@ -38,7 +38,7 @@ ProductsNumberModel _$ProductsNumberModelFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$ProductsNumberModelToJson(
-        ProductsNumberModel instance) =>
+        ProductsNumberModel instance,) =>
     <String, dynamic>{
       'title': instance.title,
     };

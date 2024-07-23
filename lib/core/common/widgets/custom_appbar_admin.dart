@@ -47,6 +47,5 @@ class AppBarAdmin extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  // TODO: implement preferredSize
   Size get preferredSize => Size(double.infinity, 50.h);
 }

@@ -289,13 +289,13 @@ class _UpdateProductButtomSheetState extends State<UpdateProductButtomSheet> {
 
   void _validateUpdateProduct(BuildContext context) {
     if (formkey.currentState!.validate()) {
-      String urlsString = widget.imageList[0];
+      var urlsString = widget.imageList[0];
 
       // Remove the brackets
       urlsString = urlsString.replaceAll('[', '').replaceAll(']', '');
 
       // Split the string into a list of URLs
-      List<String> imageList =
+      final imageList =
           urlsString.split(', ').map((url) => url.replaceAll('"', '')).toList();
 
       context.read<UpdateProductBloc>().add(

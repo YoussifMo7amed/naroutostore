@@ -20,7 +20,7 @@ class GetAllProductssRepo {
   }
 
   Future<ApiResult<void>> createProduct(
-      {required CreateProdutRequestBody body}) async {
+      {required CreateProdutRequestBody body,}) async {
     try {
       final responce = await _dataSource.createProduct(
         body: body,
@@ -50,7 +50,7 @@ class GetAllProductssRepo {
       final responce = await _dataSource.updateProducts(body: body);
       return ApiResult.success(responce);
     } catch (e) {
-      return  ApiResult.failure(
+      return  const ApiResult.failure(
         'Please try again later, Something went wrong',
       );
     }

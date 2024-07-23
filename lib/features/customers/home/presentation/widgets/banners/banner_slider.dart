@@ -68,10 +68,10 @@ class _BunnerSliderState extends State<BunnerSlider> {
                         color: activeIndex == e.key
                             ? context.color.bluePinkLight
                             : Colors.grey,
-                        borderRadius: BorderRadius.circular(10)),
+                        borderRadius: BorderRadius.circular(10),),
                   );
                 },
-              ).toList())
+              ).toList(),),
         ],
       ),
     );

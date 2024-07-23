@@ -7,7 +7,7 @@ part of 'create_product_request_body.dart';
 // **************************************************************************
 
 CreateProdutRequestBody _$CreateProdutRequestBodyFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     CreateProdutRequestBody(
       title: json['title'] as String,
       description: json['description'] as String,
@@ -18,7 +18,7 @@ CreateProdutRequestBody _$CreateProdutRequestBodyFromJson(
     );
 
 Map<String, dynamic> _$CreateProdutRequestBodyToJson(
-        CreateProdutRequestBody instance) =>
+        CreateProdutRequestBody instance,) =>
     <String, dynamic>{
       'title': instance.title,
       'description': instance.description,

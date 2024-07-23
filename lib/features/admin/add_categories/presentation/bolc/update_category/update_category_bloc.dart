@@ -15,7 +15,9 @@ class UpdateCategoryBloc
   }
   final GetAllCategoriesRepo _repo;
   FutureOr<void> _updateCategory(
-      UpdateNewCategoryEvent event, Emitter<UpdateCategoryState> emit) async {
+    UpdateNewCategoryEvent event,
+    Emitter<UpdateCategoryState> emit,
+  ) async {
     emit(const UpdateCategoryState.loading());
 
     final result = await _repo.updateCategories(body: event.body);

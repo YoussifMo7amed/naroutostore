@@ -4,7 +4,8 @@ part of 'get_banners_bloc.dart';
 class GetBannersState with _$GetBannersState {
   const factory GetBannersState.loading() = LoadingState;
 
-  const factory GetBannersState.success(List<String> imageBannerList) = SuccessState;
+  const factory GetBannersState.success(List<String> imageBannerList) =
+      SuccessState;
 
   const factory GetBannersState.empty() = EmptyState;
 

@@ -3,5 +3,6 @@ part of 'nav_bar_cubit.dart';
 @freezed
 class NavBarState with _$NavBarState {
   const factory NavBarState.initial() = _Initial;
-  const factory NavBarState.navBarChange({required NavBarEnum navBar}) = BottomNavBarState;
+  const factory NavBarState.navBarChange({required NavBarEnum navBar}) =
+      BottomNavBarState;
 }

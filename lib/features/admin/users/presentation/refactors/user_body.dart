@@ -60,7 +60,7 @@ class UsersBody extends StatelessWidget {
                     child: SizedBox(
                       height: 10.h,
                     ),
-                  )
+                  ),
                 ],
               ),
             ),

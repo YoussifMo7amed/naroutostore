@@ -13,9 +13,9 @@ class ProductDetailsBloc
   ProductDetailsBloc(this._repo) : super(const ProductDetailsState.loading()) {
     on<GetProductDetailsEvent>(_getProductDetails);
   }
-  ProductDetailsRepo _repo;
+  final ProductDetailsRepo _repo;
   FutureOr<void> _getProductDetails(
-      GetProductDetailsEvent event, Emitter<ProductDetailsState> emit) async {
+      GetProductDetailsEvent event, Emitter<ProductDetailsState> emit,) async {
     emit(const ProductDetailsState.loading());
     final result = await _repo.getProductDetails(productId: event.productId);
     result.when(

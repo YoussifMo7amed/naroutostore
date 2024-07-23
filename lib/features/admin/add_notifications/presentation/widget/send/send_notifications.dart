@@ -6,8 +6,11 @@ import 'package:naroutoshop/features/admin/add_notifications/data/models/add_not
 import 'package:naroutoshop/features/admin/add_notifications/presentation/bloc/send_notification/send_notification_bloc.dart';
 
 class SendNotifications extends StatelessWidget {
-  const SendNotifications(
-      {required this.index, required this.notificationModel, super.key});
+  const SendNotifications({
+    required this.index,
+    required this.notificationModel,
+    super.key,
+  });
   final AddNotificationModel notificationModel;
 
   final int index;
@@ -32,13 +35,18 @@ class SendNotifications extends StatelessWidget {
       builder: (context, state) {
         return state.maybeWhen(
           loading: (indexId) {
-            if (indexId == index) {
-              return SizedBox(
-                height: 15.h,
-                width: 15.w,
-                child: const CircularProgressIndicator(
-                  color: Colors.white,
-                ),
+            if (index == indexId) {
+              return Row(
+                children: [
+                  SizedBox(
+                    height: 15.h,
+                    width: 15.w,
+                    child: const CircularProgressIndicator(
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(width: 30.w),
+                ],
               );
             } else {
               return IconButton(

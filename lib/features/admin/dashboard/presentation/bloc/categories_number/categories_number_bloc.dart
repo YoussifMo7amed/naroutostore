@@ -15,12 +15,14 @@ class CategoriesNumberBloc
   final DashboardRepo _repo;
 
   FutureOr<void> _categoriesNumber(
-      CategoriesNumberEvent event, Emitter<CategoriesNumberState> emit,) async {
+    CategoriesNumberEvent event,
+    Emitter<CategoriesNumberState> emit,
+  ) async {
     emit(const CategoriesNumberState.loading());
     final result = await _repo.numberOfCategories();
     result.when(
       success: (categoriesData) {
-        emit(CategoriesNumberState.success(Number: categoriesData.number));
+        emit(CategoriesNumberState.success( Number: categoriesData.number));
       },
       failure: (error) {
         emit(CategoriesNumberState.error(error: error));

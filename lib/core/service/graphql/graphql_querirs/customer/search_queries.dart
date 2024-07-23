@@ -7,7 +7,7 @@ class SearchQueries {
 
   // get all product banners
   Map<String, dynamic> getSearchQueriesMapQuery(
-      {required SearchRequestBody body}) {
+      {required SearchRequestBody body,}) {
     return {
       'query': r'''
         	

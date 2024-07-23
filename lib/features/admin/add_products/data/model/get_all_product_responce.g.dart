@@ -7,13 +7,13 @@ part of 'get_all_product_responce.dart';
 // **************************************************************************
 
 GetAllProductResponse _$GetAllProductResponseFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     GetAllProductResponse(
       ProductGetAllData.fromJson(json['data'] as Map<String, dynamic>),
     );
 
 Map<String, dynamic> _$GetAllProductResponseToJson(
-        GetAllProductResponse instance) =>
+        GetAllProductResponse instance,) =>
     <String, dynamic>{
       'data': instance.data,
     };
@@ -40,7 +40,7 @@ ProductGetAllModel _$ProductGetAllModelFromJson(Map<String, dynamic> json) =>
       json['category'] == null
           ? null
           : CategoryProductModel.fromJson(
-              json['category'] as Map<String, dynamic>),
+              json['category'] as Map<String, dynamic>,),
     );
 
 Map<String, dynamic> _$ProductGetAllModelToJson(ProductGetAllModel instance) =>
@@ -54,14 +54,14 @@ Map<String, dynamic> _$ProductGetAllModelToJson(ProductGetAllModel instance) =>
     };
 
 CategoryProductModel _$CategoryProductModelFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     CategoryProductModel(
       json['id'] as String?,
       json['name'] as String?,
     );
 
 Map<String, dynamic> _$CategoryProductModelToJson(
-        CategoryProductModel instance) =>
+        CategoryProductModel instance,) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

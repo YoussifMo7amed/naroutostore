@@ -1,3 +1,5 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:naroutoshop/core/language/app_localizations.dart';
 import 'package:package_info_plus/package_info_plus.dart';

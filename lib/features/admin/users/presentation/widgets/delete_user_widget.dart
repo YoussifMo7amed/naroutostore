@@ -23,7 +23,7 @@ class DeleteUser extends StatelessWidget {
                   .read<GetAllUsersBloc>()
                   .add(const GetAllUsersEvent.getUsers(isLoading: false));
               ShowToast.showToastSuccessTop(
-                  message: 'User Deleted Successfully');
+                  message: 'User Deleted Successfully',);
             },
             error: (message) {
               ShowToast.showToastErrorTop(message: message);

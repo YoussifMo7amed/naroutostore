@@ -11,8 +11,10 @@ import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/features/admin/add_notifications/data/models/add_notification_model.dart';
 
 class EditNotificationButtomSheet extends StatefulWidget {
-  const EditNotificationButtomSheet(
-      {required this.notificationModel, super.key});
+  const EditNotificationButtomSheet({
+    required this.notificationModel,
+    super.key,
+  });
   final AddNotificationModel notificationModel;
 
   @override
@@ -28,7 +30,6 @@ class _EditNotificationButtomSheetState
   final _productIdController = TextEditingController();
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _titleController.text = widget.notificationModel.title;
     _bodyController.text = widget.notificationModel.body;

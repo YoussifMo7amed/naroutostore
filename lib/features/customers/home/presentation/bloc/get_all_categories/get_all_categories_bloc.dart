@@ -27,7 +27,7 @@ class GetAllCategoriesBloc
         } else {
           emit(
             GetAllCategoriesState.success(
-                categoriesList: data.categoriesGetAllList),
+                categoriesList: data.categoriesGetAllList,),
           );
         }
       },

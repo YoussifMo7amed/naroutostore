@@ -86,5 +86,3 @@ final List<UserModel> usersList ;
     );
   }
 }
-
-

@@ -29,7 +29,8 @@ class GetAllProductsAdminBloc
           emit(const GetAllProductsState.empty());
         } else {
           emit(
-              GetAllProductsState.success(productList: data.productGetAllList));
+            GetAllProductsState.success(productList: data.productGetAllList),
+          );
         }
       },
       failure: (error) => emit(GetAllProductsState.error(error: error)),

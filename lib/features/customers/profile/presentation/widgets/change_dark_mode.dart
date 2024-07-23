@@ -40,7 +40,7 @@ class ChangeDarkMode extends StatelessWidget {
               cubit.changeThemeMode();
             },
           ),
-        )
+        ),
       ],
     );
   }
