@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:naroutoshop/core/common/widgets/custom_product_item.dart';
@@ -37,7 +36,7 @@ class FavoritesBody extends StatelessWidget {
                       theme: context.textStyle.copyWith(
                         fontSize: 18.sp,
                         fontWeight: FontWeightHelper.bold,
-                      ))
+                      ),),
                 ],
               ),
             );
@@ -46,7 +45,7 @@ class FavoritesBody extends StatelessWidget {
             itemBuilder: (context, index) {
               return CustomProductItem(
                 imageUrl: data[index].image.imageProductFormate(),
-                title: data[index].title ?? '',
+                title: data[index].title,
                 categoryName: data[index].categoryName,
                 price: double.parse(data[index].price),
                 productId: int.parse(data[index].id),

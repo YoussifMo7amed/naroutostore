@@ -7,14 +7,14 @@ part of 'create_category_request.dart';
 // **************************************************************************
 
 CreateCategoryRequestBody _$CreateCategoryRequestBodyFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     CreateCategoryRequestBody(
       name: json['name'] as String?,
       image: json['image'] as String?,
     );
 
 Map<String, dynamic> _$CreateCategoryRequestBodyToJson(
-        CreateCategoryRequestBody instance) =>
+        CreateCategoryRequestBody instance,) =>
     <String, dynamic>{
       'name': instance.name,
       'image': instance.image,

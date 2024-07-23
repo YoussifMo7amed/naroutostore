@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: lines_longer_than_80_chars, cascade_invocations, avoid_redundant_argument_values
+
 part of 'api_service.dart';
 
 // **************************************************************************
@@ -43,7 +45,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = LoginResponce.fromJson(_result.data!);
     return value;
   }
@@ -70,7 +72,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = UserRoleResponce.fromJson(_result.data!);
     return value;
   }
@@ -97,7 +99,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = UploadImageResponce.fromJson(_result.data!);
     return value;
   }
@@ -125,14 +127,14 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = SignUpResponce.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<ProductsNumberResponce> numberOfProducts(
-      Map<String, dynamic> query) async {
+      Map<String, dynamic> query,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -154,14 +156,14 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = ProductsNumberResponce.fromjson(_result.data!);
     return value;
   }
 
   @override
   Future<CategoriesNumberResponce> numberOfCategories(
-      Map<String, dynamic> query) async {
+      Map<String, dynamic> query,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -183,7 +185,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = CategoriesNumberResponce.fromjson(_result.data!);
     return value;
   }
@@ -211,14 +213,14 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = UsersNumberResponce.fromjson(_result.data!);
     return value;
   }
 
   @override
   Future<GetAllCategoriesResponce> getAllCategories(
-      Map<String, dynamic> query) async {
+      Map<String, dynamic> query,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -240,14 +242,14 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = GetAllCategoriesResponce.fromjson(_result.data!);
     return value;
   }
 
   @override
   Future<CreateCategoryResponce> createCategory(
-      Map<String, dynamic> mutation) async {
+      Map<String, dynamic> mutation,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -269,7 +271,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = CreateCategoryResponce.fromjson(_result.data!);
     return value;
   }
@@ -296,7 +298,7 @@ class _ApiService implements ApiService {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        ),),),);
   }
 
   @override
@@ -321,12 +323,12 @@ class _ApiService implements ApiService {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        ),),),);
   }
 
   @override
   Future<GetAllProductResponse> getAllProducts(
-      Map<String, dynamic> query) async {
+      Map<String, dynamic> query,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -348,7 +350,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = GetAllProductResponse.fromJson(_result.data!);
     return value;
   }
@@ -375,7 +377,7 @@ class _ApiService implements ApiService {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        ),),),);
   }
 
   @override
@@ -400,7 +402,7 @@ class _ApiService implements ApiService {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        ),),),);
   }
 
   @override
@@ -425,7 +427,7 @@ class _ApiService implements ApiService {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        ),),),);
   }
 
   @override
@@ -451,7 +453,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = UserResponceModel.fromJson(_result.data!);
     return value;
   }
@@ -478,7 +480,7 @@ class _ApiService implements ApiService {
             baseUrl: _combineBaseUrls(
           _dio.options.baseUrl,
           baseUrl,
-        ))));
+        ),),),);
   }
 
   @override
@@ -504,14 +506,14 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = BannerResponce.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<ProductDetailsResponse> productDetails(
-      Map<String, dynamic> query) async {
+      Map<String, dynamic> query,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -533,7 +535,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = ProductDetailsResponse.fromJson(_result.data!);
     return value;
   }
@@ -561,14 +563,14 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = GetAllProductResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<GetAllProductResponse> viewAllProducts(
-      Map<String, dynamic> query) async {
+      Map<String, dynamic> query,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -590,14 +592,14 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = GetAllProductResponse.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<GetAllProductResponse> searchProducts(
-      Map<String, dynamic> query) async {
+      Map<String, dynamic> query,) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -619,7 +621,7 @@ class _ApiService implements ApiService {
                 baseUrl: _combineBaseUrls(
               _dio.options.baseUrl,
               baseUrl,
-            ))));
+            ),),),);
     final value = GetAllProductResponse.fromJson(_result.data!);
     return value;
   }

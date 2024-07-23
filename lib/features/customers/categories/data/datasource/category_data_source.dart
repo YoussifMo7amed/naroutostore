@@ -7,7 +7,7 @@ class CategoryDataSource {
 
   final ApiService _graphql;
 
-  Future<GetAllProductResponse> getCategory({required int categoryId }) async {
+  Future<GetAllProductResponse> getCategory({required int categoryId}) async {
     final responce = await _graphql.getCategory(
       CategoryQueries().getCategoryQueriesMapQuery(
         categoryId: categoryId,

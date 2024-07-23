@@ -5,7 +5,7 @@ class GetAllCategoriesAdminState with _$GetAllCategoriesAdminState {
   const factory GetAllCategoriesAdminState.loading() =
       _GetAllCategoriesAdminLoading;
   const factory GetAllCategoriesAdminState.success(
-          {required GetAllCategoriesResponce getAllCategoriesResponce}) =
+          {required GetAllCategoriesResponce getAllCategoriesResponce,}) =
       _GetAllCategoriesAdminSuccess;
   const factory GetAllCategoriesAdminState.empty() =
       _GetAllCategoriesAdminempty;

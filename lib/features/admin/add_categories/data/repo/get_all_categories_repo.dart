@@ -46,6 +46,7 @@ class GetAllCategoriesRepo {
   }
 
   Future<ApiResult<void>> updateCategories(
+      // ignore: require_trailing_commas
       {required UpdateCategoryRequestBody body}) async {
     try {
       final responce = await _dataSource.updateCategories(body: body);

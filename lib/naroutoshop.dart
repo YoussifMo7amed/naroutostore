@@ -1,3 +1,5 @@
+//ignore_for_file: avoid_types_as_parameter_names, non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -23,11 +25,9 @@ class NaroutoStore extends StatelessWidget {
     return ValueListenableBuilder(
       valueListenable: ConnectivityController.instance.isConnected,
       builder: (_, value, __) {
-       if (value) {
+        if (value) {
           return MultiBlocProvider(
             providers: [
-            
-           
               BlocProvider(
                 create: (context) => sl<AppCubit>()
                   ..changeThemeMode(
@@ -35,7 +35,7 @@ class NaroutoStore extends StatelessWidget {
                   )
                   ..getSavedLanguage(),
               ),
-                BlocProvider(
+              BlocProvider(
                 create: (context) => sl<FavoriteCubit>(),
               ),
             ],
@@ -60,16 +60,6 @@ class NaroutoStore extends StatelessWidget {
                         AppLocalizationsSetup.localizationsDelegates,
                     localeResolutionCallback:
                         AppLocalizationsSetup.localeResolutionCallback,
-
-                    /* supportedLocales: const [
-                                      Locale('en', 'ar'),
-                                    ]
-                                    localizationsDelegates: const [
-                                      // ... app-specific localization delegate[s] here
-                                      GlobalMaterialLocalizations.delegate,
-                                      GlobalCupertinoLocalizations.delegate,
-                                      GlobalWidgetsLocalizations.delegate
-                                    ],*/
                     builder: (context, Widget) {
                       return GestureDetector(
                         onTap: () {

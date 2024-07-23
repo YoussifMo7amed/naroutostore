@@ -8,7 +8,9 @@ class SearchDatasource {
 
   final ApiService _graphql;
 
-  Future<GetAllProductResponse> SearchForProducts({required SearchRequestBody body}) async {
+  // ignore: non_constant_identifier_names
+  Future<GetAllProductResponse> SearchForProducts(
+      {required SearchRequestBody body,}) async {
     final responce = await _graphql.searchProducts(
       SearchQueries().getSearchQueriesMapQuery(
         body: body,

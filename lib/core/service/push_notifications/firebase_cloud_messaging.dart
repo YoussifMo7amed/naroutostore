@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:googleapis_auth/auth_io.dart';
 import 'package:naroutoshop/core/apps/envvariables.dart';
@@ -108,7 +109,7 @@ class FirebaseCloudMessaging {
   Future<String> getAccessToken() async {
     // Load the service account key JSON file
     final serviceAccount = ServiceAccountCredentials.fromJson(
-        jsonDecode(serviceAccountJsonString));
+        jsonDecode(serviceAccountJsonString),);
 
     final scopes = ['https://www.googleapis.com/auth/firebase.messaging'];
 
@@ -116,7 +117,7 @@ class FirebaseCloudMessaging {
     final authClient = await clientViaServiceAccount(serviceAccount, scopes);
 
     // Get the access token
-    final accessToken = (await authClient.credentials).accessToken;
+    final accessToken = authClient.credentials.accessToken;
 
     // Close the client
     authClient.close();
@@ -129,7 +130,7 @@ class FirebaseCloudMessaging {
     required String body,
     required int productId,
   }) async {
-    final String accessToken = await getAccessToken();
+    final accessToken = await getAccessToken();
     debugPrint(accessToken);
     final message = {
       'message': {
@@ -159,12 +160,18 @@ class FirebaseCloudMessaging {
       );
 
       if (response.statusCode == 200) {
-        print('Notification sent successfully!');
+        if (kDebugMode) {
+          print('Notification sent successfully!');
+        }
       } else {
-        print('Failed to send notification: ${response.data}');
+        if (kDebugMode) {
+          print('Failed to send notification: ${response.data}');
+        }
       }
     } catch (e) {
-      print('Error sending notification: $e');
+      if (kDebugMode) {
+        print('Error sending notification: $e');
+      }
     }
   }
 }

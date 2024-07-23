@@ -6,14 +6,16 @@ import 'package:naroutoshop/features/admin/add_categories/data/repo/get_all_cate
 part 'delete_category_event.dart';
 part 'delete_category_state.dart';
 part 'delete_category_bloc.freezed.dart';
-class DeleteCategoryBloc extends Bloc<DeleteCategoryEvent, DeleteCategoryState> {
+
+class DeleteCategoryBloc
+    extends Bloc<DeleteCategoryEvent, DeleteCategoryState> {
   DeleteCategoryBloc(this._repo) : super(const _Initial()) {
     on<DeletenewCategoryEvent>(_deleteCategory);
   }
-final GetAllCategoriesRepo _repo;
-  FutureOr<void> _deleteCategory( DeletenewCategoryEvent event,  Emitter<DeleteCategoryState> emit)async {
-
-    emit( DeleteCategoryState.loading(categoryId: event.categoryId));
+  final GetAllCategoriesRepo _repo;
+  FutureOr<void> _deleteCategory(
+      DeletenewCategoryEvent event, Emitter<DeleteCategoryState> emit,) async {
+    emit(DeleteCategoryState.loading(categoryId: event.categoryId));
     final result = await _repo.deleteCategories(id: event.categoryId);
     result.when(
       success: (_) {
@@ -23,7 +25,5 @@ final GetAllCategoriesRepo _repo;
         emit(DeleteCategoryState.error(error: error));
       },
     );
-
-    
   }
 }

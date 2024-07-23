@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
 import 'package:naroutoshop/core/styles/colors/colors_light.dart';
 
-
 class MyColors extends ThemeExtension<MyColors> {
   const MyColors({
     required this.mainColor,
@@ -109,4 +108,3 @@ class MyColors extends ThemeExtension<MyColors> {
     containerLinear2: ColorsLight.pinkLight,
   );
 }
-

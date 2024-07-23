@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 import 'package:naroutoshop/core/common/widgets/custom_linear_button.dart';
 import 'package:naroutoshop/core/common/widgets/text_app.dart';
 import 'package:naroutoshop/core/helper/extentions.dart';
-import 'package:naroutoshop/core/styles/fonts/font_family_helper.dart';
 import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
 import 'package:naroutoshop/core/styles/images/app_images.dart';
 
@@ -42,7 +40,7 @@ class AppBarCustomer extends StatelessWidget implements PreferredSizeWidget {
               ),
             ),
           ),
-          const Text('')
+          const Text(''),
         ],
       ),
     );

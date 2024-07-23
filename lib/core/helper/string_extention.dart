@@ -8,18 +8,19 @@ extension StringFormate on String {
   String toCapitalized() {
     return '${this[0].toUpperCase()}${substring(1)}';
   }
-String convertLongString() {
-    final words = this.split(' ');
+
+  String convertLongString() {
+    final words = split(' ');
     if (words.length > 2) {
       return words.sublist(0, 2).join(' ');
     } else {
       return this;
     }
   }
-   String convertDataFormate() {
+
+  String convertDataFormate() {
     final now = DateTime.now();
 
     return DateFormat('d MMM, y - h:mm a').format(now);
   }
-
 }

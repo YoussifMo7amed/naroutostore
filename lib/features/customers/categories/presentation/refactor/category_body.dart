@@ -69,6 +69,6 @@ class CategoryBody extends StatelessWidget {
           return Text(error);
         },
       );
-    });
+    },);
   }
 }

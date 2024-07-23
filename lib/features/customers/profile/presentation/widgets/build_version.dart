@@ -13,7 +13,7 @@ class BuildVersion extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-  return Row(
+    return Row(
       children: [
         SvgPicture.asset(
           AppImages.buildVersion,
@@ -29,8 +29,9 @@ class BuildVersion extends StatelessWidget {
         ),
         const Spacer(),
         FutureBuilder(
-          future: AppInfo.getAppVersion(context) , builder: (context, snapshot) {
-            if(snapshot.hasData){
+          future: AppInfo.getAppVersion(context),
+          builder: (context, snapshot) {
+            if (snapshot.hasData) {
               return TextApp(
                 text: snapshot.data.toString(),
                 theme: context.textStyle.copyWith(
@@ -38,7 +39,7 @@ class BuildVersion extends StatelessWidget {
                   fontWeight: FontWeightHelper.regular,
                 ),
               );
-            }else{
+            } else {
               return TextApp(
                 text: '1.0.0',
                 theme: context.textStyle.copyWith(
@@ -47,7 +48,8 @@ class BuildVersion extends StatelessWidget {
                 ),
               );
             }
-          },)
+          },
+        ),
       ],
     );
   }

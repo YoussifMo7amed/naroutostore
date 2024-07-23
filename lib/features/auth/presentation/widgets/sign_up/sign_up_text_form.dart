@@ -22,14 +22,12 @@ class _SignUpTextFormState extends State<SignUpTextForm> {
   late AuthBloc _bloc;
   @override
   void initState() {
-    // TODO: implement initState
     _bloc = context.read<AuthBloc>();
     super.initState();
   }
 
   @override
   void dispose() {
-    // TODO: implement dispose
     _bloc.emailController.dispose();
     _bloc.passwordController.dispose();
     _bloc.nameController.dispose();

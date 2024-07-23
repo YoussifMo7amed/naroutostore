@@ -32,23 +32,29 @@ class DeleteProduct extends StatelessWidget {
         return state.maybeWhen(
           loading: (id) {
             if (id == productId) {
-              return SizedBox(
-                height: 10.h,
-                width: 10.w,
-                child: const Center(
-                  child: CircularProgressIndicator(
-                    color: Colors.white,
-                  ),
+              return Center(
+                child: Row(
+                  children: [
+                    SizedBox(width: 20.w),
+                    SizedBox(
+                      height: 10.h,
+                      width: 10.w,
+                      child: const CircularProgressIndicator(
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
                 ),
               );
             } else {
-              return SizedBox(
-                height: 10.h,
-                width: 10.w,
-                child: const Icon(
-                  Icons.delete,
-                  color: Colors.red,
-                ),
+              return Row(
+                children: [
+                  SizedBox(width: 10.w),
+                  const Icon(
+                    Icons.delete,
+                    color: Colors.red,
+                  ),
+                ],
               );
             }
           },

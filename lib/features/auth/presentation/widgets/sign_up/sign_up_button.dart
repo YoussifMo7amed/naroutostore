@@ -33,7 +33,6 @@ class SignUpButton extends StatelessWidget {
             ShowToast.showToastErrorTop(
               message: context.translate(LangKeys.loggedError),
             );
-            print('=============> errorrr ============> $message');
           },
         );
       },

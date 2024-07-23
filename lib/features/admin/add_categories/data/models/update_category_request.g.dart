@@ -7,7 +7,7 @@ part of 'update_category_request.dart';
 // **************************************************************************
 
 UpdateCategoryRequestBody _$UpdateCategoryRequestBodyFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     UpdateCategoryRequestBody(
       name: json['name'] as String?,
       image: json['image'] as String?,
@@ -15,7 +15,7 @@ UpdateCategoryRequestBody _$UpdateCategoryRequestBodyFromJson(
     );
 
 Map<String, dynamic> _$UpdateCategoryRequestBodyToJson(
-        UpdateCategoryRequestBody instance) =>
+        UpdateCategoryRequestBody instance,) =>
     <String, dynamic>{
       'name': instance.name,
       'image': instance.image,

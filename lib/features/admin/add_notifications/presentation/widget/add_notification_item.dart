@@ -13,7 +13,11 @@ import 'package:naroutoshop/features/admin/add_notifications/presentation/widget
 import 'package:naroutoshop/features/admin/add_notifications/presentation/widget/send/send_notifications.dart';
 
 class AddNotificationItem extends StatelessWidget {
-  const AddNotificationItem({required this.notificationModel, required this.index, super.key});
+  const AddNotificationItem({
+    required this.notificationModel,
+    required this.index,
+    super.key,
+  });
   final AddNotificationModel notificationModel;
   final int index;
   @override
@@ -55,15 +59,15 @@ class AddNotificationItem extends StatelessWidget {
                   notificationModel: notificationModel,
                 ),
                 SizedBox(
-                  width: 40.w,
+                  width: 45.w,
                 ),
                 //send button
-                 SendNotifications(
-                  index:index  ,
+                SendNotifications(
+                  index: index,
                   notificationModel: notificationModel,
                 ),
               ],
-            )
+            ),
           ],
         ),
       ),
@@ -77,28 +81,32 @@ class NotificationInfo extends StatelessWidget {
   final String body;
   @override
   Widget build(BuildContext context) {
-    return Row(children: [
-      TextApp(
-        text: title,
-        theme: context.textStyle.copyWith(
+    return Row(
+      children: [
+        TextApp(
+          text: title,
+          theme: context.textStyle.copyWith(
             fontSize: 14.sp,
             fontFamily: FontFamilyHelper.poppinsEnglish,
             fontWeight: FontWeightHelper.medium,
-            color: Colors.white),
-      ),
-      SizedBox(
-        width: 8.w,
-      ),
-      Flexible(
-        child: TextApp(
-          text: body,
-          theme: context.textStyle.copyWith(
+            color: Colors.white,
+          ),
+        ),
+        SizedBox(
+          width: 8.w,
+        ),
+        Flexible(
+          child: TextApp(
+            text: body,
+            theme: context.textStyle.copyWith(
               fontSize: 14.sp,
               fontFamily: FontFamilyHelper.poppinsEnglish,
               fontWeight: FontWeightHelper.medium,
-              color: ColorsDark.blueLight),
+              color: ColorsDark.blueLight,
+            ),
+          ),
         ),
-      ),
-    ]);
+      ],
+    );
   }
 }

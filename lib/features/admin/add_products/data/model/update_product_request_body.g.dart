@@ -7,7 +7,7 @@ part of 'update_product_request_body.dart';
 // **************************************************************************
 
 UpdateProductRequestBody _$UpdateProductRequestBodyFromJson(
-        Map<String, dynamic> json) =>
+        Map<String, dynamic> json,) =>
     UpdateProductRequestBody(
       title: json['title'] as String,
       description: json['description'] as String,
@@ -19,7 +19,7 @@ UpdateProductRequestBody _$UpdateProductRequestBodyFromJson(
     );
 
 Map<String, dynamic> _$UpdateProductRequestBodyToJson(
-        UpdateProductRequestBody instance) =>
+        UpdateProductRequestBody instance,) =>
     <String, dynamic>{
       'productId': instance.productId,
       'title': instance.title,

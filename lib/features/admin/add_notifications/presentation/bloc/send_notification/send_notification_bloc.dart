@@ -9,7 +9,7 @@ part 'send_notification_bloc.freezed.dart';
 
 class SendNotificationBloc
     extends Bloc<SendNotificationEvent, SendNotificationState> {
-  SendNotificationBloc( this._repo) : super(const _Initial()) {
+  SendNotificationBloc(this._repo) : super(const _Initial()) {
     on<_SendNewNotificationEvent>(_sendNotification);
   }
   final AddNotificationsRepo _repo;
@@ -17,7 +17,7 @@ class SendNotificationBloc
     _SendNewNotificationEvent event,
     Emitter<SendNotificationState> emit,
   ) async {
-    emit(const SendNotificationState.loading(index: 0));
+    emit(SendNotificationState.loading(index: event.index));
     final result = await _repo.sendNotification(
       title: event.title,
       body: event.body,
@@ -25,7 +25,7 @@ class SendNotificationBloc
     );
     await result.when(
       success: (_) async {
-         await _repo.addNotificationsToAllUsersFirebase(
+        await _repo.addNotificationsToAllUsersFirebase(
           body: event.body,
           productId: event.productId,
           title: event.title,

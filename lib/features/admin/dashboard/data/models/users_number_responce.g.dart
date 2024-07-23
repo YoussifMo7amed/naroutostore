@@ -14,7 +14,7 @@ UsersNumberResponce _$UsersNumberResponceFromJson(Map<String, dynamic> json) =>
     );
 
 Map<String, dynamic> _$UsersNumberResponceToJson(
-        UsersNumberResponce instance) =>
+        UsersNumberResponce instance,) =>
     <String, dynamic>{
       'data': instance.data,
     };
