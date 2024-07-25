@@ -65,8 +65,9 @@ class MenuAdminScreen extends StatelessWidget {
               );
             }).toList(),
           ),
-          Image.asset(AppImages.drawerImage),
-      
+          SizedBox(
+              height: MediaQuery.of(context).size.height * 0.48,
+              child: Image.asset(AppImages.drawerImage)),
         ],
       ),
     );

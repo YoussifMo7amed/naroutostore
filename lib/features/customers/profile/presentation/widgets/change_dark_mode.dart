@@ -19,7 +19,7 @@ class ChangeDarkMode extends StatelessWidget {
       children: [
         SvgPicture.asset(
           AppImages.darkMode,
-          color: Colors.white,
+          color: context.textStyle.color,
         ),
         SizedBox(width: 10.w),
         TextApp(

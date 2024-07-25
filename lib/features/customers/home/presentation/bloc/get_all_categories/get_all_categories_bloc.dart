@@ -19,6 +19,7 @@ class GetAllCategoriesBloc
     fetchCategoriesEvent event,
     Emitter<GetAllCategoriesState> emit,
   ) async {
+    emit(const GetAllCategoriesState.loading());
     final result = await _repo.getAllCategories();
     result.when(
       success: (data) {
@@ -27,7 +28,8 @@ class GetAllCategoriesBloc
         } else {
           emit(
             GetAllCategoriesState.success(
-                categoriesList: data.categoriesGetAllList,),
+              categoriesList: data.categoriesGetAllList,
+            ),
           );
         }
       },

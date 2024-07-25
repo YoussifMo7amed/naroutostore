@@ -17,7 +17,7 @@ class BuildDeveloperSettengs extends StatelessWidget {
       children: [
         SvgPicture.asset(
           AppImages.buildDeveloper,
-          color: Colors.white,
+          color: context.textStyle.color,
         ),
         SizedBox(width: 10.w),
         TextApp(
@@ -30,8 +30,11 @@ class BuildDeveloperSettengs extends StatelessWidget {
         const Spacer(),
         InkWell(
           onTap: () {
-            context.pushNamed(Routes.webView,
-                arguments: 'https://www.linkedin.com/in/youssef-mohamed-a4589a26b/',);
+            context.pushNamed(
+              Routes.webView,
+              arguments:
+                  'https://www.linkedin.com/in/youssef-mohamed-a4589a26b/',
+            );
           },
           child: Row(
             children: [

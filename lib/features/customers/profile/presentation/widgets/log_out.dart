@@ -18,7 +18,7 @@ class LogOut extends StatelessWidget {
       children: [
         SvgPicture.asset(
           AppImages.logout,
-          color: Colors.white,
+   color: context.textStyle.color,   
         ),
         SizedBox(width: 10.w),
         TextApp(

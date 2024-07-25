@@ -8,6 +8,7 @@ import 'package:naroutoshop/core/loading/empty_page.dart';
 import 'package:naroutoshop/core/loading/loading_shimmer.dart';
 import 'package:naroutoshop/core/routes/routers.dart';
 import 'package:naroutoshop/core/styles/colors/colors_dark.dart';
+import 'package:naroutoshop/features/customers/categories/presentation/bloc/get_category/get_category_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_categories/get_all_categories_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_all_products/get_all_products_bloc.dart';
 import 'package:naroutoshop/features/customers/home/presentation/bloc/get_banners/get_banners_bloc.dart';
@@ -23,7 +24,15 @@ class HomeBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return RefreshIndicator(
-      onRefresh: () async {},
+      onRefresh: () async {
+         context.read<GetBannersBloc>().add(const GetBannersEvent.getBanner());
+        context
+            .read<GetAllCategoriesBloc>()
+            .add(const GetAllCategoriesEvent.fetchAdminCategories());
+        context
+            .read<GetAllProductsBloc>()
+            .add(const GetAllProductsEvent.getAllProducts());
+      },
       child: CustomScrollView(
         controller: controller,
         slivers: [
