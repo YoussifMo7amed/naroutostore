@@ -1,0 +1,49 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:naroutoshop/core/common/widgets/text_app.dart';
+import 'package:naroutoshop/core/helper/extentions.dart';
+import 'package:naroutoshop/core/language/lang_keys.dart';
+import 'package:naroutoshop/core/service/push_notifications/firebase_cloud_messaging.dart';
+import 'package:naroutoshop/core/styles/fonts/font_wieght_helper.dart';
+
+class NotificationsSettings extends StatelessWidget {
+  const NotificationsSettings({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Icon(
+          Icons.notifications_active_outlined,
+          color: context.textStyle.color,
+        ),
+        SizedBox(width: 10.w),
+        TextApp(
+          text: context.translate(LangKeys.notifications),
+          theme: context.textStyle.copyWith(
+            fontSize: 18.sp,
+            fontWeight: FontWeightHelper.regular,
+          ),
+        ),
+        const Spacer(),
+        ValueListenableBuilder(
+          valueListenable: FirebaseCloudMessaging().isSubscribed,
+          builder: (_, value, __) {
+            return Transform.scale(
+              scale: 1,
+              child: Switch.adaptive(
+                inactiveTrackColor: const Color(0XFF262626),
+                activeColor: Colors.green,
+                value: value,
+                onChanged: (value) {
+                  FirebaseCloudMessaging()
+                      .controllerForUserSubscription(context);
+                },
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
